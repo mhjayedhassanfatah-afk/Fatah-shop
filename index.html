@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fatah Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--ink:#0f172a;--mut:#64748b;--line:#e6ebf4;--soft:#f3f7ff;--b:#2563eb;--o:#f97316;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#121c31;--ink:#e8eefc;--mut:#94a3b8;--line:#25324d;--soft:#16233f}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#121c31;--ink:#e8eefc;--mut:#94a3b8;--line:#25324d;--soft:#16233f}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:500 15px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0 0 6px;line-height:1.15}h1{font-size:clamp(32px,6vw,54px)}h2{font-size:26px}h3{font-size:19px}
+.mut,small{color:var(--mut)}.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:8px;height:58px}.sp{flex:1}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px 'Playfair Display',Georgia,serif;cursor:pointer}
+.logo i{width:36px;height:36px;border-radius:11px;background:linear-gradient(100deg,#7db0ff,#2563eb 45%,#1e3a8a);color:#fff;display:grid;place-items:center;font-style:normal;box-shadow:inset 1px 1px 0 rgba(255,255,255,.5),3px 4px 0 #172554}
+.nav{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 12px;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:var(--bg);color:var(--mut);border-radius:14px;padding:9px 16px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;white-space:nowrap;box-shadow:3px 4px 0 var(--line)}
+.tab.on{color:#fff;border-color:transparent;background:linear-gradient(100deg,#7db0ff,#2563eb 45%,#1e3a8a);box-shadow:inset 1px 1px 0 rgba(255,255,255,.5),3px 4px 0 #172554}
+.btn{--c1:#7db0ff;--c2:#2563eb;--c3:#1e3a8a;--e:#172554;border:0;border-radius:14px;padding:11px 18px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;color:#fff;cursor:pointer;display:inline-block;text-align:center;background:linear-gradient(100deg,var(--c1) 0%,var(--c2) 45%,var(--c3) 100%);box-shadow:inset 1px 1px 0 rgba(255,255,255,.55),4px 5px 0 var(--e);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translate(3px,4px);box-shadow:inset 1px 1px 0 rgba(255,255,255,.4),1px 1px 0 var(--e)}
+.btn.o{--c1:#ffc08a;--c2:#f97316;--c3:#c2410c;--e:#7c2d12}
+.btn.g{--c1:#fff;--c2:#eef2f9;--c3:#c3cfe4;--e:#8fa0c2;color:#0f172a}
+.btn.sm{padding:8px 13px;font-size:12px;border-radius:12px}.btn.w{width:100%}
+.pulse{animation:pl 2s infinite}@keyframes pl{50%{filter:drop-shadow(0 0 8px rgba(249,115,22,.75))}}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:4px 5px 0 var(--line);padding:14px}
+.hero{border:1px solid var(--line);border-radius:28px;padding:24px;margin:8px 0 22px;background:radial-gradient(circle at 92% 8%,#ffe6d0 0,transparent 42%),radial-gradient(circle at 4% 100%,#dce8ff 0,transparent 48%),var(--card);box-shadow:5px 6px 0 var(--line)}
+.hero.two{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}.hero p{max-width:44ch}
+.cubes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cube{aspect-ratio:1;border-radius:22px;display:grid;place-items:center;font-size:42px;background:linear-gradient(100deg,#fff,#eaf1ff 50%,#c3d3f3);box-shadow:inset 1px 1px 0 #fff,5px 6px 0 #9db2dd}
+.cube:nth-child(2),.cube:nth-child(3){background:linear-gradient(100deg,#fff4ea,#ffd9b8 50%,#f6a96b);box-shadow:inset 1px 1px 0 #fff,5px 6px 0 #c2410c}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 4px 14px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:7px 14px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;white-space:nowrap}.chip.on{background:var(--b);color:#fff;border-color:var(--b)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:6px 6px 40px}
+.pc .em{font-size:50px;text-align:center;background:var(--soft);border-radius:16px;padding:12px;margin-bottom:10px;box-shadow:3px 4px 0 var(--line)}
+.pc b{display:block}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin:4px 0 10px}
+label{font-weight:700;font-size:13px}.ck{display:block;font-weight:500;padding:3px 0}.ck input{width:auto;margin:0 8px 0 0}
+.tabs{display:flex;gap:6px;margin:12px 0}.tabs .chip{flex:1;text-align:center}
+#ov{position:fixed;inset:0;background:rgba(2,6,23,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}#ov.on{display:flex}
+#md{width:100%;max-width:440px;max-height:90vh;overflow:auto;background:var(--bg);border-radius:22px;padding:20px;border:1px solid var(--line)}
+#dr{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--bg);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:40;display:flex;flex-direction:column;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}#dr.on{transform:none}#ci{flex:1;overflow:auto}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:700;background:var(--soft);color:var(--b)}.pill.ok{background:#dcfce7;color:#15803d}.pill.w{background:#fff7ed;color:#c2410c}
+#ts{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:60;display:none;max-width:90%}
+#er{color:#dc2626;font-size:13px;min-height:18px}.hide{display:none}.cr{margin-bottom:12px}
+@media(max-width:760px){.hero.two{grid-template-columns:1fr}.cubes{grid-template-columns:repeat(4,1fr)}.cube{font-size:30px;border-radius:16px}}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script></head><body>
+<header><div class="wrap hd"><div class="logo" onclick="show('shop')"><i>F</i><span>Fatah Shop</span></div><div class="sp"></div>
+<button class="btn g sm" onclick="staffEntry()">Staff</button> <button class="btn g sm" id="acct" onclick="acct()">Sign in</button> <button class="btn o sm" onclick="$('#dr').classList.add('on')">Cart <span id="cc">0</span></button></div>
+<div class="wrap"><nav class="nav"><button class="tab on" data-v="shop" onclick="show('shop')">Shop</button><button class="tab" data-v="vo" onclick="show('vo')">Offers</button><button class="tab" data-v="vd" onclick="show('vd')">Discounts</button><button class="tab" data-v="vp" onclick="show('vp')">Profile</button><button class="tab" data-v="vs" onclick="show('vs')">Settings</button></nav></div></header>
+<main class="wrap" id="shop"><section class="hero two"><div><h1>Everything you need, all in one place.</h1><p class="mut">Groceries and daily essentials from local shops, delivered to your door. Pay cash on delivery.</p>
+<button class="btn o pulse" onclick="$('#q').scrollIntoView({behavior:'smooth'})">Start shopping</button> <button class="btn g" onclick="show('vo')">See offers</button></div>
+<div class="cubes"><div class="cube">🍅</div><div class="cube">🛵</div><div class="cube">🥛</div><div class="cube">🍞</div></div></section>
+<input id="q" placeholder="Search groceries" oninput="draw()"><div class="chips" id="chips"></div><div class="grid" id="grid"></div></main>
+<main class="wrap hide" id="staff" style="padding-top:20px;padding-bottom:40px"></main>
+<main class="wrap hide" id="vo"></main><main class="wrap hide" id="vd"></main><main class="wrap hide" id="vp"></main><main class="wrap hide" id="vs"></main>
+<aside id="dr"><div class="row" style="margin:0 0 10px"><h3>Your cart</h3><button class="btn g sm" onclick="$('#dr').classList.remove('on')">Close</button></div><div id="ci"></div>
+<div class="row"><input id="cpn" placeholder="Coupon code" style="margin:0"><button class="btn g sm" onclick="applyC()">Apply</button></div>
+<div class="row"><small>Discount</small><small id="cd">-৳0</small></div><div class="row"><b>Total</b><b id="ct">৳0</b></div>
+<button class="btn o w pulse" style="margin-top:14px" onclick="checkout()">Checkout</button></aside>
+<div id="ov"><div id="md"></div></div><div id="ts"></div>
+<script>
+// Data is stored in Firebase (Auth + Firestore). Files still use Supabase.
+const fbErr=x=>({'auth/email-already-in-use':'This email is already registered.','auth/invalid-credential':'Wrong email or password.','auth/wrong-password':'Wrong email or password.','auth/user-not-found':'Wrong email or password.','auth/weak-password':'Password must be 6+ characters.','auth/network-request-failed':'No internet connection.','auth/operation-not-allowed':'Enable Email/Password in Firebase Authentication.','permission-denied':'Not allowed. An admin may already exist.'}[x.code]||('Error: '+(x.code||x.message)));
+const $=s=>document.querySelector(s),mem={};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SH=['products','offers','coupons','orders','users'];const get=(k,d)=>{if(k in mem)return mem[k];if(SH.includes(k))return mem[k]=[];try{const v=localStorage.getItem('fs_'+k);mem[k]=v?JSON.parse(v):d}catch(e){mem[k]=d}return mem[k]};
+const set=(k,v)=>{mem[k]=v;if(SH.includes(k)){window.fbPush&&window.fbPush(k,v);return}try{localStorage.setItem('fs_'+k,JSON.stringify(v))}catch(e){}};
+async function sha(t){if(!(window.crypto&&crypto.subtle)){let h=5381;for(const c of t)h=(h*33^c.charCodeAt(0))>>>0;return'x'+h}const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+const ph=v=>{v=v.replace(/[\s-]/g,'').replace(/^\+?88/,'');return /^01[3-9]\d{8}$/.test(v)?v:''};
+const SEED=[["🍅","Tomato 1 kg",60,"Vegetables"],["🧅","Onion 1 kg",70,"Vegetables"],["🍌","Banana 12 pcs",80,"Fruits"],["🥛","Milk 1 L",95,"Dairy"],["🥚","Eggs 12 pcs",140,"Dairy"],["🍞","Bread loaf",55,"Bakery"],["🍚","Miniket rice 5 kg",420,"Pantry"],["🐟","Rui fish 1 kg",320,"Fish"],["🧼","Hand soap",45,"Household"]];
+let products=get('products',SEED.map((p,i)=>({id:'p'+i,e:p[0],n:p[1],p:p[2],c:p[3],shop:'Fatah Fresh'})));
+let cat='All',cart={},CATS=[];
+function toast(m){const t=$('#ts');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2600)}
+function openM(h){$('#md').innerHTML=h;$('#ov').classList.add('on')}
+function closeM(){$('#ov').classList.remove('on')}
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeM()};
+function show(v){$('#shop').classList.toggle('hide',v!=='shop');$('#staff').classList.toggle('hide',v!=='staff');scrollTo(0,0)}
+function draw(){CATS=['All',...new Set(products.map(p=>p.c))];
+$('#chips').innerHTML=CATS.map((c,i)=>`<button class="chip${c===cat?' on':''}" onclick="cat=CATS[${i}];draw()">${esc(c)}</button>`).join('');
+const q=$('#q').value.toLowerCase(),l=products.filter(p=>(cat==='All'||p.c===cat)&&p.n.toLowerCase().includes(q));
+$('#grid').innerHTML=l.map(p=>`<div class="card pc"><div class="em">${esc(p.e)}</div><b>${esc(p.n)}</b><small>${esc(p.shop)}</small><div class="row"><b>৳${p.p}</b><button class="btn o sm pulse" onclick="add('${p.id}')">Add</button></div></div>`).join('')||'<p class="mut">No products found.</p>'}
+function add(id){cart[id]=(cart[id]||0)+1;cartUI();toast('Added to cart')}
+function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];cartUI()}
+function cartUI(){let n=0,t=0;const h=Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===id);if(!p)return'';n+=q;t+=q*p.p;return`<div class="card cr"><div class="row" style="margin:0"><span>${esc(p.e)} ${esc(p.n)}</span><b>৳${p.p*q}</b></div><div class="row"><button class="btn g sm" onclick="chg('${id}',-1)">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1)">+</button></div></div>`}).join('');
+$('#ci').innerHTML=h||'<p class="mut">Your cart is empty.</p>';$('#cc').textContent=n;$('#ct').textContent='৳'+t;return t}
+// ---- Customer: name + phone, or Gmail + phone ----
+const cust=()=>get('cust',null);
+function acctUI(){const c=cust();$('#acct').textContent=c?c.name.split(' ')[0]:'Sign in'}
+function acct(){cust()?openM(`<h3>Hi, ${esc(cust().name)}</h3><p class="mut">${esc(cust().phone)}</p><button class="btn w" onclick="myOrders()">My orders</button><button class="btn g w" style="margin-top:10px" onclick="set('cust',null);acctUI();closeM()">Sign out</button>`):custModal()}
+function custModal(next){window.nx=next;window.ctn=1;openM(`<h3>Sign in to order</h3><p class="mut">No password needed. Use your name and phone number, or your Gmail and phone number.</p>
+<div class="tabs"><button class="chip on" id="t1" onclick="ctab(1)">Name + phone</button><button class="chip" id="t2" onclick="ctab(2)">Gmail + phone</button></div>
+<div id="f1"><label>Your name</label><input id="cn" autocomplete="name"></div>
+<div id="f2" class="hide"><label>Gmail address</label><input id="ce" type="email" autocomplete="email" placeholder="name@gmail.com"></div>
+<label>Phone number</label><input id="cp" type="tel" inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="tel"><div id="er"></div>
+<button class="btn o w" onclick="doCust()">Continue</button>`)}
+function ctab(n){window.ctn=n;$('#f1').classList.toggle('hide',n!==1);$('#f2').classList.toggle('hide',n!==2);$('#t1').classList.toggle('on',n===1);$('#t2').classList.toggle('on',n===2)}
+function doCust(){const n=window.ctn||1,p=ph($('#cp').value),name=$('#cn').value.trim(),em=$('#ce').value.trim().toLowerCase(),e=m=>$('#er').textContent=m;
+if(n===1&&name.length<2)return e('Enter your name.');
+if(n===2&&!/^[^\s@]+@gmail\.com$/.test(em))return e('Enter a valid Gmail address.');
+if(!p)return e('Enter a valid phone number, like 01712345678.');
+set('cust',{name:n===1?name:em.split('@')[0],phone:p,email:n===2?em:''});window.ctn=1;acctUI();closeM();if(window.nx==='co')coModal();else toast('Signed in')}
+function checkout(){if(!Object.keys(cart).length)return toast('Your cart is empty');cust()?coModal():custModal('co')}
+function coModal(){const t=cartUI();$('#dr').classList.remove('on');openM(`<h3>Delivery details</h3><p class="mut">${esc(cust().name)}, ${esc(cust().phone)}</p><label>Delivery address</label><textarea id="ad" rows="3" placeholder="House, road, area"></textarea><div class="row"><span>Pay with cash on delivery</span><b>৳${t}</b></div><div id="er"></div><button class="btn o w pulse" style="margin-top:8px" onclick="place()">Place order</button>`)}
+function place(){const a=$('#ad').value.trim();if(a.length<6)return $('#er').textContent='Enter your full delivery address.';
+const items=Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===id);return{n:p.n,q,p:p.p}}),o={uid:(window.fbUid&&fbUid())||'',id:'FS'+Math.floor(1000+Math.random()*9000),items,total:items.reduce((s,i)=>s+i.p*i.q,0),cust:cust(),addr:a,st:'Pending',otp:String(Math.floor(1000+Math.random()*9000)),rider:'',t:Date.now()};
+const L=get('orders',[]);L.unshift(o);set('orders',L);cart={};cartUI();myOrders(true)}
+function myOrders(ok){const c=cust(),L=get('orders',[]).filter(o=>o.cust.phone===c.phone);
+openM(`<h3>${ok?'Order placed':'My orders'}</h3>`+(L.map(o=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>Total</span><b>৳${o.total}</b></div>${o.st==='Out for Delivery'?`<p style="margin:6px 0 0">Give this OTP to the rider: <b>${o.otp}</b></p>`:''}</div>`).join('')||'<p class="mut">No orders yet.</p>')+`<button class="btn g w" onclick="closeM()">Close</button>`)}
+// ---- Staff: vendor, rider, help care, admin (full rules) ----
+const me=()=>get('users',[]).find(u=>u.id===get('sess',''));
+function staffEntry(){me()?dash():staffModal()}
+function staffModal(){openM(`<h3>Staff account</h3><div class="tabs"><button class="chip on" id="s1" onclick="stab(1)">Log in</button><button class="chip" id="s2" onclick="stab(2)">Register</button></div>
+<div id="lf"><label>Email</label><input id="le" type="email"><label>Password</label><input id="lp" type="password"><button class="btn w" onclick="login()">Log in</button></div>
+<div id="rf" class="hide"><label>Role</label><select id="sr" onchange="rch()"><option value="vendor">Vendor</option><option value="rider">Rider</option><option value="helpcare">Help Care</option><option value="admin">Admin (first setup only)</option></select>
+<label>Full name</label><input id="sn"><label>Email</label><input id="se" type="email"><label>Phone</label><input id="sh" type="tel"><label>Password (6+ characters)</label><input id="sp" type="password">
+<div id="sv"><label>Shop name</label><input id="ss"></div><div id="sd"><label>ID or license photo</label><label class="btn g w" style="display:block">Choose file<input id="sf" type="file" accept="image/*,.pdf" hidden onchange="$('#fn').textContent=this.files[0]?this.files[0].name:''"></label><small id="fn"></small></div>
+<button class="btn w" onclick="reg()">Submit for verification</button></div><div id="er"></div>`);rch()}
+function stab(n){$('#lf').classList.toggle('hide',n!==1);$('#rf').classList.toggle('hide',n!==2);$('#s1').classList.toggle('on',n===1);$('#s2').classList.toggle('on',n===2)}
+function rch(){const r=$('#sr').value;$('#sv').classList.toggle('hide',r!=='vendor');$('#sd').classList.toggle('hide',r!=='vendor'&&r!=='rider')}
+async function reg(){const r=$('#sr').value,n=$('#sn').value.trim(),em=$('#se').value.trim().toLowerCase(),p=ph($('#sh').value),pw=$('#sp').value,f=$('#sf').files[0],shop=$('#ss').value.trim(),e=m=>$('#er').textContent=m;
+if(n.length<2||!/^\S+@\S+\.\S+$/.test(em))return e('Enter your name and a valid email.');
+if(!p)return e('Enter a valid phone number.');if(pw.length<6)return e('Password must be 6+ characters.');
+if((r==='vendor'||r==='rider')&&!f)return e('Upload your ID or license photo.');if(r==='vendor'&&!shop)return e('Enter your shop name.');
+if(!window.fbReg)return e('Connecting to Firebase. Try again in a moment.');
+let docp='';try{docp=f?await up(f,'docs'):''}catch(x){return e('Upload failed. Check the Supabase bucket and keys in Settings.')}
+try{await fbReg(em,pw,{role:r,name:n,email:em,phone:p,shop,doc:docp,status:r==='admin'?'Approved':'Pending Verification'});
+e('');toast(r==='admin'?'Admin created. Log in now.':'Submitted. Wait for admin approval.');stab(1);$('#le').value=em}catch(x){e(fbErr(x))}}
+async function login(){const em=$('#le').value.trim().toLowerCase(),pw=$('#lp').value,e=m=>$('#er').textContent=m;
+if(!window.fbLogin)return e('Connecting to Firebase. Try again in a moment.');
+try{await fbLogin(em,pw);if(!me())return e('No staff profile found for this account.');closeM();dash()}catch(x){e(fbErr(x))}}
+function out(){set('sess','');show('shop');window.fbOut&&fbOut()}
+function ordCard(o,u){const a=[];
+if(u.role==='vendor'&&o.st==='Pending')a.push(`<button class="btn sm" onclick="act('${o.id}','prep')">Start preparing</button>`);
+if(u.role==='rider'&&o.st==='Preparing')a.push(`<button class="btn o sm" onclick="act('${o.id}','take')">Accept delivery</button>`);
+if(u.role==='rider'&&o.st==='Out for Delivery'&&o.rider===u.id)a.push(!o.otp?`<button class="btn o sm" onclick="act('${o.id}','done')">Mark delivered</button>`:`<input id="otp${o.id}" inputmode="numeric" maxlength="4" placeholder="Customer's 4-digit OTP"><button class="btn o sm" onclick="deliver('${o.id}')">Mark delivered</button>`);
+if(u.role==='helpcare'&&!['Delivered','Cancelled'].includes(o.st))a.push(`<button class="btn g sm" onclick="act('${o.id}','cancel')">Cancel order</button>`);
+return`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${esc(o.cust.name)}, ${esc(o.cust.phone)}</span><b>৳${o.total}</b></div><small>${esc(o.addr)}</small>${a.length?`<div style="margin-top:8px">${a.join('')}</div>`:''}</div>`}
+function dash(){const u=me();if(!u)return show('shop');show('staff');
+let h=`<div class="row" style="margin-top:0"><div><h3>${esc(u.name)}</h3><span class="pill ${u.status==='Approved'?'ok':'w'}">${u.role}: ${u.status}</span></div><button class="btn g sm" onclick="out()">Log out</button></div><div style="height:14px"></div>`;
+if(u.status!=='Approved'){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':'Waiting for admin approval.'}</b><p class="mut">You cannot list items or receive orders until the admin approves your documents.</p></div>`;return}
+let O=get('orders',[]);if(u.role==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);
+if(u.role==='admin'){const P=get('users',[]).filter(x=>x.status==='Pending Verification');
+h+=`<h3>Verification queue</h3>`+(P.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Document: ${esc(x.doc||'none')}</small><div class="row"><button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button></div></div>`).join('')||'<p class="mut">No pending applications.</p>')}
+if(u.role==='vendor')h+=`<h3>Add a product</h3><div class="card cr"><label>Emoji</label><input id="pe" value="🛒" maxlength="4"><label>Name</label><input id="pn"><label>Price (৳)</label><input id="pp" type="number" min="1"><label>Category</label><input id="pc" placeholder="e.g. Dairy"><button class="btn w" onclick="addP()">List product</button><div id="er"></div></div>`;
+h+=`<h3>Orders</h3>`+(O.map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders right now.</p>');$('#staff').innerHTML=h}
+function decide(id,ok){const U=get('users',[]);U.find(x=>x.id===id).status=ok?'Approved':'Rejected';set('users',U);dash()}
+function addP(){const u=me(),n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim();if(!n||!(p>0)||!c)return $('#er').textContent='Fill in name, price and category.';
+products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,shop:u.shop});set('products',products);draw();toast('Product listed');dash()}
+function act(id,k){const u=me(),O=get('orders',[]),o=O.find(x=>x.id===id);if(!u||u.status!=='Approved'||!o)return;
+if(k==='prep')o.st='Preparing';if(k==='take'){o.st='Out for Delivery';o.rider=u.id}if(k==='done'&&!o.otp)o.st='Delivered';if(k==='cancel')o.st='Cancelled';set('orders',O);dash()}
+function deliver(id){const O=get('orders',[]),o=O.find(x=>x.id===id);if($('#otp'+id).value.trim()!==o.otp)return toast('Wrong OTP. Ask the customer again.');o.st='Delivered';set('orders',O);toast('Delivered');dash()}
+draw();cartUI();acctUI();
+</script><script>
+const cfg=()=>get('cfg',{otp:false,sbu:'',sbk:'',theme:'auto'});
+let sb=null,cpn=null,offers=get('offers',[{id:'o0',e:'🍳',n:'Breakfast pack',p:270,items:['p4','p5','p3'],shop:'Fatah Fresh'}]),coupons=get('coupons',[{code:'FATAH10',pct:10,by:'Fatah Shop'}]);
+const PR=id=>products.concat(offers).find(x=>x.id===id),V=['shop','vo','vd','vp','vs','staff'];
+function initSB(){sb=null;const c=cfg();try{if(c.sbu&&c.sbk&&window.supabase)sb=supabase.createClient(c.sbu,c.sbk)}catch(e){}}
+function theme(){const t=cfg().theme,r=document.documentElement;t==='auto'?r.removeAttribute('data-theme'):r.setAttribute('data-theme',t)}
+async function up(f,b){if(!f)return'';if(!sb)return'local:'+f.name;const p=Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_'),r=await sb.storage.from(b).upload(p,f);if(r.error)throw r.error;return b+'/'+p}
+async function viewDoc(p){const r=await sb.storage.from('docs').createSignedUrl(p.slice(5),120);r.data?window.open(r.data.signedUrl):toast('Cannot open this file')}
+function show(v){V.forEach(x=>$('#'+x).classList.toggle('hide',x!==v));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));({vo:dOff,vd:dDisc,vp:dProf,vs:dSet})[v]&&({vo:dOff,vd:dDisc,vp:dProf,vs:dSet})[v]();scrollTo(0,0)}
+function acct(){cust()?show('vp'):custModal()}
+function cartUI(){let n=0,s=0;const h=Object.entries(cart).map(([id,q])=>{const p=PR(id);if(!p)return'';n+=q;s+=q*p.p;return`<div class="card cr"><div class="row" style="margin:0"><span>${esc(p.e)} ${esc(p.n)}</span><b>৳${p.p*q}</b></div><div class="row"><button class="btn g sm" onclick="chg('${id}',-1)">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1)">+</button></div></div>`}).join(''),d=cpn?Math.round(s*cpn.pct/100):0;
+$('#ci').innerHTML=h||'<p class="mut">Your cart is empty.</p>';$('#cc').textContent=n;$('#cd').textContent='-৳'+d;$('#ct').textContent='৳'+(s-d);return s-d}
+function applyC(){const c=coupons.find(x=>x.code===$('#cpn').value.trim().toUpperCase());if(!c)return toast('Invalid coupon code');cpn=c;cartUI();toast(c.pct+'% discount applied')}
+function useC(c){$('#cpn').value=c;applyC();$('#dr').classList.add('on')}
+function coModal(){const t=cartUI();$('#dr').classList.remove('on');openM(`<h3>Delivery details</h3><p class="mut">${esc(cust().name)}, ${esc(cust().phone)}</p><label>Delivery address</label><textarea id="ad" rows="3" placeholder="House, road, area">${esc(cust().addr||'')}</textarea><div class="row"><span>Cash on delivery</span><b>৳${t}</b></div><div id="er"></div><button class="btn o w pulse" style="margin-top:12px" onclick="place()">Place order</button>`)}
+function place(){const a=$('#ad').value.trim();if(a.length<6)return $('#er').textContent='Enter your full delivery address.';const c=cust();c.addr=a;set('cust',c);
+const items=Object.entries(cart).map(([id,q])=>{const p=PR(id);return{n:p.n,q,p:p.p}}),s=items.reduce((x,i)=>x+i.p*i.q,0),d=cpn?Math.round(s*cpn.pct/100):0,o={uid:(window.fbUid&&fbUid())||'',id:'FS'+Math.floor(1000+Math.random()*9000),items,total:s-d,disc:d,code:cpn?cpn.code:'',cust:c,addr:a,st:'Pending',otp:cfg().otp?String(Math.floor(1000+Math.random()*9000)):'',rider:'',t:Date.now()};
+const L=get('orders',[]);L.unshift(o);set('orders',L);cart={};cpn=null;cartUI();closeM();show('vp');toast('Order placed: #'+o.id)}
+function dOff(){$('#vo').innerHTML=`<h2>Offers and packages</h2><p class="mut">Bundles made by vendors. Buy together and save.</p><div class="grid">`+(offers.map(o=>{const s=o.items.map(PR).filter(Boolean),sum=s.reduce((a,b)=>a+b.p,0);return`<div class="card pc"><div class="em">${esc(o.e)}</div><b>${esc(o.n)}</b><small>${s.map(x=>esc(x.n)).join(', ')}</small><div class="row"><span><b>৳${o.p}</b> <s class="mut">৳${sum}</s></span><button class="btn o sm" onclick="add('${o.id}')">Add</button></div></div>`}).join('')||'<p class="mut">No offers yet.</p>')+`</div>`}
+function dDisc(){const u=me(),ok=u&&u.status==='Approved'&&(u.role==='vendor'||u.role==='admin');$('#vd').innerHTML=`<h2>Discounts</h2><div class="grid">`+coupons.map(c=>`<div class="card"><h3>${c.pct}% off</h3><b>${esc(c.code)}</b><br><small>by ${esc(c.by)}</small><div class="row"><button class="btn sm" onclick="useC('${esc(c.code)}')">Use code</button>${u&&u.role==='admin'?`<button class="btn g sm" onclick="delC('${esc(c.code)}')">Delete</button>`:''}</div></div>`).join('')+`</div>`+(ok?`<h3>Create a coupon</h3><div class="card cr"><label>Code</label><input id="kc" maxlength="12"><label>Percent off (1 to 90)</label><input id="kp" type="number" min="1" max="90"><button class="btn w" onclick="addC()">Create coupon</button></div>`:'')}
+function addC(){const u=me(),c=$('#kc').value.trim().toUpperCase(),n=+$('#kp').value;if(!/^[A-Z0-9]{3,12}$/.test(c)||!(n>=1&&n<=90))return toast('Code: 3 to 12 letters or numbers. Percent: 1 to 90.');if(coupons.some(x=>x.code===c))return toast('This code already exists');coupons.push({code:c,pct:n,by:u.shop||u.name});set('coupons',coupons);dDisc()}
+function delC(c){coupons=coupons.filter(x=>x.code!==c);set('coupons',coupons);dDisc()}
+function dProf(){const c=cust();if(!c){$('#vp').innerHTML=`<h2>Profile</h2><div class="card"><p>Sign in to see your profile and orders.</p><button class="btn o" onclick="custModal()">Sign in</button></div>`;return}
+const L=get('orders',[]).filter(o=>o.cust.phone===c.phone);
+$('#vp').innerHTML=`<div class="hero"><h2>${esc(c.name)}</h2><p class="mut">${esc(c.phone)}${c.email?' / '+esc(c.email):''}</p></div><div class="card cr"><label>Default delivery address</label><textarea id="pa" rows="2">${esc(c.addr||'')}</textarea><button class="btn sm" onclick="saveA()">Save address</button> <button class="btn g sm" onclick="set('cust',null);acctUI();dProf()">Sign out</button></div><h3>My orders</h3>`+(L.map(o=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${o.code?'Coupon '+esc(o.code):'Cash on delivery'}</span><b>৳${o.total}</b></div>${o.otp&&o.st==='Out for Delivery'?`<p style="margin:6px 0 0">Give this OTP to the rider: <b>${o.otp}</b></p>`:''}</div>`).join('')||'<p class="mut">No orders yet.</p>')}
+function saveA(){const c=cust();c.addr=$('#pa').value.trim();set('cust',c);toast('Address saved')}
+function dSet(){const c=cfg(),u=me(),ad=u&&u.role==='admin';$('#vs').innerHTML=`<h2>Settings</h2><div class="card cr"><label>Theme</label><select id="st" onchange="saveT()">${['auto','light','dark'].map(x=>`<option${c.theme===x?' selected':''}>${x}</option>`).join('')}</select></div>
+<div class="card cr"><label>Delivery OTP</label><p class="mut">Now ${c.otp?'on':'off'}. When on, the customer gives a 4-digit code to the rider.</p>${ad?`<button class="btn sm" onclick="togO()">Turn ${c.otp?'off':'on'}</button>`:'<small>Only the admin can change this.</small>'}</div>
+<div class="card cr"><label>Supabase URL</label><input id="su" value="${esc(c.sbu)}" placeholder="https://xxxx.supabase.co"><label>Supabase anon key</label><input id="sk" value="${esc(c.sbk)}"><button class="btn o sm" onclick="saveS()">Save connection</button><p class="mut">${sb?'Connected. File uploads go to Supabase Storage.':'Not connected. Uploads stay in demo mode.'}</p></div>`}
+function saveT(){const c=cfg();c.theme=$('#st').value;set('cfg',c);theme()}
+function togO(){const c=cfg();c.otp=!c.otp;set('cfg',c);dSet()}
+function saveS(){const c=cfg();c.sbu=$('#su').value.trim();c.sbk=$('#sk').value.trim();set('cfg',c);initSB();dSet();toast(sb?'Connected to Supabase':'Check the URL and key')}
+const prodForm=u=>`<h3>Add a product</h3><div class="card cr"><p class="mut">No limit on categories or items.</p><label>Emoji</label><input id="pe" value="🛒" maxlength="4"><label>Name</label><input id="pn"><label>Price (৳)</label><input id="pp" type="number" min="1"><label>Category (pick or type a new one)</label><input id="pc" list="cl"><datalist id="cl">${[...new Set(products.map(p=>p.c))].map(c=>`<option value="${esc(c)}">`).join('')}</datalist><button class="btn w" onclick="addP()">List product</button><div id="er"></div></div><h3>${u.role==='admin'?'All products':'My products'}</h3>`+products.filter(p=>u.role==='admin'||p.vendor===u.id).map(p=>`<div class="card cr row" style="margin-top:0"><span>${esc(p.e)} ${esc(p.n)} <small>৳${p.p}, ${esc(p.c)}</small></span><button class="btn g sm" onclick="delP('${p.id}')">Delete</button></div>`).join('');
+const offForm=u=>`<h3>Create an offer package</h3><div class="card cr"><label>Package name</label><input id="on"><label>Emoji</label><input id="oe" value="🎁" maxlength="4"><label>Package price (৳)</label><input id="op" type="number" min="1"><label>Pick the products to include (any shop)</label>${products.map(p=>`<label class="ck"><input type="checkbox" class="of" value="${p.id}">${esc(p.e)} ${esc(p.n)} ৳${p.p}</label>`).join('')}<button class="btn o w" onclick="addO()">Publish offer</button></div><h3>My offers</h3>`+(offers.filter(o=>o.vendor===u.id).map(o=>`<div class="card cr row" style="margin-top:0"><span>${esc(o.e)} ${esc(o.n)} <small>৳${o.p}</small></span><button class="btn g sm" onclick="delO('${o.id}')">Delete</button></div>`).join('')||'<p class="mut">No offers yet.</p>');
+function addP(){const u=me(),n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim();if(!n||!(p>0)||!c)return $('#er').textContent='Fill in name, price and category.';products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,shop:u.shop||'Fatah Fresh',vendor:u.id});set('products',products);draw();toast('Product listed');dash()}
+function delP(id){products=products.filter(p=>p.id!==id);set('products',products);delete cart[id];cartUI();draw();dash()}
+function addO(){const u=me(),n=$('#on').value.trim(),p=+$('#op').value,it=[...document.querySelectorAll('.of:checked')].map(x=>x.value);if(!n||!(p>0)||it.length<2)return toast('Add a name, a price and at least 2 products.');offers.push({id:'o'+Date.now(),e:$('#oe').value||'🎁',n,p,items:it,shop:u.shop||'Fatah Fresh',vendor:u.id});set('offers',offers);toast('Offer published');dash()}
+function delO(id){offers=offers.filter(o=>o.id!==id);set('offers',offers);delete cart[id];cartUI();dash()}
+function dash(){const u=me();if(!u)return show('shop');show('staff');const ok=u.status==='Approved',A=u.role;
+let h=`<div class="hero"><span class="pill ${ok?'ok':'w'}">${A}: ${u.status}</span><h1 style="font-size:34px;margin-top:8px">Hello, ${esc(u.name)}</h1><p class="mut">${esc(u.email)}${u.shop?' / '+esc(u.shop):''}</p><button class="btn g sm" onclick="out()">Log out</button></div>`;
+if(!ok){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':'Waiting for admin approval.'}</b><p class="mut">You cannot list items or receive orders until the admin approves your documents.</p></div>`;return}
+let O=get('orders',[]);if(A==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);
+if(A==='admin'){const Q=get('users',[]).filter(x=>x.status==='Pending Verification');h+=`<h3>Verification queue</h3>`+(Q.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Document: ${esc(x.doc||'none')}</small><div class="row"><button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button>${sb&&x.doc&&x.doc.startsWith('docs/')?`<button class="btn g sm" onclick="viewDoc('${esc(x.doc)}')">View file</button>`:''}</div></div>`).join('')||'<p class="mut">No pending applications.</p>')}
+if(A==='vendor'||A==='admin')h+=prodForm(u);if(A==='vendor')h+=offForm(u);
+h+=`<h3>Orders</h3>`+(O.map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders right now.</p>');$('#staff').innerHTML=h}
+initSB();theme();draw();cartUI();acctUI();
+</script>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getAuth,onAuthStateChanged,signInAnonymously,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,deleteUser}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import{getFirestore,collection,doc,setDoc,deleteDoc,getDoc,getDocs,onSnapshot,query,where,limit,writeBatch}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyC9bXRSN86pCOkKKRs8ekcR1vYGKO6e3ZQ",authDomain:"fatah-shop.firebaseapp.com",projectId:"fatah-shop",storageBucket:"fatah-shop.firebasestorage.app",messagingSenderId:"301908675488",appId:"1:301908675488:web:aaecda6438fec6dd4632c5"});
+const auth=getAuth(app),db=getFirestore(app),subs=[],cur={uid:null,p:null},J=x=>JSON.stringify(x);
+const last={products:new Map(),offers:new Map(),coupons:new Map(),orders:new Map(),users:new Map()};
+let regBusy=false;
+const er=x=>toast(x.code==='permission-denied'?'Not allowed for this account.':'Save failed: '+(x.code||x.message));
+function refresh(){draw();cartUI();acctUI();const v=V.find(x=>!$('#'+x).classList.contains('hide')),a=document.activeElement;
+if(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&$('#'+v).contains(a))return;({staff:dash,vo:dOff,vd:dDisc,vp:dProf,vs:dSet})[v]?.()}
+function sub(n,q,list){const f=onSnapshot(q,s=>{let a=s.docs.map(d=>d.data());if(n==='orders')a.sort((x,y)=>(y.t||0)-(x.t||0));
+last[n]=new Map(s.docs.map(d=>[d.id,J(d.data())]));mem[n]=a;if(n==='products')products=a;if(n==='offers')offers=a;if(n==='coupons')coupons=a;refresh()},x=>console.warn(n,x.code));
+(list||subs).push(f)}
+['products','offers','coupons'].forEach(n=>sub(n,collection(db,n),[]));
+window.fbPush=(k,nw)=>{const i=k==='coupons'?'code':'id',L=last[k],seen=new Set();
+nw.forEach(x=>{const id=String(x[i]),j=J(x);seen.add(id);if(L.get(id)!==j){L.set(id,j);setDoc(doc(db,k,id),JSON.parse(j)).catch(er)}});
+[...L.keys()].forEach(id=>{if(!seen.has(id)){L.delete(id);deleteDoc(doc(db,k,id)).catch(er)}})};
+window.fbUid=()=>auth.currentUser&&auth.currentUser.uid;
+async function doSetup(u){subs.splice(0).forEach(f=>f());
+if(u.isAnonymous){mem.users=[];set('sess','');sub('orders',query(collection(db,'orders'),where('uid','==',u.uid)));refresh();return}
+const s=await getDoc(doc(db,'users',u.uid));if(!s.exists()){mem.users=[];set('sess','');refresh();return}
+const m=s.data();mem.users=[m];set('sess',u.uid);
+if(m.status==='Approved'){sub('orders',collection(db,'orders'));
+if(m.role==='admin'){sub('users',collection(db,'users'));
+const D={products:SEED.map((p,i)=>({id:'p'+i,e:p[0],n:p[1],p:p[2],c:p[3],shop:'Fatah Fresh'})),offers:[{id:'o0',e:'🍳',n:'Breakfast pack',p:270,items:['p4','p5','p3'],shop:'Fatah Fresh'}],coupons:[{code:'FATAH10',pct:10,by:'Fatah Shop'}]};
+for(const n in D){const g=await getDocs(query(collection(db,n),limit(1)));if(g.empty){if(n==='products')products=D[n];if(n==='offers')offers=D[n];if(n==='coupons')coupons=D[n];set(n,D[n])}}}}
+if(m.role!=='admin')subs.push(onSnapshot(doc(db,'users',u.uid),d=>{if(d.exists()){mem.users=[d.data()];if(d.data().status!==m.status){cur.uid=null;setup(u)}else refresh()}}));
+refresh()}
+function setup(u){if(cur.uid===u.uid)return cur.p;cur.uid=u.uid;return cur.p=doSetup(u)}
+onAuthStateChanged(auth,u=>{if(!u){cur.uid=null;subs.splice(0).forEach(f=>f());mem.users=[];mem.orders=[];set('sess','');signInAnonymously(auth).catch(()=>toast('Enable Anonymous sign-in in Firebase Authentication'));return}
+if(!regBusy)setup(u)});
+window.fbLogin=async(em,pw)=>{const c=await signInWithEmailAndPassword(auth,em,pw);await setup(c.user)};
+window.fbOut=()=>signOut(auth);
+window.fbReg=async(em,pw,d)=>{regBusy=true;try{const c=await createUserWithEmailAndPassword(auth,em,pw),b=writeBatch(db);
+b.set(doc(db,'users',c.user.uid),{id:c.user.uid,...d,t:Date.now()});if(d.role==='admin')b.set(doc(db,'meta','admin'),{uid:c.user.uid});
+try{await b.commit()}catch(x){await deleteUser(c.user).catch(()=>{});throw x}await signOut(auth)}finally{regBusy=false}};
+</script>
+</body></html>
