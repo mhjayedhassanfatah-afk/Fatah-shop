@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="color-scheme" content="light"><meta name="theme-color" content="#6f4e37">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>jayed.com</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--card:#fff;--ink:#17110d;--mut:#6b5a4b;--line:#e8dccb;--soft:#f6efe6;--b:#6f4e37;--o:#a9744f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:500 15px/1.55 'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0 0 6px;line-height:1.15}h1{font-size:clamp(32px,6vw,54px)}h2{font-size:26px}h3{font-size:19px}
+.mut,small{color:var(--mut)}.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:8px;height:58px}.sp{flex:1}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px 'Playfair Display',Georgia,serif;cursor:pointer}
+.logo i{width:36px;height:36px;border-radius:11px;background:linear-gradient(100deg,#b08968,#6f4e37 45%,#3e2a1c);color:#fff;display:grid;place-items:center;font-style:normal;box-shadow:inset 1px 1px 0 rgba(255,255,255,.5),3px 4px 0 #1c1008}
+.nav{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 12px;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:var(--bg);color:var(--mut);border-radius:14px;padding:9px 16px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;white-space:nowrap;box-shadow:3px 4px 0 var(--line)}
+.tab.on{color:#fff;border-color:transparent;background:linear-gradient(100deg,#b08968,#6f4e37 45%,#3e2a1c);box-shadow:inset 1px 1px 0 rgba(255,255,255,.5),3px 4px 0 #1c1008}
+.btn{--c1:#b08968;--c2:#6f4e37;--c3:#3e2a1c;--e:#1c1008;border:0;border-radius:14px;padding:11px 18px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;color:#fff;cursor:pointer;display:inline-block;text-align:center;background:linear-gradient(100deg,var(--c1) 0%,var(--c2) 45%,var(--c3) 100%);box-shadow:inset 1px 1px 0 rgba(255,255,255,.55),4px 5px 0 var(--e);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translate(3px,4px);box-shadow:inset 1px 1px 0 rgba(255,255,255,.4),1px 1px 0 var(--e)}
+.btn.o{--c1:#e0c3a0;--c2:#b98a5e;--c3:#8a5a36;--e:#4a2c17}
+.btn.g{--c1:#fff;--c2:#f6efe6;--c3:#e0cfb8;--e:#b39a7c;color:#0f172a}
+.btn.sm{padding:8px 13px;font-size:12px;border-radius:12px}.btn.w{width:100%}
+.pulse{animation:pl 2s infinite}@keyframes pl{50%{filter:drop-shadow(0 0 8px rgba(169,116,79,.75))}}
+@media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:4px 5px 0 var(--line);padding:14px}
+.hero{border:1px solid var(--line);border-radius:28px;padding:24px;margin:8px 0 22px;background:radial-gradient(circle at 92% 8%,#f3e3cf 0,transparent 42%),radial-gradient(circle at 4% 100%,#eadcc8 0,transparent 48%),var(--card);box-shadow:5px 6px 0 var(--line)}
+.hero.two{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}.hero p{max-width:44ch}
+.cubes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cube{aspect-ratio:1;border-radius:22px;display:grid;place-items:center;font-size:42px;background:linear-gradient(100deg,#fff,#f4ebdf 50%,#dcc7ab);box-shadow:inset 1px 1px 0 #fff,5px 6px 0 #b8997a}
+.cube:nth-child(2),.cube:nth-child(3){background:linear-gradient(100deg,#fbf3e9,#e6c9a5 50%,#c99a68);box-shadow:inset 1px 1px 0 #fff,5px 6px 0 #8a5a36}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 4px 14px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:7px 14px;font:700 13px 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer;white-space:nowrap}.chip.on{background:var(--b);color:#fff;border-color:var(--b)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px;padding:6px 6px 40px}
+.pc .em{font-size:50px;text-align:center;background:var(--soft);border-radius:16px;padding:12px;margin-bottom:10px;box-shadow:3px 4px 0 var(--line)}
+.pc b{display:block}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;margin:4px 0 10px}
+label{font-weight:700;font-size:13px}.ck{display:block;font-weight:500;padding:3px 0}.ck input{width:auto;margin:0 8px 0 0}
+.tabs{display:flex;gap:6px;margin:12px 0}.tabs .chip{flex:1;text-align:center}
+#ov{position:fixed;inset:0;background:rgba(2,6,23,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}#ov.on{display:flex}
+#md{width:100%;max-width:440px;max-height:90vh;overflow:auto;background:var(--bg);border-radius:22px;padding:20px;border:1px solid var(--line)}
+#dr{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--bg);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:40;display:flex;flex-direction:column;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}#dr.on{transform:none}#ci{flex:1;overflow:auto}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:700;background:var(--soft);color:var(--b)}.pill.ok{background:#dcfce7;color:#15803d}.pill.w{background:#f6efe6;color:#8a5a36}
+#ts{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;z-index:60;display:none;max-width:90%}
+#er{color:#dc2626;font-size:13px;min-height:18px}.hide{display:none}.cr{margin-bottom:12px}
+@media(max-width:760px){.hero.two{grid-template-columns:1fr}.cubes{grid-template-columns:repeat(4,1fr)}.cube{font-size:30px;border-radius:16px}}
+footer{background:#17110d;color:#f3e9dc;margin-top:30px;padding:30px 0 calc(22px + env(safe-area-inset-bottom,0px))}.ft{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px}.ft b{display:block;margin-bottom:6px;color:#fff}.fl{display:block;background:none;border:0;color:#e6d5bf;font:600 14px 'Plus Jakarta Sans',system-ui,sans-serif;padding:6px 0;cursor:pointer;text-align:left}.soc{display:flex;gap:12px;margin-top:14px}.soc a{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#2b1f17;color:#fff;box-shadow:3px 4px 0 #000}.soc a:active{transform:translate(2px,3px)}.soc svg{width:24px;height:24px;fill:currentColor}.cp{border-top:1px solid #3a2b20;margin-top:22px;padding-top:14px;font-size:13px;color:#b9a68f}.pgt p,.pgt li{margin:6px 0}.pgt ul{padding-left:18px;margin:6px 0}
+@media(max-width:760px){.ft{grid-template-columns:1fr}}
+footer{text-align:center}footer p{margin-left:auto;margin-right:auto}.ft{justify-items:center}.fl{margin:0 auto;text-align:center}.soc{justify-content:center}footer .logo{justify-content:center}
+
+body{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+.ib{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;cursor:pointer;box-shadow:3px 4px 0 var(--line);padding:0}.ib svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round}
+#sbar input{margin:0 0 10px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:12px;padding:12px 0 30px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
+.pc2{padding:8px;border-radius:16px;box-shadow:3px 4px 0 var(--line);cursor:pointer}
+.pi{position:relative;aspect-ratio:1;border-radius:12px;background:var(--soft);display:grid;place-items:center;overflow:hidden;font-size:46px}
+.pi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pi.big{aspect-ratio:auto;height:230px;font-size:80px}
+.pa{position:absolute;right:4px;bottom:4px;z-index:2}
+.add{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--b);background:#fff;color:var(--b);font:800 22px/1 sans-serif;cursor:pointer;display:grid;place-items:center;padding:0}
+.stp{display:flex;align-items:center;gap:2px;background:var(--b);color:#fff;border-radius:99px;padding:2px}.stp button{width:28px;height:28px;border-radius:50%;border:0;background:transparent;color:#fff;font:800 18px/1 sans-serif;cursor:pointer;padding:0}.stp b{min-width:18px;text-align:center;font-size:13px}
+.pp{display:block;font-size:15px;margin-top:8px}
+.pn{font-weight:700;font-size:13px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:34px}
+.pu{display:block;color:var(--mut)}.pdsc{white-space:pre-line;margin:12px 0}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:center;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+#bar .place{flex:1;padding:14px 10px;font-size:15px}
+.ask,.bag{width:48px;height:48px;border-radius:50%;border:0;font-size:22px;cursor:pointer;position:relative;display:grid;place-items:center;padding:0}.ask{background:#f6e3d3}.bag{background:var(--soft)}
+.bag b{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:99px;background:var(--b);color:#fff;font-size:12px;display:grid;place-items:center;padding:0 4px}
+#ts{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+#mn{position:fixed;top:0;left:0;bottom:0;width:min(320px,86%);background:var(--bg);border-right:1px solid var(--line);transform:translateX(-100%);transition:transform .25s;z-index:45;overflow:auto;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}#mn.on{transform:none}
+#mo{position:fixed;inset:0;background:rgba(2,6,23,.45);display:none;z-index:44}#mo.on{display:block}
+.ml{display:block;width:100%;background:none;border:0;text-align:left;font:700 15px 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);padding:12px 6px;border-radius:10px;cursor:pointer}.ml:active{background:var(--soft)}
+.mh{font:800 12px 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;margin:16px 6px 4px}
+#mn .soc{margin:18px 6px 0;justify-content:flex-start}
+.club{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 -16px 8px;padding:14px 16px;background:linear-gradient(100deg,#f7ebd0,#e3bb62);color:#3a2a10}.club small{display:block;font-style:italic;color:#5a4520}.club b{font-size:17px}
+.ml{display:flex;align-items:center;gap:12px}.ml .mt{flex:1}.mi{font-size:20px;width:26px;text-align:center}.mi:empty{display:none}
+.chv{display:grid;place-items:center;transition:transform .2s}.chv svg{width:18px;height:18px;stroke:var(--mut);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.chv.on{transform:rotate(90deg)}
+.msub{padding-left:12px;border-left:2px solid var(--line);margin:0 0 6px 12px}.ml.sub{font-weight:600;font-size:14px;padding:9px 8px}
+.mhd{font:800 20px 'Playfair Display',Georgia,serif;color:var(--b);margin:10px 6px 4px}
+#fh{display:flex;justify-content:space-between;align-items:center;margin:14px 0 0}
+.hhero{border-radius:20px;min-height:150px;margin:14px 0 0;display:grid;place-items:center;text-align:center;padding:16px;color:#fff;background:linear-gradient(100deg,#b08968,#6f4e37 45%,#3e2a1c) center/cover}.hhero h2{color:#fff;margin:0}
+.htabs{display:flex;gap:18px;overflow-x:auto;padding:12px 4px 0;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:16px}.htabs::-webkit-scrollbar{display:none}.htabs button{background:none;border:0;border-bottom:3px solid transparent;color:var(--mut);font:700 14px 'Plus Jakarta Sans',system-ui,sans-serif;padding:6px 0 10px;cursor:pointer;white-space:nowrap}.htabs button.on{color:var(--b);border-color:var(--b)}
+.subc{margin-left:14px;background:var(--soft)}
+
+.kg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}@media(min-width:760px){.kg{grid-template-columns:repeat(4,1fr)}}
+.kp{border:1px solid var(--line);border-radius:18px;padding:12px 14px;background:var(--card);box-shadow:3px 4px 0 var(--line)}.kp small{display:block}.kp b{display:block;font:800 20px 'Plus Jakarta Sans',system-ui,sans-serif;margin-top:2px}.kp.g b{color:#15803d}.kp.r b{color:#dc2626}
+.av{width:64px;height:64px;border-radius:50%;background:linear-gradient(100deg,#b08968,#6f4e37);color:#fff;display:grid;place-items:center;font:800 24px 'Playfair Display',Georgia,serif;overflow:hidden;flex:none}.av img{width:100%;height:100%;object-fit:cover}
+.dh{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.tw{overflow-x:auto}table.t{border-collapse:collapse;width:100%;font-size:13px}table.t td,table.t th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}table.t th{color:var(--mut);font-weight:700}table.t td.n,table.t th.n{text-align:right}
+.eid{display:inline-block;font:800 13px 'Plus Jakarta Sans',monospace;letter-spacing:.08em;background:var(--soft);border:1px dashed var(--b);color:var(--b);border-radius:8px;padding:2px 8px}
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script></head><body>
+<header><div class="wrap hd"><button class="ib" aria-label="Menu" onclick="menu(1)"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="logo" onclick="clearF();show('shop')"><i>J</i><span>jayed.com</span></div><div class="sp"></div><button class="btn g sm" id="acct" onclick="acct()">Sign in</button></div>
+<div class="wrap" id="sbar"><input id="q" type="search" placeholder="Search products (e.g. eggs, milk, potato)" oninput="draw()"></div></header>
+<main class="wrap" id="shop"><div id="fh" class="hide"></div><div class="chips hide" id="chips"></div><div class="grid" id="grid"></div></main>
+<main class="wrap hide" id="staff" style="padding-top:20px;padding-bottom:40px"></main>
+<main class="wrap hide" id="vo"></main><main class="wrap hide" id="vd"></main><main class="wrap hide" id="vp"></main><main class="wrap hide" id="vs"></main><main class="wrap hide" id="vf"></main><main class="wrap hide" id="vh"></main><main class="wrap hide" id="vj"></main>
+
+<!-- help pages now live in the site editor -->
+<div id="mo" onclick="menu(0)"></div>
+<aside id="mn"></aside>
+<div id="bar"><button class="ask" onclick="askM()" aria-label="Ask us">💬</button><button class="btn o place" onclick="openCart()">Place Order<span id="bt"></span></button><button class="bag" onclick="openCart()" aria-label="Cart">🛍️<b id="cc">0</b></button></div>
+<aside id="dr"><div class="row" style="margin:0 0 10px"><h3>Your cart</h3><button class="btn g sm" onclick="$('#dr').classList.remove('on')">Close</button></div><div id="ci"></div>
+<div class="row"><input id="cpn" placeholder="Coupon code" style="margin:0"><button class="btn g sm" onclick="applyC()">Apply</button></div>
+<div class="row"><small>Discount</small><small id="cd">-৳0</small></div><div class="row"><small>Delivery charge</small><small id="cf">৳0</small></div><div class="row"><b>Total</b><b id="ct">৳0</b></div>
+<button class="btn o w pulse" style="margin-top:14px" onclick="checkout()">Checkout</button></aside>
+<div id="ov"><div id="md"></div></div><div id="ts"></div>
+<script>
+// Data is stored in Firebase (Auth + Firestore). Files still use Supabase.
+const fbErr=x=>({'auth/email-already-in-use':'This email is already registered.','auth/invalid-credential':'Wrong email or password.','auth/wrong-password':'Wrong email or password.','auth/user-not-found':'Wrong email or password.','auth/weak-password':'Password must be 6+ characters.','auth/network-request-failed':'No internet connection.','auth/operation-not-allowed':'Enable Email/Password in Firebase Authentication.','permission-denied':'Not allowed. An admin may already exist.'}[x.code]||('Error: '+(x.code||x.message)));
+const $=s=>document.querySelector(s),mem={};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SH=['products','offers','coupons','orders','users','site','applications','ledger','recovery','profiles'];const get=(k,d)=>{if(k in mem)return mem[k];if(SH.includes(k))return mem[k]=[];try{const v=localStorage.getItem('fs_'+k);mem[k]=v?JSON.parse(v):d}catch(e){mem[k]=d}return mem[k]};
+const set=(k,v)=>{mem[k]=v;if(SH.includes(k)){window.fbPush&&window.fbPush(k,v);return}try{localStorage.setItem('fs_'+k,JSON.stringify(v))}catch(e){}};
+async function sha(t){if(!(window.crypto&&crypto.subtle)){let h=5381;for(const c of t)h=(h*33^c.charCodeAt(0))>>>0;return'x'+h}const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+const ph=v=>{v=v.replace(/[\s-]/g,'').replace(/^\+?88/,'');return /^01[3-9]\d{8}$/.test(v)?v:''};
+const SEED=[["🍅","Tomato 1 kg",60,"Vegetables"],["🧅","Onion 1 kg",70,"Vegetables"],["🍌","Banana 12 pcs",80,"Fruits"],["🥛","Milk 1 L",95,"Dairy"],["🥚","Eggs 12 pcs",140,"Dairy"],["🍞","Bread loaf",55,"Bakery"],["🍚","Miniket rice 5 kg",420,"Pantry"],["🐟","Rui fish 1 kg",320,"Fish"],["🧼","Hand soap",45,"Household"]];
+let products=get('products',SEED.map((p,i)=>({id:'p'+i,e:p[0],n:p[1],p:p[2],c:p[3],shop:'jayed.com'})));
+let cat='All',cart={},CATS=[];
+function toast(m){const t=$('#ts');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',2600)}
+function openM(h){$('#md').innerHTML=h;$('#ov').classList.add('on')}
+function closeM(){$('#ov').classList.remove('on')}
+$('#ov').onclick=e=>{if(e.target.id==='ov')closeM()};
+function show(v){$('#shop').classList.toggle('hide',v!=='shop');$('#staff').classList.toggle('hide',v!=='staff');scrollTo(0,0)}
+function draw(){CATS=['All',...new Set(products.map(p=>p.c))];
+$('#chips').innerHTML=CATS.map((c,i)=>`<button class="chip${c===cat?' on':''}" onclick="cat=CATS[${i}];draw()">${esc(c)}</button>`).join('');
+const q=$('#q').value.toLowerCase(),l=products.filter(p=>(cat==='All'||p.c===cat)&&p.n.toLowerCase().includes(q));
+$('#grid').innerHTML=l.map(p=>`<div class="card pc"><div class="em">${esc(p.e)}</div><b>${esc(p.n)}</b><small>${esc(p.shop)}</small><div class="row"><b>৳${p.p}</b><button class="btn o sm pulse" onclick="add('${p.id}')">Add</button></div></div>`).join('')||'<p class="mut">No products found.</p>'}
+function add(id){cart[id]=(cart[id]||0)+1;cartUI();toast('Added to cart')}
+function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];cartUI()}
+function cartUI(){let n=0,t=0;const h=Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===id);if(!p)return'';n+=q;t+=q*p.p;return`<div class="card cr"><div class="row" style="margin:0"><span>${esc(p.e)} ${esc(p.n)}</span><b>৳${p.p*q}</b></div><div class="row"><button class="btn g sm" onclick="chg('${id}',-1)">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1)">+</button></div></div>`}).join('');
+$('#ci').innerHTML=h||'<p class="mut">Your cart is empty.</p>';$('#cc').textContent=n;$('#ct').textContent='৳'+t;return t}
+// ---- Customer: name + phone, or Gmail + phone ----
+const cust=()=>get('cust',null);
+function acctUI(){const c=cust();$('#acct').textContent=c?c.name.split(' ')[0]:'Sign in'}
+function acct(){cust()?openM(`<h3>Hi, ${esc(cust().name)}</h3><p class="mut">${esc(cust().phone)}</p><button class="btn w" onclick="myOrders()">My orders</button><button class="btn g w" style="margin-top:10px" onclick="set('cust',null);acctUI();closeM()">Sign out</button>`):custModal()}
+function custModal(next){window.nx=next;window.ctn=1;openM(`<h3>Sign in to order</h3><p class="mut">No password needed. Use your name and phone number, or your Gmail and phone number.</p>
+<div class="tabs"><button class="chip on" id="t1" onclick="ctab(1)">Name + phone</button><button class="chip" id="t2" onclick="ctab(2)">Gmail + phone</button></div>
+<div id="f1"><label>Your name</label><input id="cn" autocomplete="name"></div>
+<div id="f2" class="hide"><label>Gmail address</label><input id="ce" type="email" autocomplete="email" placeholder="name@gmail.com"></div>
+<label>Phone number</label><input id="cp" type="tel" inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="tel"><div id="er"></div>
+<button class="btn o w" onclick="doCust()">Continue</button>`)}
+function ctab(n){window.ctn=n;$('#f1').classList.toggle('hide',n!==1);$('#f2').classList.toggle('hide',n!==2);$('#t1').classList.toggle('on',n===1);$('#t2').classList.toggle('on',n===2)}
+function doCust(){const n=window.ctn||1,p=ph($('#cp').value),name=$('#cn').value.trim(),em=$('#ce').value.trim().toLowerCase(),e=m=>$('#er').textContent=m;
+if(n===1&&name.length<2)return e('Enter your name.');
+if(n===2&&!/^[^\s@]+@gmail\.com$/.test(em))return e('Enter a valid Gmail address.');
+if(!p)return e('Enter a valid phone number, like 01712345678.');
+set('cust',{name:n===1?name:em.split('@')[0],phone:p,email:n===2?em:''});window.ctn=1;acctUI();closeM();if(window.nx==='co')coModal();else toast('Signed in')}
+function checkout(){if(!Object.keys(cart).length)return toast('Your cart is empty');cust()?coModal():custModal('co')}
+function coModal(){const t=cartUI();$('#dr').classList.remove('on');openM(`<h3>Delivery details</h3><p class="mut">${esc(cust().name)}, ${esc(cust().phone)}</p><label>Delivery address</label><textarea id="ad" rows="3" placeholder="House, road, area"></textarea><div class="row"><span>Pay with cash on delivery</span><b>৳${t}</b></div><div id="er"></div><button class="btn o w pulse" style="margin-top:8px" onclick="place()">Place order</button>`)}
+function place(){const a=$('#ad').value.trim();if(a.length<6)return $('#er').textContent='Enter your full delivery address.';
+const items=Object.entries(cart).map(([id,q])=>{const p=products.find(x=>x.id===id);return{n:p.n,q,p:p.p}}),o={uid:(window.fbUid&&fbUid())||'',id:'FS'+Math.floor(1000+Math.random()*9000),items,total:items.reduce((s,i)=>s+i.p*i.q,0),cust:cust(),addr:a,st:'Pending',otp:String(Math.floor(1000+Math.random()*9000)),rider:'',t:Date.now()};
+const L=get('orders',[]);L.unshift(o);set('orders',L);cart={};cartUI();myOrders(true)}
+function myOrders(ok){const c=cust(),L=get('orders',[]).filter(o=>o.cust.phone===c.phone);
+openM(`<h3>${ok?'Order placed':'My orders'}</h3>`+(L.map(o=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>Total</span><b>৳${o.total}</b></div>${o.st==='Out for Delivery'?`<p style="margin:6px 0 0">Give this OTP to the rider: <b>${o.otp}</b></p>`:''}</div>`).join('')||'<p class="mut">No orders yet.</p>')+`<button class="btn g w" onclick="closeM()">Close</button>`)}
+// ---- Staff: vendor, rider, help care, admin (full rules) ----
+const me=()=>get('users',[]).find(u=>u.id===get('sess',''));
+function staffEntry(){me()?dash():staffModal()}
+function staffModal(){openM(`<h3>Staff account</h3><div class="tabs"><button class="chip on" id="s1" onclick="stab(1)">Log in</button><button class="chip" id="s2" onclick="stab(2)">Register</button></div>
+<div id="lf"><label>Email</label><input id="le" type="email"><label>Password</label><input id="lp" type="password"><button class="btn w" onclick="login()">Log in</button><button class="btn g w" style="margin-top:10px" onclick="recModal()">Forgot password?</button></div>
+<div id="rf" class="hide"><label>Role</label><select id="sr" onchange="rch()"><option value="vendor">Vendor</option><option value="rider">Rider</option><option value="manager">Manager</option><option value="helpcare">Help Care</option><option value="admin">Admin (CEO approval needed)</option></select>
+<label>Full name</label><input id="sn"><label>Email</label><input id="se" type="email"><label>Phone</label><input id="sh" type="tel"><label>Password (6+ characters)</label><input id="sp" type="password">
+<div id="sv"><label>Shop name</label><input id="ss"></div><div id="sd"><label>Verification (upload at least one)</label><small>NID card</small><label class="btn g w" style="display:block;margin:4px 0 6px">Choose file<input id="sf1" type="file" accept="image/*,.pdf" hidden onchange="$('#fn1').textContent=this.files[0]?this.files[0].name:''"></label><small id="fn1"></small><small>Your photo</small><label class="btn g w" style="display:block;margin:4px 0 6px">Choose file<input id="sf2" type="file" accept="image/*,.pdf" hidden onchange="$('#fn2').textContent=this.files[0]?this.files[0].name:''"></label><small id="fn2"></small><small>Other document / trade license</small><label class="btn g w" style="display:block;margin:4px 0 6px">Choose file<input id="sf3" type="file" accept="image/*,.pdf" hidden onchange="$('#fn3').textContent=this.files[0]?this.files[0].name:''"></label><small id="fn3"></small></div>
+<button class="btn w" onclick="reg()">Submit for verification</button></div><div id="er"></div>`);rch()}
+function stab(n){$('#lf').classList.toggle('hide',n!==1);$('#rf').classList.toggle('hide',n!==2);$('#s1').classList.toggle('on',n===1);$('#s2').classList.toggle('on',n===2)}
+function rch(){const r=$('#sr').value;$('#sv').classList.toggle('hide',r!=='vendor');$('#sd').classList.toggle('hide',r==='helpcare')}
+async function reg(){const r=$('#sr').value,n=$('#sn').value.trim(),em=$('#se').value.trim().toLowerCase(),p=ph($('#sh').value),pw=$('#sp').value,F=[1,2,3].map(i=>$('#sf'+i).files[0]),f=F.some(Boolean),shop=$('#ss').value.trim(),e=m=>$('#er').textContent=m;
+if(n.length<2||!/^\S+@\S+\.\S+$/.test(em))return e('Enter your name and a valid email.');
+if(!p)return e('Enter a valid phone number.');if(pw.length<6)return e('Password must be 6+ characters.');
+if((r==='vendor'||r==='rider')&&!f)return e('Upload at least one: NID, photo or document.');if(r==='vendor'&&!shop)return e('Enter your shop name.');
+if(!window.fbReg)return e('Connecting to Firebase. Try again in a moment.');
+let dc={};try{const K=['NID','Photo','Document'];for(let i=0;i<3;i++)if(F[i])dc[K[i]]=await up(F[i],'docs')}catch(x){return e('Upload failed. Please try again with a smaller file.')}
+try{await fbReg(em,pw,{role:r,name:n,email:em,phone:p,shop,docs:dc,doc:Object.values(dc)[0]||'',status:'Pending Verification'});
+e('');toast('Submitted. Wait for approval.');stab(1);$('#le').value=em}catch(x){e(fbErr(x))}}
+async function login(){const em=$('#le').value.trim().toLowerCase(),pw=$('#lp').value,e=m=>$('#er').textContent=m;
+if(!window.fbLogin)return e('Connecting to Firebase. Try again in a moment.');
+try{await fbLogin(em,pw);if(!me())return e('No staff profile found for this account.');closeM();dash()}catch(x){e(fbErr(x))}}
+function out(){set('sess','');ED=null;sTab='ord';window._di=0;window._idTry=null;arF='';show('shop');window.fbOut&&fbOut()}
+function ordCard(o,u){const a=[];
+if(['vendor','manager','admin','ceo'].includes(u.role)&&o.st==='Pending')a.push(`<button class="btn sm" onclick="act('${o.id}','prep')">Start preparing</button>`);
+if(u.role==='rider'&&o.st==='Preparing')a.push(`<button class="btn o sm" onclick="act('${o.id}','take')">Accept delivery</button>`);
+if(u.role==='rider'&&o.st==='Out for Delivery'&&o.rider===u.id)a.push(!o.otp?`<button class="btn o sm" onclick="act('${o.id}','done')">Mark delivered</button>`:`<input id="otp${o.id}" inputmode="numeric" maxlength="4" placeholder="Customer's 4-digit OTP"><button class="btn o sm" onclick="deliver('${o.id}')">Mark delivered</button>`);
+if(['helpcare','manager','admin','ceo'].includes(u.role)&&!['Delivered','Cancelled'].includes(o.st))a.push(`<button class="btn g sm" onclick="act('${o.id}','cancel')">Cancel order</button>`);
+return`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${esc(o.cust.name)}, ${esc(o.cust.phone)}</span><b>৳${o.total}</b></div><small>${esc(o.addr)}</small> <a class="btn g sm" href="tel:${esc(o.cust.phone)}">Call customer</a>${a.length?`<div style="margin-top:8px">${a.join('')}</div>`:''}</div>`}
+function teamUI(u){const T=get('users',[]).filter(x=>x.status==='Approved'&&x.id!==u.id);return`<h3 style="margin-top:20px">Team contacts</h3>`+(T.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role==='helpcare'?'help care':x.role}</span><br><small>${x.shop?esc(x.shop)+' / ':''}${esc(x.phone)}</small><div class="row"><a class="btn sm" href="tel:${esc(x.phone)}">Call</a><a class="btn g sm" target="_blank" rel="noopener" href="https://wa.me/88${esc(x.phone)}">WhatsApp</a></div></div>`).join('')||'<p class="mut">No other approved team members yet.</p>')}
+function dash(){const u=me();if(!u)return show('shop');show('staff');
+let h=`<div class="row" style="margin-top:0"><div><h3>${esc(u.name)}</h3><span class="pill ${u.status==='Approved'?'ok':'w'}">${u.role}: ${u.status}</span></div><button class="btn g sm" onclick="out()">Log out</button></div><div style="height:14px"></div>`;
+if(u.status!=='Approved'){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':'Waiting for admin approval.'}</b><p class="mut">You cannot list items or receive orders until the admin approves your documents.</p></div>`;return}
+let O=get('orders',[]);if(u.role==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);
+if(u.role==='admin'){const P=get('users',[]).filter(x=>x.status==='Pending Verification');
+h+=`<h3>Verification queue</h3>`+(P.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Documents: ${Object.entries(x.docs||{}).map(([k,v])=>esc(k)+': '+esc(v.split('/').pop())).join(', ')||esc(x.doc||'none')}</small><div class="row"><button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button></div></div>`).join('')||'<p class="mut">No pending applications.</p>')}
+if(u.role==='vendor')h+=`<h3>Add a product</h3><div class="card cr"><label>Emoji</label><input id="pe" value="🛒" maxlength="4"><label>Name</label><input id="pn"><label>Price (৳)</label><input id="pp" type="number" min="1"><label>Category</label><input id="pc" placeholder="e.g. Dairy"><button class="btn w" onclick="addP()">List product</button><div id="er"></div></div>`;
+h+=`<h3>Orders</h3>`+(O.map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders right now.</p>');h+=teamUI(u);$('#staff').innerHTML=h}
+function decide(id,ok){const U=get('users',[]);U.find(x=>x.id===id).status=ok?'Approved':'Rejected';set('users',U);dash()}
+function addP(){const u=me(),n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim();if(!n||!(p>0)||!c)return $('#er').textContent='Fill in name, price and category.';
+products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,shop:u.shop});set('products',products);draw();toast('Product listed');dash()}
+function act(id,k){const u=me(),O=get('orders',[]),o=O.find(x=>x.id===id);if(!u||u.status!=='Approved'||!o)return;
+if(k==='prep')o.st='Preparing';if(k==='take'){o.st='Out for Delivery';o.rider=u.id}if(k==='done'&&!o.otp)o.st='Delivered';if(k==='cancel')o.st='Cancelled';set('orders',O);dash()}
+function deliver(id){const O=get('orders',[]),o=O.find(x=>x.id===id);if($('#otp'+id).value.trim()!==o.otp)return toast('Wrong OTP. Ask the customer again.');o.st='Delivered';set('orders',O);toast('Delivered');dash()}
+draw();cartUI();acctUI();
+</script><script>
+// ---- Site data: settings, menu and help pages (editable by CEO, saved in Firestore "site") ----
+const BRAND_FB='https://www.facebook.com/jayedhasan712005';
+const DEF_SET={otp:false,delT:500,delLo:50,delHi:30,clubName:'jayed Club',clubPts:'0 Points',clubBtn:'Get Discounts',wa:'8801617886196',fb:BRAND_FB,yt:'https://www.youtube.com/@senseofscince',banner:'',bk:'01617886196',ba:'0200022398918',bn:''};
+const siteDoc=id=>get('site',[]).find(x=>x.id===id)||null;
+const SET=()=>({...DEF_SET,...(siteDoc('main')||{})});
+function saveSite(id,data){const L=get('site',[]).filter(x=>x.id!==id);L.push({...data,id});set('site',L)}
+const DEF_MENU=(()=>{let n=0;const mk=(l,t,r,ic,ch)=>({id:'m'+(++n),l,t,r:r||'',ic:ic||'',ch:ch||[]}),cats=a=>a.map(x=>mk(x,'cat')),pg=(l,k)=>mk(l,'page',k);
+return[mk('Coupons','view','vd','🎟️'),mk('Offers','view','vo','🏷️'),mk('Favourites','view','vf','❤️'),mk('Job corner','view','vj','💼'),
+mk('','space'),mk('Popular','head'),mk('Flash Sales','flash'),
+mk('Food','cat','','',cats(['Vegetables','Fruits','Dairy','Bakery','Pantry','Fish'])),
+mk('Cleaning Supplies','cat','','',cats(['Household'])),
+mk('Home & Kitchen','cat'),mk('Fashion & Lifestyle','cat'),mk('Baby Care','cat'),mk('Personal Care','cat'),mk('Stationery & Office','cat'),mk('Pet Care','cat'),mk('Toys & Sports','cat'),mk('Beauty & MakeUp','cat'),mk('Health & Wellness','cat'),mk('Vehicle Essentials','cat'),mk('New Arrival','new'),
+mk('','space'),mk('Safety Center','page','safety','🛡️'),mk('Premium Care','page','premium','🏅'),mk('','space'),
+mk('Help','group','','',[pg('FAQ','faq'),pg('Our Story','about'),pg('Team','team'),pg('Career','career'),pg('Contact Us','contact'),pg('Privacy Policy','privacy'),pg('Terms of Use','terms'),pg('Delivery & Refund','delivery')]),
+mk('','space'),mk('My profile & orders','view','vp','👤'),mk('Staff login','staff','','🔐')]})();
+const DEF_PAGES=[
+{id:'faq',t:'FAQ',tab:true,h:`**How do I order?**
+Add items to the cart, press Checkout, then enter your name, phone number and delivery address.
+
+**How do I pay?**
+Payment is cash on delivery.
+
+**Can I cancel an order?**
+Yes, before it is out for delivery. Contact us on WhatsApp with your order number.
+
+**How can I sell or deliver with jayed.com?**
+Open the menu, tap Staff login, then Register, and submit your documents. You can start after approval.
+
+**I forgot to note my order number.**
+Open My profile and orders to see all your orders.`},
+{id:'about',t:'Our Story',tab:true,h:`**jayed.com** is an online marketplace that brings groceries and daily essentials from local shops to your door.
+
+Our vendors supply the products, our managers list them, our riders deliver them, and our help care team supports you if anything goes wrong.
+
+- Many local vendors in one place
+- Cash on delivery
+- Vendors and riders are verified by our admin team`},
+{id:'team',t:'Team',tab:true,h:`jayed.com is run by a small team of managers, admins, vendors and riders who work together to bring your groceries on time.
+
+Want to join us? Open the Career tab.`},
+{id:'career',t:'Career',tab:true,h:`We are always looking for riders and shop vendors.
+
+- Open the menu and tap Staff login, then Register.
+- Choose your role and submit your documents.
+- You can start after approval.
+
+You can also message us on WhatsApp.`},
+{id:'contact',t:'Contact Us',tab:true,h:`We reply fastest on WhatsApp.
+
+[WhatsApp: 01617886196](https://wa.me/8801617886196)
+
+[Facebook](https://www.facebook.com/jayedhasan712005)
+
+[YouTube channel](https://www.youtube.com/@senseofscince)
+
+Please keep your order number ready when you contact us about an order.`},
+{id:'privacy',t:'Privacy Policy',tab:true,h:`**1. Information we collect.** Your name, phone number, email (if you give one), delivery address and order history. For vendors and riders we also collect identity documents for verification.
+
+**2. How we use it.** To process and deliver orders, to contact you about your order, to verify vendors and riders, and to improve our service.
+
+**3. Sharing.** We share your name, phone number and address only with the vendor and rider handling your order. We do not sell your personal information.
+
+**4. Documents.** Identity documents are used only for verification and are not shown to customers.
+
+**5. Security.** We use trusted services to store data and take reasonable steps to protect it, but no online system is completely secure.
+
+**6. Your choices.** You can ask us to correct or delete your information by messaging us on WhatsApp.
+
+**7. Changes.** We may update this policy from time to time. The latest version is always on this page.`},
+{id:'terms',t:'Terms of Use',tab:true,h:`**1. Using the service.** By using jayed.com you agree to these terms. Please give correct information when you order or register.
+
+**2. Orders.** An order is placed when you press Place order and is accepted when a vendor starts preparing it. We may cancel orders that look false, abusive or cannot be delivered.
+
+**3. Prices.** Prices and availability are set by us and can change without notice. The total shown at checkout is the amount you pay.
+
+**4. Payment.** Payment is cash on delivery.
+
+**5. Vendors and riders.** Vendors and riders must be approved by the admin team before they can work on the platform and must follow local laws.
+
+**6. Misuse.** Fake orders, fake documents or abuse of staff may lead to account suspension.
+
+**7. Liability.** We try to keep the service available but do not promise it will always be error free.
+
+**8. Changes.** We may update these terms from time to time.`},
+{id:'delivery',t:'Delivery & Refund',tab:true,h:`**Delivery.** Delivery time depends on your area, the vendor and the rider. Any delivery charge is shown before you place the order. Please keep your phone on so the rider can reach you.
+
+**Checking your order.** Please check your items when the rider arrives.
+
+**Damaged, wrong or missing items.** Contact us on WhatsApp the same day with your order number and, if possible, a photo. We will arrange a replacement or refund after checking.
+
+**Perishable items.** Fresh food such as vegetables, fish and dairy cannot be returned unless it is damaged, spoiled or wrong when delivered.
+
+**Cancellation.** You can cancel before the order is out for delivery. Cancelled orders are not charged.
+
+**Refunds.** Approved refunds are made in cash or by the method we agree with you.`},
+{id:'safety',t:'Safety Center',tab:false,h:`# Your safety
+
+- Check your items when the rider arrives.
+- Only give your delivery code (OTP) to the rider handling your order.
+- Vendors and riders are verified by our admin team before they start.
+
+If anything feels wrong, message us on WhatsApp right away with your order number.`},
+{id:'premium',t:'Premium Care',tab:false,h:`Premium Care is for customers who want extra help with an order.
+
+Message us on WhatsApp with your order number and our help care team will help you.`}];
+const menuItems=()=>{const d=siteDoc('menu');if(!(d&&Array.isArray(d.items)))return DEF_MENU;let m=d.items;if(!d.v&&!m.some(x=>x.r==='vj')){m=m.slice();const k=m.findIndex(x=>x.r==='vf');m.splice(k>=0?k+1:0,0,{id:'mjob',l:'Job corner',t:'view',r:'vj',ic:'💼',ch:[]})}return m};
+const pagesList=()=>{const d=siteDoc('pages');return d&&Array.isArray(d.items)?d.items:DEF_PAGES};
+function fmt(t){const inl=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+return String(t||'').replace(/\r/g,'').split(/\n{2,}/).map(b=>{b=b.trim();if(!b)return'';const L=b.split('\n');
+if(L.every(x=>/^\s*[-•]\s+/.test(x)))return'<ul>'+L.map(x=>'<li>'+inl(x.replace(/^\s*[-•]\s+/,''))+'</li>').join('')+'</ul>';
+if(L.length===1&&/^#\s+/.test(b))return'<h3>'+inl(b.replace(/^#\s+/,''))+'</h3>';
+return'<p>'+L.map(inl).join('<br>')+'</p>'}).join('')}
+</script><script>
+const SBU='https://fawrumzaivanwecwsgwr.supabase.co',SBK='sb_publishable_7tA3rV6gJ3xQbHpnQTxI3Q_VPWLSJR2';const cfg=()=>({...SET(),sbu:SBU,sbk:SBK});
+let sb=null,cpn=null,offers=get('offers',[{id:'o0',e:'🍳',n:'Breakfast pack',p:270,items:['p4','p5','p3'],shop:'jayed.com'}]),coupons=get('coupons',[{code:'FATAH10',pct:10,by:'jayed.com'}]);
+const PR=id=>products.concat(offers).find(x=>x.id===id),V=['shop','vo','vd','vp','vs','staff','vf','vh','vj'];
+function initSB(){sb=null;const c=cfg();try{if(c.sbu&&c.sbk&&window.supabase)sb=supabase.createClient(c.sbu,c.sbk)}catch(e){}}
+function theme(){document.documentElement.setAttribute('data-theme','light')}
+async function up(f,b){if(!f)return'';if(!sb)return'local:'+f.name;const p=Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_'),r=await sb.storage.from(b).upload(p,f);if(r.error)throw r.error;return b+'/'+p}
+async function viewDoc(p){const r=await sb.storage.from('docs').createSignedUrl(p.slice(5),120);r.data?window.open(r.data.signedUrl):toast('Cannot open this file')}
+function show(v){V.forEach(x=>$('#'+x).classList.toggle('hide',x!==v));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));({vo:dOff,vd:dDisc,vp:dProf,vs:dSet})[v]&&({vo:dOff,vd:dDisc,vp:dProf,vs:dSet})[v]();scrollTo(0,0)}
+function acct(){cust()?show('vp'):custModal()}
+function cartUI(){let n=0,s=0;const h=Object.entries(cart).map(([id,q])=>{const p=PR(id);if(!p)return'';n+=q;s+=q*p.p;return`<div class="card cr"><div class="row" style="margin:0"><span>${esc(p.e)} ${esc(p.n)}</span><b>৳${p.p*q}</b></div><div class="row"><button class="btn g sm" onclick="chg('${id}',-1)">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1)">+</button></div></div>`}).join(''),d=cpn?Math.round(s*cpn.pct/100):0;
+$('#ci').innerHTML=h||'<p class="mut">Your cart is empty.</p>';$('#cc').textContent=n;$('#cd').textContent='-৳'+d;$('#ct').textContent='৳'+(s-d);return s-d}
+function applyC(){const c=coupons.find(x=>x.code===$('#cpn').value.trim().toUpperCase());if(!c)return toast('Invalid coupon code');cpn=c;cartUI();toast(c.pct+'% discount applied')}
+function useC(c){$('#cpn').value=c;applyC();$('#dr').classList.add('on')}
+function coModal(){const t=cartUI();$('#dr').classList.remove('on');openM(`<h3>Delivery details</h3><p class="mut">${esc(cust().name)}, ${esc(cust().phone)}</p><label>Delivery address</label><textarea id="ad" rows="3" placeholder="House, road, area">${esc(cust().addr||'')}</textarea><div class="row"><span>Cash on delivery</span><b>৳${t}</b></div><div id="er"></div><button class="btn o w pulse" style="margin-top:12px" onclick="place()">Place order</button>`)}
+function place(){const a=$('#ad').value.trim();if(a.length<6)return $('#er').textContent='Enter your full delivery address.';const c=cust();c.addr=a;set('cust',c);
+const items=Object.entries(cart).map(([id,q])=>{const p=PR(id);return{n:p.n,q,p:p.p,s:p.shop||''}}),s=items.reduce((x,i)=>x+i.p*i.q,0),d=cpn?Math.round(s*cpn.pct/100):0,o={uid:(window.fbUid&&fbUid())||'',id:'FS'+Math.floor(1000+Math.random()*9000),items,total:s-d+delFee(s-d),fee:delFee(s-d),disc:d,code:cpn?cpn.code:'',cust:c,addr:a,st:'Pending',otp:cfg().otp?String(Math.floor(1000+Math.random()*9000)):'',rider:'',t:Date.now()};o.shops=[...new Set(items.map(i=>i.s).filter(Boolean))];
+const L=get('orders',[]);L.unshift(o);set('orders',L);cart={};cpn=null;cartUI();closeM();show('vp');toast('Order placed: #'+o.id)}
+function dOff(){$('#vo').innerHTML=`<h2>Offers and packages</h2><p class="mut">Bundles made by vendors. Buy together and save.</p><div class="grid">`+(offers.map(o=>{const s=o.items.map(PR).filter(Boolean),sum=s.reduce((a,b)=>a+b.p,0);return`<div class="card pc"><div class="em">${esc(o.e)}</div><b>${esc(o.n)}</b><small>${s.map(x=>esc(x.n)).join(', ')}</small><div class="row"><span><b>৳${o.p}</b> <s class="mut">৳${sum}</s></span><button class="btn o sm" onclick="add('${o.id}')">Add</button></div></div>`}).join('')||'<p class="mut">No offers yet.</p>')+`</div>`}
+function dDisc(){const u=me(),ok=canShop(u);$('#vd').innerHTML=`<h2>Discounts</h2><div class="grid">`+coupons.map(c=>`<div class="card"><h3>${c.pct}% off</h3><b>${esc(c.code)}</b><br><small>by ${esc(c.by)}</small><div class="row"><button class="btn sm" onclick="useC('${esc(c.code)}')">Use code</button>${u&&u.status==='Approved'&&isTop(u)?`<button class="btn g sm" onclick="delC('${esc(c.code)}')">Delete</button>`:''}</div></div>`).join('')+`</div>`+(ok?`<h3>Create a coupon</h3><div class="card cr"><label>Code</label><input id="kc" maxlength="12"><label>Percent off (1 to 90)</label><input id="kp" type="number" min="1" max="90"><button class="btn w" onclick="addC()">Create coupon</button></div>`:'')}
+function addC(){const u=me(),c=$('#kc').value.trim().toUpperCase(),n=+$('#kp').value;if(!/^[A-Z0-9]{3,12}$/.test(c)||!(n>=1&&n<=90))return toast('Code: 3 to 12 letters or numbers. Percent: 1 to 90.');if(coupons.some(x=>x.code===c))return toast('This code already exists');coupons.push({code:c,pct:n,by:u.shop||u.name});set('coupons',coupons);dDisc()}
+function delC(c){coupons=coupons.filter(x=>x.code!==c);set('coupons',coupons);dDisc()}
+function dProf(){const c=cust();if(!c){$('#vp').innerHTML=`<h2>Profile</h2><div class="card"><p>Sign in to see your profile and orders.</p><button class="btn o" onclick="custModal()">Sign in</button></div>`;return}
+const L=get('orders',[]).filter(o=>o.cust.phone===c.phone);
+$('#vp').innerHTML=`<div class="hero"><h2>${esc(c.name)}</h2><p class="mut">${esc(c.phone)}${c.email?' / '+esc(c.email):''}</p></div><div class="card cr"><label>Default delivery address</label><textarea id="pa" rows="2">${esc(c.addr||'')}</textarea><button class="btn sm" onclick="saveA()">Save address</button> <button class="btn g sm" onclick="set('cust',null);acctUI();dProf()">Sign out</button></div><h3>My orders</h3>`+(L.map(o=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${o.code?'Coupon '+esc(o.code):'Cash on delivery'}</span><b>৳${o.total}</b></div>${o.otp&&o.st==='Out for Delivery'?`<p style="margin:6px 0 0">Give this OTP to the rider: <b>${o.otp}</b></p>`:''}</div>`).join('')||'<p class="mut">No orders yet.</p>')}
+function saveA(){const c=cust();c.addr=$('#pa').value.trim();set('cust',c);toast('Address saved')}
+function dSet(){const c=cfg(),u=me(),ad=canSite(u);$('#vs').innerHTML=`<h2>Settings</h2><div class="card cr"><label>Delivery OTP</label><p class="mut">Now ${c.otp?'on':'off'}. When on, the customer gives a 4-digit code to the rider.</p>${ad?`<button class="btn sm" onclick="togO()">Turn ${c.otp?'off':'on'}</button>`:'<small>Only the admin can change this.</small>'}</div>`}
+function saveT(){const c=cfg();c.theme=$('#st').value;set('cfg',c);theme()}
+function togO(){const x={...SET()};x.otp=!x.otp;saveSite('main',x);dSet()}
+function saveS(){const c=cfg();c.sbu=$('#su').value.trim();c.sbk=$('#sk').value.trim();set('cfg',c);initSB();dSet();toast(sb?'Connected to Supabase':'Check the URL and key')}
+function addP(){const u=me(),n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim();if(!n||!(p>0)||!c)return $('#er').textContent='Fill in name, price and category.';products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,shop:u.shop||'jayed.com',vendor:u.id});set('products',products);draw();toast('Product listed');dash()}
+function delP(id){products=products.filter(p=>p.id!==id);set('products',products);delete cart[id];cartUI();draw();dash()}
+function addO(){const u=me(),n=$('#on').value.trim(),p=+$('#op').value,it=[...document.querySelectorAll('.of:checked')].map(x=>x.value);if(!n||!(p>0)||it.length<2)return toast('Add a name, a price and at least 2 products.');offers.push({id:'o'+Date.now(),e:$('#oe').value||'🎁',n,p,items:it,shop:u.shop||'jayed.com',vendor:u.id});set('offers',offers);toast('Offer published');dash()}
+function delO(id){offers=offers.filter(o=>o.id!==id);set('offers',offers);delete cart[id];cartUI();dash()}
+function teamUI(u){const T=get('users',[]).filter(x=>x.status==='Approved'&&x.id!==u.id);return`<h3 style="margin-top:20px">Team contacts</h3>`+(T.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role==='helpcare'?'help care':x.role}</span><br><small>${x.shop?esc(x.shop)+' / ':''}${esc(x.phone)}</small><div class="row"><a class="btn sm" href="tel:${esc(x.phone)}">Call</a><a class="btn g sm" target="_blank" rel="noopener" href="https://wa.me/88${esc(x.phone)}">WhatsApp</a></div></div>`).join('')||'<p class="mut">No other approved team members yet.</p>')}
+function dash(){const u=me();if(!u)return show('shop');show('staff');const ok=u.status==='Approved',A=u.role;
+let h=`<div class="hero"><span class="pill ${ok?'ok':'w'}">${A}: ${u.status}</span><h1 style="font-size:34px;margin-top:8px">Hello, ${esc(u.name)}</h1><p class="mut">${esc(u.email)}${u.shop?' / '+esc(u.shop):''}</p><button class="btn g sm" onclick="out()">Log out</button></div>`;
+if(!ok){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':'Waiting for admin approval.'}</b><p class="mut">You cannot list items or receive orders until the admin approves your documents.</p></div>`;return}
+let O=get('orders',[]);if(A==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);
+if(A==='admin'){const Q=get('users',[]).filter(x=>x.status==='Pending Verification');h+=`<h3>Verification queue</h3>`+(Q.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${x.role}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Documents: ${Object.entries(x.docs||{}).map(([k,v])=>esc(k)+': '+esc(v.split('/').pop())).join(', ')||esc(x.doc||'none')}</small><div class="row"><button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button>${sb?Object.entries(x.docs||{}).filter(([k,v])=>v.startsWith('docs/')).map(([k,v])=>`<button class="btn g sm" onclick="viewDoc('${esc(v)}')">View ${esc(k)}</button>`).join(''):''}</div></div>`).join('')||'<p class="mut">No pending applications.</p>')}
+if(A==='vendor'||A==='admin')h+=prodForm(u);if(A==='vendor')h+=offForm(u);
+h+=`<h3>Orders</h3>`+(O.map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders right now.</p>');h+=teamUI(u);$('#staff').innerHTML=h}
+initSB();theme();draw();cartUI();acctUI();
+</script>
+<script>
+// ---- Step 1: product-only home page, bottom bar, menu drawer ----
+const delFee=x=>{const q=SET();return x<=0?0:(x<(+q.delT)?(+q.delLo):(+q.delHi))};
+function menu(o){$('#mn').classList.toggle('on',!!o);$('#mo').classList.toggle('on',!!o)}
+function go(v){menu(0);show(v)}
+function pgm(k){menu(0);pg(k)}
+function openCart(){$('#dr').classList.add('on')}
+function askM(){openM(`<h3>Ask us</h3><p class="mut">Need help, or can't find a product? Message us.</p><a class="btn o w" href="https://wa.me/8801617886196" target="_blank" rel="noopener">WhatsApp: 01617886196</a><a class="btn g w" style="margin-top:10px" href="tel:+8801617886196">Call us</a><button class="btn g w" style="margin-top:10px" onclick="closeM();pg('faq')">FAQ</button><button class="btn g w" style="margin-top:10px" onclick="closeM()">Close</button>`)}
+const pimg=p=>`<span>${esc(p.e||'🛒')}</span>${p.img?`<img src="${esc(p.img)}" alt="" loading="lazy" onerror="this.style.display='none'">`:''}`;
+function ctl(id){const q=cart[id]||0;return q?`<div class="stp"><button onclick="event.stopPropagation();chg('${id}',-1)" aria-label="Less">−</button><b>${q}</b><button onclick="event.stopPropagation();chg('${id}',1)" aria-label="More">+</button></div>`:`<button class="add" onclick="event.stopPropagation();add('${id}')" aria-label="Add to bag">+</button>`}
+const card=p=>`<div class="card pc2" onclick="pview('${p.id}')"><div class="pi">${pimg(p)}<div class="pa">${ctl(p.id)}</div></div><b class="pp">৳${p.p}</b><div class="pn">${esc(p.n)}</div>${p.u?`<small class="pu">${esc(p.u)}</small>`:''}</div>`;
+function draw(){CATS=['All',...new Set(products.map(p=>p.c))];const q=($('#q').value||'').toLowerCase().trim(),l=products.filter(p=>(cat==='All'||p.c===cat)&&p.n.toLowerCase().includes(q));$('#grid').innerHTML=l.map(card).join('')||'<p class="mut">No products found.</p>'}
+function pview(id){const p=PR(id);if(!p)return;const q=cart[id]||0;
+openM(`<div class="pi big">${pimg(p)}</div><h3 style="margin-top:12px">${esc(p.n)}</h3>${p.u?`<small>${esc(p.u)}</small>`:''}<div class="row"><b style="font-size:22px">৳${p.p}</b>${q?`<div class="row" style="margin:0"><button class="btn g sm" onclick="chg('${id}',-1);pview('${id}')">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1);pview('${id}')">+</button></div>`:`<button class="btn o" onclick="add('${id}');pview('${id}')">Add to bag</button>`}</div><p class="pdsc">${p.d?esc(p.d):'No description added yet.'}</p><small>Sold by ${esc(p.shop||'jayed.com')}</small><button class="btn g w" style="margin-top:12px" onclick="closeM()">Close</button>`)}
+function add(id){cart[id]=(cart[id]||0)+1;cartUI();draw()}
+function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];cartUI();draw()}
+function cartUI(){let n=0,s=0;const h=Object.entries(cart).map(([id,q])=>{const p=PR(id);if(!p)return'';n+=q;s+=q*p.p;return`<div class="card cr"><div class="row" style="margin:0"><span>${esc(p.e||'')} ${esc(p.n)}${p.u?' <small>'+esc(p.u)+'</small>':''}</span><b>৳${p.p*q}</b></div><div class="row"><button class="btn g sm" onclick="chg('${id}',-1)">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1)">+</button></div></div>`}).join(''),d=cpn?Math.round(s*cpn.pct/100):0,fee=delFee(s-d),t=s-d+fee;
+$('#ci').innerHTML=h||'<p class="mut">Your cart is empty.</p>';$('#cc').textContent=n;$('#cd').textContent='-৳'+d;$('#cf').textContent='৳'+fee;$('#ct').textContent='৳'+t;$('#bt').textContent=n?' · ৳'+t:'';return t}
+function show(v){menu(0);V.forEach(x=>$('#'+x).classList.toggle('hide',x!==v));$('#sbar').classList.toggle('hide',v!=='shop');$('#bar').classList.toggle('hide',v==='staff');const f={vo:dOff,vd:dDisc,vp:dProf,vs:dSet}[v];f&&f();scrollTo(0,0)}
+async function upImg(f){if(!f)return'';if(!sb)throw new Error('no storage');const p=Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_'),r=await sb.storage.from('products').upload(p,f);if(r.error)throw r.error;return sb.storage.from('products').getPublicUrl(p).data.publicUrl}
+async function addP(){const u=me(),n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim(),f=$('#pf').files[0];if(!n||!(p>0)||!c)return $('#er').textContent='Fill in name, price and category.';
+let img='';if(f){try{img=await upImg(f)}catch(x){return $('#er').textContent='Photo upload failed. Check the "products" bucket in Supabase.'}}
+products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,u:$('#pu').value.trim(),d:$('#pdsc').value.trim(),img,shop:u.shop||'jayed.com',vendor:u.id});set('products',products);draw();toast('Product listed');dash()}
+draw();cartUI();acctUI();
+</script>
+<script>
+// ---- Step 2: CEO + roles, editable menu / help pages / settings, product photos ----
+const ROLES={ceo:'CEO',admin:'Admin',manager:'Manager',vendor:'Vendor',rider:'Rider',helpcare:'Help Care'};
+const isTop=u=>!!u&&(u.role==='ceo'||u.role==='admin');
+const canSite=u=>!!u&&u.status==='Approved'&&(u.role==='ceo'||(u.role==='admin'&&u.canEdit===true));
+const canShop=u=>!!u&&u.status==='Approved'&&['ceo','admin','manager'].includes(u.role);
+const nz=s=>String(s==null?'':s).trim().toLowerCase();
+const clone=x=>JSON.parse(JSON.stringify(x));
+const SVG={"fb": "<svg viewBox=\"0 0 24 24\"><path d=\"M14 8V6.5c0-.7.2-1 1.1-1H17V2h-2.6C11.4 2 10 3.6 10 6v2H7.5v3.5H10V22h4V11.500h2.700L17 8z\"/></svg>", "yt": "<svg viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" d=\"M21.600 7.200a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 0 0 2.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800zM10 15V9l5.200 3z\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\"><path fill-rule=\"evenodd\" d=\"M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2zm0 18.200a8.200 8.200 0 0 1-4.200-1.200l-.3-.2-3 .8.8-2.900-.2-.3A8.200 8.200 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.300-.8.800-1 1.700-.6 2.700.4 1 1.800 3.100 4.200 4.100 1.500.6 2.100.7 2.800.6.500-.1 1.500-.6 1.700-1.200.2-.6.2-1.100.1-1.200-.1-.1-.2-.2-.4-.3z\"/></svg>"};
+let flt={k:'all',s:[],l:''},MI=[],openG={},curPg='faq',sTab='ord',ED=null,edTab='menu';
+
+/* ---------- shop grid + filter ---------- */
+function fltList(){let l=products;
+if(flt.k==='cat'){const S=flt.s.map(nz);l=l.filter(p=>S.includes(nz(p.c)))}
+else if(flt.k==='flash')l=l.filter(p=>p.fl);
+else if(flt.k==='new')l=[...l].sort((a,b)=>(b.t||0)-(a.t||0)).slice(0,24);
+return l}
+function draw(){const q=nz($('#q').value),l=fltList().filter(p=>nz(p.n).includes(q)),fh=$('#fh');
+fh.classList.toggle('hide',flt.k==='all');fh.innerHTML=flt.k==='all'?'':`<b>${esc(flt.l)}</b><button class="btn g sm" onclick="clearF()">Show all</button>`;
+$('#grid').innerHTML=l.map(card).join('')||'<p class="mut">No products found.</p>'}
+function clearF(){flt={k:'all',s:[],l:''};draw()}
+
+/* ---------- side menu (built from the saved menu) ---------- */
+function renderMenu(){const S=SET(),wa=String(S.wa||'').replace(/\D/g,'');MI=menuItems();
+let h=`<div class="row" style="margin:0 0 10px"><div class="logo" onclick="clearF();go('shop')"><i>J</i><span>jayed.com</span></div><button class="btn g sm" onclick="menu(0)">Close</button></div>`;
+h+=`<div class="club"><div><small>${esc(S.clubName)}</small><b>${esc(S.clubPts)}</b></div><button class="btn g sm" onclick="go('vd')">${esc(S.clubBtn)}</button></div>`;
+MI.forEach((it,i)=>{if(it.t==='space'){h+='<div style="height:14px"></div>';return}
+if(it.t==='head'){h+=`<div class="mhd">${esc(it.l)}</div>`;return}
+const ch=it.ch||[],op=!!openG[it.id];
+h+=`<button class="ml" onclick="mClick(${i})"><span class="mi">${esc(it.ic||'')}</span><span class="mt">${esc(it.l)}</span>${ch.length?`<span class="chv${op?' on':''}" id="cv${i}"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>`:''}</button>`;
+if(ch.length)h+=`<div class="msub${op?'':' hide'}" id="ms${i}">`+(it.t==='cat'?`<button class="ml sub" onclick="mAct(MI[${i}])">All ${esc(it.l)}</button>`:'')+ch.map((c,j)=>`<button class="ml sub" onclick="mAct(MI[${i}].ch[${j}])">${esc(c.l)}</button>`).join('')+'</div>'});
+h+=`<div class="soc"><a href="${esc(S.fb)}" target="_blank" rel="noopener" aria-label="Facebook">${SVG.fb}</a><a href="${esc(S.yt)}" target="_blank" rel="noopener" aria-label="YouTube">${SVG.yt}</a><a href="https://wa.me/${wa}" target="_blank" rel="noopener" aria-label="WhatsApp">${SVG.wa}</a></div>`;
+$('#mn').innerHTML=h}
+function mClick(i){const it=MI[i];if(it.ch&&it.ch.length){const o=!openG[it.id];openG[it.id]=o;$('#ms'+i).classList.toggle('hide',!o);$('#cv'+i).classList.toggle('on',o);return}mAct(it)}
+function mAct(it){if(!it)return;menu(0);const t=it.t;
+if(t==='cat'){const s=[it.r||it.l];(it.ch||[]).forEach(c=>s.push(c.r||c.l));flt={k:'cat',s,l:it.l};$('#q').value='';show('shop');draw()}
+else if(t==='flash'||t==='new'){flt={k:t,s:[],l:it.l};$('#q').value='';show('shop');draw()}
+else if(t==='view'){if(!it.r||it.r==='shop'){clearF();show('shop')}else if(V.includes(it.r))show(it.r)}
+else if(t==='page')helpOpen(it.r)
+else if(t==='link'){if(/^https?:\/\//.test(it.r||''))window.open(it.r,'_blank','noopener')}
+else if(t==='staff')staffEntry()}
+function show(v){menu(0);V.forEach(x=>$('#'+x).classList.toggle('hide',x!==v));$('#sbar').classList.toggle('hide',v!=='shop');$('#bar').classList.toggle('hide',v==='staff');
+const f={vo:dOff,vd:dDisc,vp:dProf,vs:dSet,vf:dFav,vh:dHelp,vj:dJob}[v];f&&f();scrollTo(0,0)}
+
+/* ---------- help pages (like the Help screen: banner + tabs + text) ---------- */
+function helpOpen(k){curPg=k;show('vh')}
+function pg(k){helpOpen(k)}
+function dHelp(){const S=SET(),P=pagesList(),cur=P.find(x=>x.id===curPg)||P[0],tabs=P.filter(x=>x.tab!==false),bn=/^https:\/\//.test(S.banner||'')?` style="background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('${esc(S.banner)}')"`:'';
+$('#vh').innerHTML=`<div class="hhero"${bn}><h2>${esc(cur?cur.t:'Help')}</h2></div><div class="htabs">${tabs.map(x=>`<button class="${cur&&x.id===cur.id?'on':''}" onclick="helpOpen('${esc(x.id)}')">${esc(x.t)}</button>`).join('')}</div><div class="pgt" style="margin-bottom:30px">${cur?fmt(cur.h):'<p class="mut">No pages yet.</p>'}</div>`}
+function askM(){const n=String(SET().wa||'').replace(/\D/g,'');openM(`<h3>Ask us</h3><p class="mut">Need help, or can't find a product? Message us.</p><a class="btn o w" href="https://wa.me/${n}" target="_blank" rel="noopener">WhatsApp: ${esc(n.replace(/^88/,''))}</a><a class="btn g w" style="margin-top:10px" href="tel:+${n}">Call us</a><button class="btn g w" style="margin-top:10px" onclick="closeM();helpOpen('faq')">FAQ</button><button class="btn g w" style="margin-top:10px" onclick="closeM()">Close</button>`)}
+
+/* ---------- favourites + product popup ---------- */
+function dFav(){const f=get('fav',[]),l=products.filter(p=>f.includes(p.id));$('#vf').innerHTML=`<h2 style="margin-top:14px">Favourites</h2>`+(l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<p class="mut">Tap the heart on any product to save it here.</p>')}
+function togFav(id){let f=get('fav',[]);f=f.includes(id)?f.filter(x=>x!==id):[...f,id];set('fav',f);pview(id)}
+function pview(id){const p=PR(id);if(!p)return;const q=cart[id]||0,fv=get('fav',[]).includes(id);
+openM(`<div class="pi big">${pimg(p)}</div><div class="row" style="margin-top:12px"><h3 style="margin:0">${esc(p.n)}</h3><button class="ib" style="flex:none" onclick="togFav('${id}')" aria-label="Favourite">${fv?'❤️':'🤍'}</button></div>${p.u?`<small>${esc(p.u)}</small>`:''}<div class="row"><b style="font-size:22px">৳${p.p}</b>${q?`<div class="row" style="margin:0"><button class="btn g sm" onclick="chg('${id}',-1);pview('${id}')">−</button><b>${q}</b><button class="btn g sm" onclick="chg('${id}',1);pview('${id}')">+</button></div>`:`<button class="btn o" onclick="add('${id}');pview('${id}')">Add to bag</button>`}</div><p class="pdsc">${p.d?esc(p.d):'No description added yet.'}</p><small>Sold by ${esc(p.shop||'jayed.com')}</small><button class="btn g w" style="margin-top:12px" onclick="closeM()">Close</button>`)}
+
+/* ---------- product photo upload (Supabase "products" bucket) ---------- */
+async function shrink(f){try{if(!/^image\//.test(f.type))return f;const bm=await createImageBitmap(f),s=Math.min(1,1000/Math.max(bm.width,bm.height)),c=document.createElement('canvas');c.width=Math.round(bm.width*s);c.height=Math.round(bm.height*s);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);const b=await new Promise(r=>c.toBlob(r,'image/jpeg',.82));return b?new File([b],f.name.replace(/\.\w+$/,'')+'.jpg',{type:'image/jpeg'}):f}catch(x){return f}}
+async function upImg(f){if(!f)return'';if(!sb)throw new Error('Supabase is not connected');f=await shrink(f);const p=Date.now()+'-'+f.name.replace(/[^\w.-]/g,'_'),r=await sb.storage.from('products').upload(p,f,{contentType:f.type||'image/jpeg'});if(r.error)throw r.error;return sb.storage.from('products').getPublicUrl(p).data.publicUrl}
+async function addP(){const u=me(),e=m=>$('#er').textContent=m;if(!canShop(u))return e('Only the CEO, admins and managers can list products.');
+const n=$('#pn').value.trim(),p=+$('#pp').value,c=$('#pc').value.trim(),f=$('#pf').files[0];
+if(!n||!(p>0)||!c)return e('Fill in name, price and category.');
+let img=($('#pimgu').value||'').trim();if(img&&!/^https:\/\//.test(img))return e('Photo link must start with https://');
+if(f){e('Uploading photo...');try{img=await upImg(f)}catch(x){return e('Photo upload failed: '+(x.message||x)+'. Run the Supabase SQL once, or paste a photo link instead.')}}
+products.push({id:'p'+Date.now(),e:$('#pe').value||'🛒',n,p,c,u:$('#pu').value.trim(),d:$('#pdsc').value.trim(),img,shop:$('#psh').value.trim()||'jayed.com',fl:$('#pfl').checked,t:Date.now(),by:u.id});
+set('products',products);draw();toast('Product listed');dash()}
+async function chgImg(id,inp){const f=inp.files[0];if(!f)return;toast('Uploading photo...');try{const url=await upImg(f);products=products.map(p=>p.id===id?{...p,img:url}:p);set('products',products);draw();toast('Photo saved');dash()}catch(x){toast('Upload failed: '+(x.message||x))}}
+function togFl(id){products=products.map(p=>p.id===id?{...p,fl:!p.fl}:p);set('products',products);draw();dash()}
+function editP(id){const p=products.find(x=>x.id===id);if(!p)return;openM(`<h3>Edit product</h3><label>Name</label><input id="en" value="${esc(p.n)}"><label>Unit</label><input id="eu" value="${esc(p.u||'')}"><label>Price (৳)</label><input id="ep" type="number" min="1" value="${p.p}"><label>Category</label><input id="ec" list="cl" value="${esc(p.c)}"><label>Shop / vendor</label><input id="es" list="sl" value="${esc(p.shop||'')}"><label>Description</label><textarea id="ed" rows="3">${esc(p.d||'')}</textarea><div id="eer" style="color:#dc2626;font-size:13px"></div><button class="btn w" onclick="saveP('${id}')">Save</button><button class="btn g w" style="margin-top:8px" onclick="closeM()">Cancel</button>`)}
+function saveP(id){const n=$('#en').value.trim(),pr=+$('#ep').value,c=$('#ec').value.trim();if(!n||!(pr>0)||!c)return $('#eer').textContent='Fill in name, price and category.';
+products=products.map(p=>p.id===id?{...p,n,p:pr,c,u:$('#eu').value.trim(),d:$('#ed').value.trim(),shop:$('#es').value.trim()||'jayed.com'}:p);set('products',products);closeM();draw();dash();toast('Saved')}
+
+/* ---------- staff dashboard ---------- */
+function dirty(){return[...document.querySelectorAll('#staff input,#staff textarea')].some(i=>i.type==='file'?(i.files&&i.files.length):i.type==='checkbox'?i.checked!==i.defaultChecked:i.value!==i.defaultValue)}
+function sTabs(u){const Q=get('users',[]).filter(x=>x.status==='Pending Verification').length,t=[['ord','Orders']];
+if(isTop(u))t.push(['apr','Approvals'+(Q?' ('+Q+')':'')]);if(u.role==='ceo')t.push(['team','Team']);
+if(u.role==='manager'||isTop(u)){const W=appWait(u);t.push(['app','Applications'+(W?' ('+W+')':'')])}if(canShop(u))t.push(['prod','Products'],['off','Offers']);if(canSite(u))t.push(['site','Site']);return t}
+function dash(){const u=me();if(!u)return show('shop');show('staff');const ok=u.status==='Approved';
+let h=`<div class="hero"><span class="pill ${ok?'ok':'w'}">${ROLES[u.role]||u.role}: ${esc(u.status)}</span><h1 style="font-size:34px;margin-top:8px">Hello, ${esc(u.name)}</h1><p class="mut">${esc(u.email)}${u.shop?' / '+esc(u.shop):''}</p><button class="btn g sm" onclick="show('shop')">Back to shop</button> <button class="btn g sm" onclick="out()">Log out</button></div>`;
+if(!ok){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':u.status==='Suspended'?'Your account is suspended.':'Waiting for approval.'}</b><p class="mut">You cannot work on the platform until you are approved.</p></div>`;return}
+const T=sTabs(u);if(!T.some(x=>x[0]===sTab))sTab='ord';
+h+=`<div class="nav">${T.map(x=>`<button class="tab${x[0]===sTab?' on':''}" onclick="sTab='${x[0]}';dash()">${x[1]}</button>`).join('')}</div>`;
+h+=({ord:tOrd,apr:tApr,team:tTeam,prod:tProd,off:tOff,site:tSite,app:tApp}[sTab])(u);$('#staff').innerHTML=h}
+function tOrd(u){let O=get('orders',[]);if(u.role==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);if(u.role==='vendor')O=O.filter(o=>!o.shops||o.shops.includes(u.shop));
+return`<h3>Orders</h3>`+(O.map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders right now.</p>')+teamUI(u)}
+function tApr(u){const Q=get('users',[]).filter(x=>x.status==='Pending Verification');
+return`<h3>Approvals</h3>`+(Q.map(x=>{const can=u.role==='ceo'||x.role!=='admin';return`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${ROLES[x.role]||esc(x.role)}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Documents: ${Object.entries(x.docs||{}).map(([k,v])=>esc(k)+': '+esc(v.split('/').pop())).join(', ')||esc(x.doc||'none')}</small><div class="row">${can?`<button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button>`:'<small>Only the CEO can approve admins.</small>'}${sb?Object.entries(x.docs||{}).filter(([k,v])=>v.startsWith('docs/')).map(([k,v])=>`<button class="btn g sm" onclick="viewDoc('${esc(v)}')">View ${esc(k)}</button>`).join(''):''}</div></div>`}).join('')||'<p class="mut">No pending applications.</p>')}
+function tTeam(u){const L=get('users',[]).filter(x=>x.id!==u.id&&x.role!=='ceo'),ST=['Approved','Pending Verification','Rejected','Suspended'];
+return`<h3>Team and roles</h3><p class="mut">There is only one CEO (you). Riders, managers and admins can be unlimited. An admin can edit the site (menu, pages, settings) only if you tick the permission.</p>`+(L.map(x=>`<div class="card cr"><b>${esc(x.name)}</b> <small>${esc(x.email)} ${esc(x.phone||'')}</small><label>Role</label><select onchange="uSet('${x.id}','role',this.value)">${['vendor','rider','manager','helpcare','admin'].map(r=>`<option value="${r}"${x.role===r?' selected':''}>${ROLES[r]}</option>`).join('')}</select><label>Status</label><select onchange="uSet('${x.id}','status',this.value)">${ST.map(s=>`<option${x.status===s?' selected':''}>${s}</option>`).join('')}</select>${x.role==='admin'?`<label class="ck"><input type="checkbox" ${x.canEdit?'checked':''} onchange="uSet('${x.id}','canEdit',this.checked)">Allow this admin to edit the site</label>`:''}<button class="btn g sm" onclick="uDel('${x.id}')">Remove</button></div>`).join('')||'<p class="mut">No other team members yet.</p>')}
+function uSet(id,k,v){const U=get('users',[]),x=U.find(y=>y.id===id);if(!x||x.role==='ceo')return;x[k]=v;set('users',U);toast('Saved')}
+function uDel(id){if(!confirm('Remove this person from the team?'))return;set('users',get('users',[]).filter(x=>x.id!==id));dash()}
+function tProd(u){const cats=[...new Set([...products.map(p=>p.c),...menuItems().flatMap(m=>m.t==='cat'?[m.r||m.l,...(m.ch||[]).map(c=>c.r||c.l)]:[])])].filter(Boolean),shops=[...new Set(['jayed.com',...get('users',[]).filter(x=>x.role==='vendor'&&x.shop).map(x=>x.shop)])];
+return`<datalist id="cl">${cats.map(c=>`<option value="${esc(c)}">`).join('')}</datalist><datalist id="sl">${shops.map(c=>`<option value="${esc(c)}">`).join('')}</datalist><h3>Add a product</h3><div class="card cr"><p class="mut">Vendors cannot list products. You list them here, with the vendor's shop name.</p><label>Photo</label><label class="btn g w" style="display:block;margin:4px 0 6px">Choose photo<input id="pf" type="file" accept="image/*" hidden onchange="$('#pfn').textContent=this.files[0]?this.files[0].name:''"></label><small id="pfn"></small><label>Or paste a photo link (optional)</label><input id="pimgu" placeholder="https://..."><label>Emoji (shown when there is no photo)</label><input id="pe" value="🛒" maxlength="4"><label>Name</label><input id="pn"><label>Unit (e.g. 1 kg, 12 pcs)</label><input id="pu"><label>Price (৳)</label><input id="pp" type="number" min="1"><label>Description</label><textarea id="pdsc" rows="3"></textarea><label>Category (pick or type a new one)</label><input id="pc" list="cl"><label>Shop / vendor</label><input id="psh" list="sl" value="jayed.com"><label class="ck"><input type="checkbox" id="pfl">Show in Flash Sales</label><button class="btn w" onclick="addP()">List product</button><div id="er"></div></div><h3>All products (${products.length})</h3>`+products.map(p=>`<div class="card cr"><span>${esc(p.e||'')} <b>${esc(p.n)}</b><br><small>৳${p.p} · ${esc(p.c)} · ${esc(p.shop||'')}${p.img?' · photo ✓':''}${p.fl?' · flash':''}</small></span><div class="row"><button class="btn g sm" onclick="editP('${p.id}')">Edit</button><label class="btn g sm" style="margin:0">Photo<input type="file" accept="image/*" hidden onchange="chgImg('${p.id}',this)"></label><button class="btn g sm" onclick="togFl('${p.id}')">${p.fl?'Unflash':'Flash'}</button><button class="btn g sm" onclick="delP('${p.id}')">Delete</button></div></div>`).join('')}
+function tOff(u){return`<h3>Create an offer package</h3><div class="card cr"><label>Package name</label><input id="on"><label>Emoji</label><input id="oe" value="🎁" maxlength="4"><label>Package price (৳)</label><input id="op" type="number" min="1"><label>Pick the products to include</label>${products.map(p=>`<label class="ck"><input type="checkbox" class="of" value="${p.id}">${esc(p.e||'')} ${esc(p.n)} ৳${p.p}</label>`).join('')}<button class="btn o w" onclick="addO()">Publish offer</button></div><h3>All offers</h3>`+(offers.map(o=>`<div class="card cr row" style="margin-top:0"><span>${esc(o.e)} ${esc(o.n)} <small>৳${o.p}</small></span><button class="btn g sm" onclick="delO('${o.id}')">Delete</button></div>`).join('')||'<p class="mut">No offers yet.</p>')}
+
+/* ---------- Site editor: menu, help pages, settings (no code needed) ---------- */
+function loadED(){if(!ED)ED={menu:clone(menuItems()),pages:clone(pagesList()),set:{...SET()},job:clone(jobCfg())}}
+function tSite(u){loadED();const t=(k,l)=>`<button class="chip${edTab===k?' on':''}" onclick="edTab='${k}';dash()">${l}</button>`;
+return`<h3>Site editor</h3><p class="mut">Change the menu, help pages and settings here. Nothing changes on the live site until you press Save.</p><div class="tabs">${t('menu','Menu')}${t('pages','Help pages')}${t('job','Job corner')}${t('set','Settings')}</div>`+({menu:edMenu,pages:edPages,set:edSet,job:edJob}[edTab])()}
+const MT=[['cat','Category (shows products)'],['page','Help page'],['view','App screen'],['flash','Flash sales'],['new','New arrivals'],['link','Web link'],['staff','Staff login'],['group','Group (only opens its sub-list)'],['head','Heading'],['space','Blank gap']];
+const MV=[['shop','Home'],['vo','Offers'],['vd','Coupons'],['vf','Favourites'],['vp','My profile and orders'],['vj','Job corner']];
+function mCtl(i,j){return`<span><button class="btn g sm" onclick="mMv(${i},${j},-1)">↑</button> <button class="btn g sm" onclick="mMv(${i},${j},1)">↓</button> <button class="btn g sm" onclick="mDl(${i},${j})">✕</button></span>`}
+function refEd(it,i,j){const t=it.t;
+if(t==='view')return`<label>Screen</label><select onchange="mSet(${i},${j},'r',this.value)">${MV.map(v=>`<option value="${v[0]}"${(it.r||'shop')===v[0]?' selected':''}>${v[1]}</option>`).join('')}</select>`;
+if(t==='page')return`<label>Page</label><select onchange="mSet(${i},${j},'r',this.value)">${ED.pages.map(p=>`<option value="${esc(p.id)}"${it.r===p.id?' selected':''}>${esc(p.t)}</option>`).join('')}</select>`;
+if(t==='cat')return`<label>Product category name (empty = same as the name above)</label><input value="${esc(it.r||'')}" oninput="mSet(${i},${j},'r',this.value)">`;
+if(t==='link')return`<label>Link (https://...)</label><input value="${esc(it.r||'')}" oninput="mSet(${i},${j},'r',this.value)">`;return''}
+function itemEd(it,i,j){const sub=j>=0,t=it.t,opts=MT.filter(x=>!sub||!['group','head','space'].includes(x[0]));
+let h=`<div class="card cr${sub?' subc':''}"><div class="row" style="margin:0"><b>${sub?'Sub-item '+(j+1):'Item '+(i+1)}</b>${mCtl(i,j)}</div><label>Type</label><select onchange="mSet(${i},${j},'t',this.value)">${opts.map(x=>`<option value="${x[0]}"${t===x[0]?' selected':''}>${x[1]}</option>`).join('')}</select>`;
+if(t!=='space')h+=`<label>Name</label><input value="${esc(it.l||'')}" oninput="mSet(${i},${j},'l',this.value)">`;
+if(!sub&&t!=='space'&&t!=='head')h+=`<label>Icon (emoji, optional)</label><input value="${esc(it.ic||'')}" maxlength="4" oninput="mSet(${i},${j},'ic',this.value)">`;
+h+=refEd(it,i,j);
+if(!sub&&t!=='space'&&t!=='head')h+=(it.ch||[]).map((c,k)=>itemEd(c,i,k)).join('')+`<button class="btn g sm" onclick="mAd(${i})">+ Add sub-item</button>`;
+return h+'</div>'}
+function edMenu(){return`<div class="row"><button class="btn sm" onclick="mSv()">Save menu</button><button class="btn g sm" onclick="ED=null;dash()">Reload</button><button class="btn g sm" onclick="mRst()">Reset</button></div><div style="height:12px"></div>`+ED.menu.map((it,i)=>itemEd(it,i,-1)).join('')+`<button class="btn o w" onclick="mAd(-1)">+ Add menu item</button>`}
+function mSet(i,j,k,v){const it=j>=0?ED.menu[i].ch[j]:ED.menu[i];it[k]=v;if(k==='t'){it.r=v==='view'?'shop':v==='page'?((ED.pages[0]||{}).id||''):'';dash()}}
+function mMv(i,j,d){const a=j>=0?ED.menu[i].ch:ED.menu,x=j>=0?j:i,k=x+d;if(k<0||k>=a.length)return;[a[x],a[k]]=[a[k],a[x]];dash()}
+function mDl(i,j){if(!confirm('Remove this item?'))return;if(j>=0)ED.menu[i].ch.splice(j,1);else ED.menu.splice(i,1);dash()}
+function mAd(i){const n={id:'m'+Date.now()+Math.floor(Math.random()*99),l:'New item',t:'cat',r:'',ic:''};if(i>=0){ED.menu[i].ch=ED.menu[i].ch||[];ED.menu[i].ch.push(n)}else ED.menu.push({...n,ch:[]});dash()}
+function mSv(){saveSite('menu',{items:clone(ED.menu),v:2});toast('Menu saved')}
+function mRst(){if(confirm('Reset the menu to the default list?')){ED.menu=clone(DEF_MENU);dash()}}
+function edPages(){return`<p class="mut">Write plain text. A blank line starts a new paragraph. Use **bold**, lines starting with - for bullets, # for a heading, and [text](https://link) for links.</p><div class="row"><button class="btn sm" onclick="pSv()">Save pages</button><button class="btn g sm" onclick="ED=null;dash()">Reload</button><button class="btn g sm" onclick="pRst()">Reset</button></div><div style="height:12px"></div>`+ED.pages.map((x,i)=>`<div class="card cr"><label>Title</label><input value="${esc(x.t)}" oninput="ED.pages[${i}].t=this.value"><label class="ck"><input type="checkbox" ${x.tab!==false?'checked':''} onchange="ED.pages[${i}].tab=this.checked">Show as a tab on the Help page</label><label>Text</label><textarea rows="8" oninput="ED.pages[${i}].h=this.value">${esc(x.h||'')}</textarea><div class="row"><span><button class="btn g sm" onclick="pMv(${i},-1)">↑</button> <button class="btn g sm" onclick="pMv(${i},1)">↓</button></span><button class="btn g sm" onclick="pDl(${i})">Delete</button></div></div>`).join('')+`<button class="btn o w" onclick="pAd()">+ Add page</button>`}
+function pMv(i,d){const k=i+d,a=ED.pages;if(k<0||k>=a.length)return;[a[i],a[k]]=[a[k],a[i]];dash()}
+function pDl(i){if(confirm('Delete this page?')){ED.pages.splice(i,1);dash()}}
+function pAd(){ED.pages.push({id:'pg'+Date.now(),t:'New page',h:'',tab:true});dash()}
+function pSv(){saveSite('pages',{items:clone(ED.pages)});toast('Pages saved')}
+function pRst(){if(confirm('Reset all pages to the default text?')){ED.pages=clone(DEF_PAGES);dash()}}
+const SF=[['clubName','Club name (top of menu)'],['clubPts','Club points text'],['clubBtn','Club button text'],['wa','WhatsApp number (880..., digits only)'],['fb','Facebook link'],['yt','YouTube link'],['banner','Help page banner picture link (https, optional)'],['delT','Delivery charge threshold (৳)'],['delLo','Delivery charge below threshold (৳)'],['delHi','Delivery charge at or above threshold (৳)'],['bk','bKash number (to receive payments)'],['ba','Bank account number'],['bn','Bank name (optional)']];
+function edSet(){return`<div class="card cr">${SF.map(f=>`<label>${f[1]}</label><input value="${esc(ED.set[f[0]]==null?'':ED.set[f[0]])}" oninput="ED.set['${f[0]}']=this.value">`).join('')}<label>Delivery OTP</label><select onchange="ED.set.otp=this.value==='1'"><option value="0"${ED.set.otp?'':' selected'}>Off</option><option value="1"${ED.set.otp?' selected':''}>On (customer gives a 4-digit code to the rider)</option></select><button class="btn w" onclick="sSave()">Save settings</button></div>`}
+function sSave(){const s={...ED.set};['delT','delLo','delHi'].forEach(k=>s[k]=Math.max(0,+s[k]||0));s.wa=String(s.wa||'').replace(/\D/g,'')||DEF_SET.wa;
+['fb','yt'].forEach(k=>{s[k]=String(s[k]||'').trim();if(!/^https:\/\//.test(s[k]))s[k]=DEF_SET[k]});s.banner=/^https:\/\//.test(String(s.banner||'').trim())?String(s.banner).trim():'';
+['clubName','clubPts','clubBtn'].forEach(k=>s[k]=String(s[k]||'').trim()||DEF_SET[k]);s.otp=!!s.otp;['bk','ba'].forEach(k=>s[k]=String(s[k]||'').trim()||DEF_SET[k]);s.bn=String(s.bn||'').trim();ED.set=s;saveSite('main',s);toast('Settings saved');dash()}
+renderMenu();draw();cartUI();acctUI();
+</script>
+<script>
+// ---- Step 1: Job corner (criteria, areas, apply form, manager then admin approval) ----
+const DEF_CRIT=`**Who can apply**
+- Age 18 or older.
+- Valid NID or birth certificate.
+- Working phone number.
+
+**Conditions**
+- All information and documents must be true. False information cancels the application.
+- Applying does not guarantee a job.
+- Your application first goes to the manager of the area you choose, then to the admin for final approval.
+- Selected people must follow company rules and local laws.`;
+const DEFJOB={open:true,ver:1,crit:DEF_CRIT,areas:[]};
+const jobCfg=()=>({...DEFJOB,...(siteDoc('jobcfg')||{})});
+const JST={'Pending Manager':['With area manager','w'],'Pending Admin':['With admin','w'],'Approved':['Approved','ok'],'Rejected':['Rejected','']};
+const jPill=x=>{const j=JST[x]||[x,''];return`<span class="pill ${j[1]}">${esc(j[0])}</span>`};
+const myUid=()=>(window.fbUid&&fbUid())||'';
+function jFormDirty(){const f=$('#jf');return!!f&&[...f.querySelectorAll('input,textarea,select')].some(i=>i.type==='file'?(i.files&&i.files.length):i.type==='checkbox'?i.checked!==i.defaultChecked:i.tagName==='SELECT'?i.selectedIndex>0:i.value!==i.defaultValue)}
+function jMy(){const L=get('applications',[]).filter(a=>a.uid===myUid()).sort((x,y)=>(y.t||0)-(x.t||0));
+return`<h3 style="margin-top:24px">My applications</h3>`+(L.map(a=>`<div class="card cr"><div class="row" style="margin:0"><b>${esc(a.areaName||'')}</b>${jPill(a.st)}</div><small>${new Date(a.t).toLocaleDateString()}</small>${a.mnote?`<p style="margin:6px 0 0"><small>Manager: ${esc(a.mnote)}</small></p>`:''}${a.anote?`<p style="margin:6px 0 0"><small>Admin: ${esc(a.anote)}</small></p>`:''}</div>`).join('')||'<p class="mut">You have not applied yet.</p>')}
+function dJob(force){const C=jobCfg(),c=cust(),ar=C.areas||[];
+if(!force&&jFormDirty()&&$('#jmy')){$('#jmy').innerHTML=jMy();return}
+let h=`<div class="hhero"><h2>Job corner</h2></div><div class="card cr" style="margin-top:16px"><h3>Criteria and conditions</h3><small>Version ${+C.ver||1}</small><div class="pgt" style="margin-top:8px">${fmt(C.crit)}</div></div>`;
+if(!C.open)h+=`<div class="card cr"><b>Applications are closed right now.</b><p class="mut">Please check again later.</p></div>`;
+else if(!ar.length)h+=`<div class="card cr"><b>No job areas are open yet.</b><p class="mut">Please check again later.</p></div>`;
+else h+=`<div class="card cr" id="jf"><h3>Apply now</h3><label>Your name</label><input id="jn" value="${esc(c?c.name:'')}" autocomplete="name"><label>Phone number</label><input id="jp" type="tel" inputmode="tel" value="${esc(c?c.phone:'')}" placeholder="01XXXXXXXXX"><label>Email (optional)</label><input id="je" type="email" value="${esc((c&&c.email)||'')}"><label>Area you want to work in</label><select id="ja"><option value="">Select area</option>${ar.map(a=>`<option value="${esc(a.id)}">${esc(a.n)}</option>`).join('')}</select><label>Documents (CV, PDF, photo)</label><small>Up to 5 files, 5 MB each</small><label class="btn g w" style="display:block;margin:6px 0"><span>Choose files</span><input id="jfl" type="file" multiple accept=".pdf,.doc,.docx,image/*" hidden onchange="jFiles()"></label><small id="jfn"></small><label style="display:block;margin-top:8px">Anything else you want to tell us</label><textarea id="jt" rows="4" maxlength="1500" placeholder="Experience, skills, availability, questions..."></textarea><label class="ck"><input type="checkbox" id="jc"> I have read and accept the criteria and conditions above.</label><div id="jer" style="color:#dc2626;font-size:13px;min-height:18px"></div><button class="btn o w" id="jb" onclick="jobApply()">Submit application</button></div>`;
+$('#vj').innerHTML=h+`<div id="jmy">${jMy()}</div><div style="height:30px"></div>`}
+function jFiles(){const i=$('#jfl'),F=[...i.files];if(F.length>5||F.some(f=>f.size>5*1024*1024)){i.value='';$('#jfn').textContent='';return toast('Maximum 5 files, 5 MB each')}
+$('#jfn').textContent=F.map(f=>f.name).join(', ')}
+async function jobApply(){const C=jobCfg(),e=m=>$('#jer').textContent=m,name=$('#jn').value.trim(),phone=ph($('#jp').value),em=$('#je').value.trim().toLowerCase(),ar=(C.areas||[]).find(x=>x.id===$('#ja').value),F=[...$('#jfl').files];
+if(!C.open)return e('Applications are closed right now.');
+if(name.length<2)return e('Enter your name.');if(!phone)return e('Enter a valid phone number, like 01712345678.');
+if(em&&!/^\S+@\S+\.\S+$/.test(em))return e('Enter a valid email or leave it empty.');
+if(!ar)return e('Select the area you want to work in.');
+if(!$('#jc').checked)return e('You must accept the criteria and conditions to apply.');
+if(!myUid())return e('Connecting. Please try again in a moment.');
+const b=$('#jb');b.disabled=true;e('Uploading documents...');const docs=[];
+try{for(const f of F)docs.push({n:f.name.slice(0,60),p:await up(f,'docs')})}catch(x){b.disabled=false;return e('Upload failed. Try again with smaller files.')}
+const a={id:'AP'+Date.now().toString(36)+Math.floor(100+Math.random()*900),uid:myUid(),name,phone,email:em,area:ar.id,areaName:ar.n,mgr:ar.mg||'',note:$('#jt').value.trim(),docs,ver:+C.ver||1,st:ar.mg?'Pending Manager':'Pending Admin',t:Date.now()};
+const L=get('applications',[]);L.unshift(a);set('applications',L);toast('Application submitted');dJob(true)}
+function jobDoc(id,i){const a=get('applications',[]).find(x=>x.id===id),d=a&&(a.docs||[])[i];if(!d)return;if(!/^docs\//.test(d.p)||!sb)return toast('This file is not stored online');viewDoc(d.p)}
+const appWait=u=>get('applications',[]).filter(a=>(u.role==='manager'&&a.mgr===u.id&&a.st==='Pending Manager')||(isTop(u)&&a.st==='Pending Admin')).length;
+function appCard(a,u){const my=u.role==='manager'&&a.mgr===u.id&&a.st==='Pending Manager',ad=isTop(u)&&a.st==='Pending Admin',D=a.docs||[];
+return`<div class="card cr"><div class="row" style="margin:0"><b>${esc(a.name)}</b>${jPill(a.st)}</div><small>${esc(a.areaName||'')} / ${new Date(a.t).toLocaleDateString()} / criteria v${+a.ver||1}</small><br><small>${esc(a.phone)}${a.email?' / '+esc(a.email):''}</small>${a.note?`<p style="white-space:pre-line;margin:8px 0">${esc(a.note)}</p>`:''}${D.length?`<div style="margin:6px 0">${D.map((d,i)=>`<button class="btn g sm" style="margin:2px 4px 2px 0" onclick="jobDoc('${esc(a.id)}',${i})">${esc(d.n)}</button>`).join('')}</div>`:'<p class="mut" style="margin:6px 0">No documents attached.</p>'}${a.mnote?`<small>Manager${a.mby?' ('+esc(a.mby)+')':''}: ${esc(a.mnote)}</small><br>`:''}${a.anote?`<small>Admin${a.aby?' ('+esc(a.aby)+')':''}: ${esc(a.anote)}</small><br>`:''}${my||ad?`<input id="nt${esc(a.id)}" placeholder="Remark (optional)" maxlength="300"><div class="row"><button class="btn sm" onclick="appAct('${esc(a.id)}',1)">${my?'Approve and send to admin':'Approve'}</button><button class="btn g sm" onclick="appAct('${esc(a.id)}',0)">Reject</button></div>`:''}<a class="btn g sm" href="tel:${esc(a.phone)}">Call</a></div>`}
+function tApp(u){const L=get('applications',[]).slice().sort((x,y)=>(y.t||0)-(x.t||0)),w=L.filter(a=>(u.role==='manager'&&a.mgr===u.id&&a.st==='Pending Manager')||(isTop(u)&&a.st==='Pending Admin')),o=L.filter(a=>!w.includes(a));
+return`<h3>Job applications</h3><p class="mut">${u.role==='manager'?'Applications for your area. Approve to send them to the admin.':'Applications approved by area managers wait here for your final decision.'}</p><h3 style="font-size:16px">Waiting for you (${w.length})</h3>`+(w.map(a=>appCard(a,u)).join('')||'<p class="mut">Nothing waiting.</p>')+`<h3 style="font-size:16px;margin-top:20px">Others (${o.length})</h3>`+(o.map(a=>appCard(a,u)).join('')||'<p class="mut">No other applications.</p>')}
+function appAct(id,ok){const u=me(),L=get('applications',[]),a=L.find(x=>x.id===id);if(!u||!a||u.status!=='Approved')return;
+const n=(($('#nt'+id)||{}).value||'').trim(),now=Date.now();
+if(u.role==='manager'&&a.mgr===u.id&&a.st==='Pending Manager'){a.mby=u.name;a.mt=now;a.mnote=n;a.st=ok?'Pending Admin':'Rejected'}
+else if(isTop(u)&&a.st==='Pending Admin'){a.aby=u.name;a.at=now;a.anote=n;a.st=ok?'Approved':'Rejected'}
+else return toast('Not allowed');
+set('applications',L);toast(ok?'Approved':'Rejected');dash()}
+function edJob(){const J=ED.job,M=get('users',[]).filter(x=>x.role==='manager'&&x.status==='Approved');
+return`<p class="mut">Criteria and areas are set here. The CEO can always edit. An admin can edit only after the CEO gives the "edit site" permission in the Team tab. When the criteria text changes, the version number goes up and new applicants accept the new version.</p><div class="row"><button class="btn sm" onclick="jSv()">Save job corner</button><button class="btn g sm" onclick="ED=null;dash()">Reload</button></div><div style="height:12px"></div><div class="card cr"><label>Applications</label><select onchange="ED.job.open=this.value==='1'"><option value="1"${J.open?' selected':''}>Open</option><option value="0"${J.open?'':' selected'}>Closed</option></select><label>Criteria and conditions (now version ${+J.ver||1})</label><textarea rows="10" oninput="ED.job.crit=this.value">${esc(J.crit||'')}</textarea></div><h3>Areas</h3>`+(J.areas||[]).map((a,i)=>`<div class="card cr"><div class="row" style="margin:0"><b>Area ${i+1}</b><button class="btn g sm" onclick="jAr(${i})">✕</button></div><label>Area name</label><input value="${esc(a.n||'')}" oninput="ED.job.areas[${i}].n=this.value"><label>Area manager</label><select onchange="ED.job.areas[${i}].mg=this.value"><option value="">No manager (goes straight to admin)</option>${M.map(m=>`<option value="${esc(m.id)}"${a.mg===m.id?' selected':''}>${esc(m.name)}</option>`).join('')}</select></div>`).join('')+`<button class="btn o w" onclick="jAr(-1)">+ Add area</button>`}
+function jAr(i){if(i>=0){if(!confirm('Remove this area?'))return;ED.job.areas.splice(i,1)}else ED.job.areas.push({id:'ar'+Date.now().toString(36)+Math.floor(Math.random()*99),n:'',mg:'',mn:''});dash()}
+function jSv(){const u=me();if(!canSite(u))return toast('Not allowed');const J=ED.job,old=jobCfg(),M=get('users',[]);
+const areas=(J.areas||[]).map(a=>({id:a.id,n:String(a.n||'').trim(),mg:a.mg||'',mn:(M.find(x=>x.id===a.mg)||{}).name||''}));
+if(areas.some(a=>!a.n))return toast('Every area needs a name.');
+if(new Set(areas.map(a=>a.n.toLowerCase())).size!==areas.length)return toast('Area names must be different.');
+const crit=String(J.crit||'').trim()||DEF_CRIT;
+saveSite('jobcfg',{open:!!J.open,areas,crit,ver:crit===old.crit?(+old.ver||1):(+old.ver||1)+1});ED=null;toast('Job corner saved');dash()}
+</script>
+<script>
+// ---- Step 2: profiles, password recovery, dashboards, charts, accounts, downloads ----
+const tk=n=>'৳'+Math.round(+n||0).toLocaleString('en-US');
+const sum=a=>a.reduce((s,x)=>s+(+x||0),0);
+const rid=p=>p+Date.now().toString(36)+Math.floor(100+Math.random()*900);
+const dayKey=t=>{const d=new Date(t);return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
+const fdate=t=>t?new Date(t).toLocaleDateString('en-GB'):'';
+const areasList=()=>jobCfg().areas||[];
+const areaName=id=>(areasList().find(a=>a.id===id)||{}).n||'';
+const profOf=id=>get('profiles',[]).find(p=>p.id===id)||null;
+const okImg=s=>/^data:image\/(jpeg|png|webp);base64,/.test(s||'');
+const avatar=(pt,n)=>okImg(pt)?`<img src="${pt}" alt="">`:esc((n||'?').trim().charAt(0).toUpperCase());
+const nextEid=U=>Math.max(1000000,...U.map(x=>+x.eid||0))+1;
+let per='30',arF='',oq='',os='All',olim=30,pfPhoto=null,payM='cod';
+const PERIODS=[['7','Last 7 days'],['30','Last 30 days'],['all','All time']];
+const inP=t=>per==='all'||(Date.now()-(t||0))<=(+per)*864e5;
+const PAL=['#6f4e37','#c08a5b','#15803d','#2563eb','#d97706','#dc2626','#7c3aed'];
+const SC={Pending:'#d97706',Preparing:'#2563eb','Out for Delivery':'#7c3aed',Delivered:'#15803d',Cancelled:'#dc2626'};
+
+/* ---------- downloads ---------- */
+function csvDl(name,rows){const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"',b=new Blob(['\ufeff'+rows.map(r=>r.map(q).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name+'.csv';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},800)}
+function printDoc(title,body){const f=document.createElement('iframe');f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0';document.body.appendChild(f);const d=f.contentWindow.document;d.open();d.write(`<!doctype html><meta charset="utf-8"><title>${esc(title)}</title><style>body{font:14px/1.5 system-ui,sans-serif;color:#17110d;padding:24px}h1{font-size:22px;margin:0 0 4px}table{border-collapse:collapse;width:100%;margin:12px 0}td,th{border:1px solid #ccc;padding:6px 8px;text-align:left;font-size:13px}th{background:#f6efe6}.k{color:#6b5a4b}.n{text-align:right}img{width:110px;height:110px;object-fit:cover;border-radius:12px}</style>${body}`);d.close();setTimeout(()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){}setTimeout(()=>f.remove(),60000)},500)}
+
+/* ---------- charts (plain SVG / HTML, no library) ---------- */
+function hBars(a){const m=Math.max(1,...a.map(x=>Math.abs(x.v)));return a.length?a.map(x=>`<div style="margin:9px 0"><div class="row" style="margin:0 0 3px"><small>${esc(x.l)}</small><b style="font-size:13px;color:${x.v<0?'#dc2626':'inherit'}">${x.f||tk(x.v)}</b></div><div style="height:12px;background:var(--soft);border-radius:99px;overflow:hidden"><div style="width:${Math.max(2,Math.abs(x.v)/m*100)}%;height:100%;border-radius:99px;background:${x.v<0?'#dc2626':(x.c||'#6f4e37')}"></div></div></div>`).join(''):'<p class="mut">No data yet.</p>'}
+function vBars(L,V){const W=320,H=140,p=24,m=Math.max(1,...V),bw=(W-p*2)/L.length;let s=`<svg viewBox="0 0 ${W} ${H+22}" style="width:100%;height:auto"><text x="2" y="10" font-size="9" fill="#6b5a4b">${tk(m)}</text>`;
+[0,.5,1].forEach(g=>{const y=H-g*(H-18);s+=`<line x1="${p}" x2="${W-p}" y1="${y}" y2="${y}" stroke="#e8dccb"/>`});
+V.forEach((v,i)=>{const h=v/m*(H-18);s+=`<rect x="${p+i*bw+bw*.18}" y="${H-h}" width="${bw*.64}" height="${h}" rx="4" fill="#6f4e37"/>`});
+L.forEach((l,i)=>{s+=`<text x="${p+i*bw+bw/2}" y="${H+14}" font-size="9" text-anchor="middle" fill="#6b5a4b">${esc(l)}</text>`});return s+'</svg>'}
+function lineChart(L,S){const W=320,H=140,p=26,n=L.length,m=Math.max(1,...S.flatMap(s=>s.v)),x=i=>p+(n<2?0:i*(W-p*2)/(n-1)),y=v=>H-v/m*(H-18);
+let s=`<svg viewBox="0 0 ${W} ${H+22}" style="width:100%;height:auto"><text x="2" y="10" font-size="9" fill="#6b5a4b">${tk(m)}</text>`;
+[0,.5,1].forEach(g=>{const yy=H-g*(H-18);s+=`<line x1="${p}" x2="${W-p}" y1="${yy}" y2="${yy}" stroke="#e8dccb"/>`});
+S.forEach(q=>{s+=`<polyline fill="none" stroke="${q.c}" stroke-width="2.2" stroke-linejoin="round" points="${q.v.map((v,i)=>x(i)+','+y(v)).join(' ')}"/>`});
+L.forEach((l,i)=>{if(i%Math.ceil(n/6)===0)s+=`<text x="${x(i)}" y="${H+14}" font-size="9" text-anchor="middle" fill="#6b5a4b">${esc(l)}</text>`});
+return s+`</svg><div style="display:flex;gap:12px;flex-wrap:wrap">${S.map(q=>`<small><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${q.c};margin-right:5px"></span>${esc(q.n)}</small>`).join('')}</div>`}
+function donut(a){a=a.filter(x=>x.v>0);const T=sum(a.map(x=>x.v));if(!T)return'<p class="mut">No data yet.</p>';let o=0;const R=42,C=2*Math.PI*R;let s=`<svg viewBox="0 0 120 120" style="width:130px;height:130px;flex:none"><g transform="rotate(-90 60 60)">`;
+a.forEach((x,i)=>{const l=x.v/T*C;s+=`<circle cx="60" cy="60" r="${R}" fill="none" stroke="${x.c||PAL[i%PAL.length]}" stroke-width="18" stroke-dasharray="${l} ${C-l}" stroke-dashoffset="${-o}"/>`;o+=l});
+s+=`</g><text x="60" y="65" text-anchor="middle" font-size="17" font-weight="800" fill="#17110d">${T}</text></svg>`;
+return`<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">${s}<div>${a.map((x,i)=>`<div style="font-size:13px;margin:2px 0"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${x.c||PAL[i%PAL.length]};margin-right:6px"></span>${esc(x.l)}: <b>${x.f||x.v}</b></div>`).join('')}</div></div>`}
+function days(n){return[...Array(n)].map((_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-(n-1-i));return{k:dayKey(d.getTime()),l:d.getDate()+'/'+(d.getMonth()+1)}})}
+function byDay(D,items,val){const m={};items.forEach(x=>{const k=dayKey(x.t);m[k]=(m[k]||0)+val(x)});return D.map(d=>m[d.k]||0)}
+const kpi=(l,v,c)=>`<div class="kp ${c||''}"><small>${l}</small><b>${v}</b></div>`;
+const card2=(t,b)=>`<div class="card cr"><h3 style="font-size:17px">${t}</h3>${b}</div>`;
+
+/* ---------- scope + money maths ---------- */
+const myAreaIds=u=>areasList().filter(a=>a.mg===u.id).map(a=>a.id);
+function areaOpts(u){return u.role==='manager'?areasList().filter(a=>a.mg===u.id):areasList()}
+function scopeIds(u){if(u.role==='manager'){const A=myAreaIds(u);return arF&&A.includes(arF)?[arF]:A}if(isTop(u))return arF?[arF]:null;return null}
+function scopeO(u,pp=true){let O=get('orders',[]),s=scopeIds(u);if(s)O=O.filter(o=>s.includes(o.area));return pp?O.filter(o=>inP(o.t)):O}
+function scopeL(u,pp=true){let L=get('ledger',[]),s=scopeIds(u);if(s)L=L.filter(l=>s.includes(l.area));return pp?L.filter(l=>inP(l.t)):L}
+function fin(O,L){const D=O.filter(o=>o.st==='Delivered'),rev=sum(D.map(o=>o.total)),ex=sum(L.filter(l=>l.k==='expense').map(l=>l.amt)),sp=sum(L.filter(l=>l.k==='supplier'&&l.st==='Paid').map(l=>l.amt));
+return{cnt:O.length,del:D.length,can:O.filter(o=>o.st==='Cancelled').length,pend:O.filter(o=>['Pending','Preparing','Out for Delivery'].includes(o.st)).length,rev,ex,sp,profit:rev-ex-sp}}
+function plRows(){const O=get('orders',[]).filter(o=>inP(o.t)),L=get('ledger',[]).filter(l=>inP(l.t)),R=areasList().map(a=>({id:a.id,n:a.n}));R.push({id:'',n:'No area / HQ'});
+R.forEach(r=>Object.assign(r,fin(O.filter(o=>(o.area||'')===r.id),L.filter(l=>(l.area||'')===r.id))));return R.filter(r=>r.id||r.cnt||r.ex||r.sp)}
+function codRows(){const O=get('orders',[]),L=get('ledger',[]),R=areasList().map(a=>({id:a.id,n:a.n,mg:a.mg,mn:a.mn}));R.push({id:'',n:'No area / HQ',mg:'',mn:''});
+R.forEach(r=>{const D=O.filter(o=>(o.area||'')===r.id&&o.st==='Delivered'&&(!o.pay||o.pay.m==='cod')),M=L.filter(l=>l.k==='remit'&&(l.area||'')===r.id);
+r.cnt=D.length;r.col=sum(D.map(o=>o.total));r.ok=sum(M.filter(l=>l.st==='Confirmed').map(l=>l.amt));r.pen=sum(M.filter(l=>l.st==='Pending').map(l=>l.amt));r.due=r.col-r.ok});return R}
+function txns(){const T=[];get('ledger',[]).forEach(l=>{
+if(l.k==='remit'&&l.st==='Confirmed')T.push({t:l.ct||l.t,d:'COD received from '+(l.mname||'manager')+' ('+(l.areaName||'area')+')',acc:l.acc,a:+l.amt});
+if(l.k==='expense')T.push({t:l.t,d:'Expense: '+l.cat+(l.note?' - '+l.note:''),acc:l.acc,a:-l.amt});
+if(l.k==='supplier'&&l.st==='Paid')T.push({t:l.pt||l.t,d:'Supplier: '+l.who+(l.note?' - '+l.note:''),acc:l.acc,a:-l.amt});
+if(l.k==='adj')T.push({t:l.t,d:'Adjustment: '+(l.note||''),acc:l.acc,a:+l.amt})});
+get('orders',[]).forEach(o=>{if(o.pay&&o.pay.m!=='cod'&&o.pay.st==='Verified')T.push({t:o.pay.vt||o.t,d:'Online payment #'+o.id+' ('+o.pay.m+')',acc:o.pay.m==='bank'?'bank':'bkash',a:+o.total})});return T.sort((x,y)=>y.t-x.t)}
+function balances(){const b={cash:0,bkash:0,bank:0};txns().forEach(x=>{if(b[x.acc]!=null)b[x.acc]+=x.a});return b}
+const ACC={cash:'Cash in hand',bkash:'bKash',bank:'Bank'};
+const pendingApprovals=()=>get('users',[]).filter(x=>x.status==='Pending Verification').length+get('recovery',[]).filter(r=>r.st==='Pending').length;
+const payWait=()=>get('orders',[]).filter(o=>o.pay&&o.pay.m!=='cod'&&o.pay.st==='Unverified').length;
+
+/* ---------- checkout: area + payment method ---------- */
+function coModal(){const t=cartUI(),A=areasList(),c=cust();$('#dr').classList.remove('on');payM='cod';
+openM(`<h3>Delivery details</h3><p class="mut">${esc(c.name)}, ${esc(c.phone)}</p>${A.length?`<label>Delivery area</label><select id="car"><option value="">Select area</option>${A.map(a=>`<option value="${esc(a.id)}"${c.area===a.id?' selected':''}>${esc(a.n)}</option>`).join('')}</select>`:''}<label>Delivery address</label><textarea id="ad" rows="3" placeholder="House, road, area">${esc(c.addr||'')}</textarea><label>Payment</label><div class="tabs"><button class="chip on" id="pm-cod" onclick="pmSel('cod')">Cash</button><button class="chip" id="pm-bkash" onclick="pmSel('bkash')">bKash</button><button class="chip" id="pm-bank" onclick="pmSel('bank')">Bank</button></div><div id="pmi"></div><div class="row"><span>Total</span><b>৳${t}</b></div><div id="er"></div><button class="btn o w pulse" style="margin-top:12px" onclick="place()">Place order</button>`);pmSel('cod')}
+function pmSel(m){payM=m;['cod','bkash','bank'].forEach(k=>$('#pm-'+k).classList.toggle('on',k===m));const S=SET();
+$('#pmi').innerHTML=m==='cod'?'<p class="mut">Pay cash to the rider when your order arrives.</p>':`<p class="mut">${m==='bkash'?'Send money by bKash to <b>'+esc(S.bk)+'</b>':'Transfer to bank account <b>'+esc(S.ba)+'</b>'+(S.bn?' ('+esc(S.bn)+')':'')}. Then type the transaction ID below. We check it before delivery.</p><input id="trx" placeholder="Transaction ID" maxlength="30">`}
+function place(){const a=$('#ad').value.trim(),A=areasList(),ar=A.find(x=>x.id===($('#car')?$('#car').value:'')),e=m=>$('#er').textContent=m;
+if(A.length&&!ar)return e('Select your delivery area.');if(a.length<6)return e('Enter your full delivery address.');
+const trx=payM==='cod'?'':($('#trx').value.trim());if(payM!=='cod'&&trx.length<6)return e('Enter the transaction ID of your payment.');
+const c=cust();c.addr=a;if(ar)c.area=ar.id;set('cust',c);
+const items=Object.entries(cart).map(([id,q])=>{const p=PR(id);return{n:p.n,q,p:p.p,s:p.shop||''}}),s=items.reduce((x,i)=>x+i.p*i.q,0),d=cpn?Math.round(s*cpn.pct/100):0,
+o={uid:myUid(),id:'FS'+Math.floor(1000+Math.random()*9000),items,total:s-d+delFee(s-d),fee:delFee(s-d),disc:d,code:cpn?cpn.code:'',cust:{name:c.name,phone:c.phone,email:c.email||''},addr:a,area:ar?ar.id:'',areaName:ar?ar.n:'',mgr:ar?ar.mg||'':'',pay:{m:payM,trx,st:payM==='cod'?'COD':'Unverified'},st:'Pending',otp:cfg().otp?String(Math.floor(1000+Math.random()*9000)):'',rider:'',t:Date.now()};
+o.shops=[...new Set(items.map(i=>i.s).filter(Boolean))];
+const L=get('orders',[]);L.unshift(o);set('orders',L);cart={};cpn=null;cartUI();closeM();show('vp');toast('Order placed: #'+o.id)}
+function ordCard(o,u){const a=[],pm=o.pay&&o.pay.m!=='cod';
+if(['vendor','manager','admin','ceo'].includes(u.role)&&o.st==='Pending')a.push(`<button class="btn sm" onclick="act('${o.id}','prep')">Start preparing</button>`);
+if(u.role==='rider'&&o.st==='Preparing')a.push(`<button class="btn o sm" onclick="act('${o.id}','take')">Accept delivery</button>`);
+if(u.role==='rider'&&o.st==='Out for Delivery'&&o.rider===u.id)a.push(!o.otp?`<button class="btn o sm" onclick="act('${o.id}','done')">Mark delivered</button>`:`<input id="otp${o.id}" inputmode="numeric" maxlength="4" placeholder="Customer's 4-digit OTP"><button class="btn o sm" onclick="deliver('${o.id}')">Mark delivered</button>`);
+if(['helpcare','manager','admin','ceo'].includes(u.role)&&!['Delivered','Cancelled'].includes(o.st))a.push(`<button class="btn g sm" onclick="act('${o.id}','cancel')">Cancel order</button>`);
+return`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${esc(o.cust.name)}, ${esc(o.cust.phone)}</span><b>৳${o.total}</b></div><small>${o.areaName?esc(o.areaName)+' / ':''}${esc(o.addr)}</small><br><small>${pm?esc(o.pay.m)+' payment '+esc(o.pay.st)+(o.pay.trx?' / '+esc(o.pay.trx):''):(u.role==='rider'?'Collect cash: ৳'+o.total:'Cash on delivery')}</small> <a class="btn g sm" href="tel:${esc(o.cust.phone)}">Call customer</a>${a.length?`<div style="margin-top:8px">${a.join('')}</div>`:''}</div>`}
+
+/* ---------- filters ---------- */
+function areaSel(u){const A=areaOpts(u);if(!A.length||(u.role==='manager'&&A.length<2))return'';return`<select onchange="arF=this.value;olim=30;dash()" style="margin:0 0 8px"><option value="">${u.role==='manager'?'All my areas':'All areas'}</option>${A.map(a=>`<option value="${esc(a.id)}"${arF===a.id?' selected':''}>${esc(a.n)}</option>`).join('')}</select>`}
+const fbar=u=>`<div class="chips" style="padding-bottom:6px">${PERIODS.map(p=>`<button class="chip${per===p[0]?' on':''}" onclick="per='${p[0]}';dash()">${p[1]}</button>`).join('')}</div>`+areaSel(u);
+const secH=t=>`<h3 style="margin:22px 0 8px">${t}</h3>`;
+
+/* ---------- Overview (all roles) ---------- */
+function salesChart(O){const n=per==='7'?7:30,D=days(n),v=byDay(D,O.filter(o=>o.st==='Delivered'),o=>o.total);return n===7?vBars(D.map(d=>d.l),v):lineChart(D.map(d=>d.l),[{n:'Sales',c:'#6f4e37',v}])}
+function costChart(O,L){const D=days(30),s=byDay(D,O.filter(o=>o.st==='Delivered'),o=>o.total),c=byDay(D,L.filter(l=>l.k==='expense'||(l.k==='supplier'&&l.st==='Paid')),l=>l.amt);return lineChart(D.map(d=>d.l),[{n:'Sales',c:'#6f4e37',v:s},{n:'Costs',c:'#dc2626',v:c}])}
+const statusItems=O=>Object.keys(SC).map(k=>({l:k,v:O.filter(o=>o.st===k).length,c:SC[k]}));
+function topProd(O){const m={};O.filter(o=>o.st==='Delivered').forEach(o=>(o.items||[]).forEach(i=>{m[i.n]=(m[i.n]||0)+i.q}));return Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([l,v])=>({l,v,f:v+' sold'}))}
+function tOv(u){const R=u.role,top=isTop(u),mg=R==='manager',O=scopeO(u),L=(top||mg)?scopeL(u):[],F=fin(O,L);let K='',h=fbar(u);
+const cod=(top||mg)?codRows().filter(r=>top||myAreaIds(u).includes(r.id)):[],due=sum(cod.map(r=>r.due));
+if(top){const b=balances();K=kpi('Sales',tk(F.rev))+kpi('Orders',F.cnt)+kpi('Pending',F.pend)+kpi('Costs',tk(F.ex+F.sp))+kpi(F.profit<0?'Loss':'Profit',tk(Math.abs(F.profit)),F.profit<0?'r':'g')+kpi('COD to receive',tk(due),due>0?'r':'')+kpi('Cash + bank',tk(b.cash+b.bkash+b.bank))+kpi('To approve',pendingApprovals())}
+else if(mg)K=kpi('Sales',tk(F.rev))+kpi('Orders',F.cnt)+kpi('Pending',F.pend)+kpi('You owe admin',tk(due),due>0?'r':'g')+kpi('Expenses',tk(F.ex+F.sp))+kpi(F.profit<0?'Area loss':'Area profit',tk(Math.abs(F.profit)),F.profit<0?'r':'g');
+else K=kpi('Orders',F.cnt)+kpi('Pending',F.pend)+kpi('Delivered',F.del)+kpi('Cancelled',F.can,F.can?'r':'');
+h+=`<div class="kg">${K}</div>`+card2('Sales',salesChart(O))+card2('Orders by status',donut(statusItems(O)));
+if(top){const P=plRows();h+=card2('Sales vs costs (30 days)',costChart(O,L))+card2('Sales by area',hBars(P.map(r=>({l:r.n,v:r.rev}))))+card2('Profit / loss by area',hBars(P.map(r=>({l:r.n,v:r.profit}))));
+const D=cod.filter(r=>r.due>0);h+=card2('COD money to receive',hBars(D.map(r=>({l:r.n+(r.mn?' ('+r.mn+')':''),v:r.due,c:'#dc2626'}))))+card2('Money accounts',hBars(Object.entries(balances()).map(([k,v])=>({l:ACC[k],v}))))}
+if(mg){h+=card2('COD to hand over',hBars(cod.filter(r=>r.id).map(r=>({l:r.n,v:r.due,c:'#dc2626'}))))}
+h+=card2('Top products',hBars(topProd(O)));
+if(R==='helpcare'||top||mg){const old=get('orders',[]).filter(o=>o.st==='Pending'&&Date.now()-o.t>30*60000&&(!scopeIds(u)||scopeIds(u).includes(o.area))).slice(0,5);h+=card2('Needs attention (pending over 30 min)',old.map(o=>`<div class="row" style="margin:6px 0"><span>#${o.id} ${esc(o.cust.name)}</span><a class="btn g sm" href="tel:${esc(o.cust.phone)}">Call</a></div>`).join('')||'<p class="mut">Nothing waiting.</p>')}
+return h+`<button class="btn g w" style="margin-top:6px" onclick="dlOrders()">Download orders (CSV)</button>`}
+
+/* ---------- Orders ---------- */
+const OSTS=['All','Pending','Preparing','Out for Delivery','Delivered','Cancelled'];
+function ordBase(u){let O=get('orders',[]);if(u.role==='rider')O=O.filter(o=>o.st==='Preparing'||o.rider===u.id);else if(u.role==='vendor')O=O.filter(o=>!o.shops||o.shops.includes(u.shop));else{const s=scopeIds(u);if(s)O=O.filter(o=>s.includes(o.area))}return O}
+function ordFiltered(u){const q=nz(oq);return ordBase(u).filter(o=>(os==='All'||o.st===os)&&(!q||nz(o.id).includes(q)||nz(o.cust&&o.cust.phone).includes(q)||nz(o.cust&&o.cust.name).includes(q)))}
+function ordList(u){const L=ordFiltered(u);return(L.slice(0,olim).map(o=>ordCard(o,u)).join('')||'<p class="mut">No orders found.</p>')+(L.length>olim?`<button class="btn g w" onclick="olim+=30;$('#ol').innerHTML=ordList(me())">Show more (${L.length-olim})</button>`:'')}
+function tOrd(u){const big=['ceo','admin','manager','helpcare'].includes(u.role);
+return`<h3>Orders</h3>`+(big?areaSel(u)+`<input placeholder="Search order no, name or phone" value="${esc(oq)}" oninput="oq=this.value;olim=30;$('#ol').innerHTML=ordList(me())"><div class="chips" style="padding-bottom:6px">${OSTS.map(s=>`<button class="chip${os===s?' on':''}" onclick="os='${s}';olim=30;dash()">${s}</button>`).join('')}</div><div class="row" style="margin:0 0 8px"><small>${ordFiltered(u).length} orders</small><button class="btn g sm" onclick="dlOrders()">Download CSV</button></div>`:'')+`<div id="ol">${ordList(u)}</div>`+teamUI(u)}
+function dlOrders(){const u=me();if(!u)return;const O=(['ceo','admin','manager','helpcare'].includes(u.role)?ordBase(u):ordBase(u));
+csvDl('orders-'+dayKey(Date.now()),[['Order','Date','Customer','Phone','Area','Address','Items','Total','Payment','Transaction','Status']].concat(O.map(o=>[o.id,fdate(o.t),o.cust.name,o.cust.phone,o.areaName||'',o.addr,(o.items||[]).map(i=>i.n+' x'+i.q).join('; '),o.total,o.pay?o.pay.m:'cod',o.pay&&o.pay.trx||'',o.st])))}
+
+/* ---------- COD management ---------- */
+function tCod(u){const top=isTop(u),mg=u.role==='manager',mine=myAreaIds(u);let R=codRows();R=top?R.filter(r=>r.id||r.col):R.filter(r=>mine.includes(r.id));if(top&&arF)R=R.filter(r=>r.id===arF);
+const col=sum(R.map(r=>r.col)),ok=sum(R.map(r=>r.ok)),pen=sum(R.map(r=>r.pen)),due=sum(R.map(r=>r.due));
+let h=`<h3>COD management</h3><p class="mut">${top?'Cash on delivery collected in each area, how much the area manager has handed over, and how much is still due.':'Cash on delivery collected in your area. Hand over the money to the admin and record it here.'}</p>`+(top?areaSel(u):areaSel(u));
+h+=`<div class="kg">${kpi('COD collected',tk(col))+kpi('Handed over',tk(ok),'g')+kpi('Waiting for check',tk(pen))+kpi(top?'Still to receive':'You still owe',tk(due),due>0?'r':'g')}</div>`;
+h+=card2('By area',`<div class="tw"><table class="t"><tr><th>Area</th><th>Manager</th><th class="n">Collected</th><th class="n">Handed</th><th class="n">Due</th></tr>${R.map(r=>`<tr><td>${esc(r.n)}</td><td>${esc(r.mn||'-')}</td><td class="n">${tk(r.col)}</td><td class="n">${tk(r.ok)}</td><td class="n"><b>${tk(r.due)}</b></td></tr>`).join('')||'<tr><td colspan="5">No data</td></tr>'}</table></div>`);
+const M=get('ledger',[]).filter(l=>l.k==='remit').sort((a,b)=>b.t-a.t);
+if(mg){const A=areaOpts(u);if(!A.length)h+=`<div class="card cr"><b>No area is assigned to you yet.</b><p class="mut">Ask the admin to set you as manager of an area.</p></div>`;
+else h+=card2('Hand over money to admin',`${A.length>1?`<label>Area</label><select id="rma">${A.map(a=>`<option value="${esc(a.id)}">${esc(a.n)}</option>`).join('')}</select>`:''}<label>Amount (৳)</label><input id="rmm" type="number" min="1" inputmode="numeric" placeholder="${due>0?due-pen:0}"><label>How did you give it?</label><select id="rmx"><option value="cash">Cash</option><option value="bkash">bKash</option><option value="bank">Bank</option></select><label>Reference / note (optional)</label><input id="rmr" maxlength="60"><button class="btn w" onclick="remitSend()">Send to admin for checking</button>`)}
+if(top){const P=M.filter(l=>l.st==='Pending');h+=secH('Waiting for your check ('+P.length+')')+(P.map(l=>`<div class="card cr"><div class="row" style="margin:0"><b>${tk(l.amt)}</b><span class="pill w">${esc(ACC[l.acc]||l.acc)}</span></div><small>${esc(l.areaName||'')} / ${esc(l.mname||'')} / ${fdate(l.t)}${l.ref?' / '+esc(l.ref):''}</small><div class="row"><button class="btn sm" onclick="remitAct('${esc(l.id)}',1)">Yes, received</button><button class="btn g sm" onclick="remitAct('${esc(l.id)}',0)">Not received</button></div></div>`).join('')||'<p class="mut">Nothing waiting.</p>')}
+h+=secH('History')+(M.filter(l=>!top||l.st!=='Pending').slice(0,25).map(l=>`<div class="card cr"><div class="row" style="margin:0"><b>${tk(l.amt)}</b><span class="pill ${l.st==='Confirmed'?'ok':'w'}">${esc(l.st)}</span></div><small>${esc(l.areaName||'')} / ${esc(ACC[l.acc]||l.acc)} / ${fdate(l.t)}${l.ref?' / '+esc(l.ref):''}</small></div>`).join('')||'<p class="mut">No records yet.</p>');
+return h+`<div class="row"><button class="btn g sm" onclick="dlCod()">Download CSV</button><button class="btn g sm" onclick="prCod()">Print / PDF</button></div>`}
+function remitSend(){const u=me(),A=areaOpts(u),a=A.find(x=>x.id===($('#rma')?$('#rma').value:(A[0]||{}).id));if(!u||u.role!=='manager'||!a)return toast('No area found');
+const amt=Math.round(+$('#rmm').value),r=codRows().find(x=>x.id===a.id);if(!(amt>0))return toast('Enter the amount.');if(amt>r.due-r.pen)return toast('More than you owe now ('+tk(r.due-r.pen)+')');
+const L=get('ledger',[]);L.unshift({id:rid('LG'),k:'remit',amt,acc:$('#rmx').value,ref:$('#rmr').value.trim(),area:a.id,areaName:a.n,mgr:u.id,mname:u.name,st:'Pending',by:u.id,t:Date.now()});set('ledger',L);toast('Sent to admin');dash()}
+function remitAct(id,ok){const u=me(),L=get('ledger',[]),l=L.find(x=>x.id===id);if(!u||!isTop(u)||!l||l.st!=='Pending')return;l.st=ok?'Confirmed':'Rejected';l.cby=u.name;l.ct=Date.now();set('ledger',L);toast(ok?'Confirmed':'Rejected');dash()}
+function codTable(){const u=me(),top=isTop(u);let R=codRows();R=top?R.filter(r=>r.id||r.col):R.filter(r=>myAreaIds(u).includes(r.id));return R}
+function dlCod(){csvDl('cod-'+dayKey(Date.now()),[['Area','Manager','Orders','Collected','Handed over','Waiting','Due']].concat(codTable().map(r=>[r.n,r.mn,r.cnt,r.col,r.ok,r.pen,r.due])))}
+function prCod(){const R=codTable();printDoc('COD statement',`<h1>COD statement</h1><p class="k">jayed.com / ${fdate(Date.now())}</p><table><tr><th>Area</th><th>Manager</th><th class="n">Collected</th><th class="n">Handed over</th><th class="n">Due</th></tr>${R.map(r=>`<tr><td>${esc(r.n)}</td><td>${esc(r.mn||'-')}</td><td class="n">${tk(r.col)}</td><td class="n">${tk(r.ok)}</td><td class="n">${tk(r.due)}</td></tr>`).join('')}<tr><th>Total</th><th></th><th class="n">${tk(sum(R.map(r=>r.col)))}</th><th class="n">${tk(sum(R.map(r=>r.ok)))}</th><th class="n">${tk(sum(R.map(r=>r.due)))}</th></tr></table>`)}
+
+/* ---------- Online payment ---------- */
+function tPay(u){const S=SET(),O=get('orders',[]).filter(o=>o.pay&&o.pay.m!=='cod'),W=O.filter(o=>o.pay.st==='Unverified'),X=O.filter(o=>o.pay.st!=='Unverified'),ver=sum(O.filter(o=>o.pay.st==='Verified').map(o=>o.total));
+const row=(o,a)=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id} / ${tk(o.total)}</b><span class="pill ${o.pay.st==='Verified'?'ok':'w'}">${esc(o.pay.st)}</span></div><small>${esc(o.pay.m)} / ID: <b>${esc(o.pay.trx||'-')}</b> / ${esc(o.cust.name)}, ${esc(o.cust.phone)} / ${fdate(o.t)}</small>${a?`<div class="row"><button class="btn sm" onclick="payAct('${o.id}',1)">Payment received</button><button class="btn g sm" onclick="payAct('${o.id}',0)">Not found</button></div>`:''}</div>`;
+return`<h3>Online payment</h3><div class="card cr"><small>Customers pay to</small><br>bKash: <b>${esc(S.bk)}</b><br>Bank account: <b>${esc(S.ba)}</b>${S.bn?' ('+esc(S.bn)+')':''}</div><div class="kg">${kpi('Verified total',tk(ver),'g')+kpi('Waiting to check',W.length)}</div>`+secH('Waiting to check ('+W.length+')')+(W.map(o=>row(o,1)).join('')||'<p class="mut">Nothing waiting.</p>')+secH('Checked')+(X.slice(0,30).map(o=>row(o,0)).join('')||'<p class="mut">No records yet.</p>')+`<button class="btn g w" onclick="dlPay()">Download CSV</button>`}
+function payAct(id,ok){const u=me(),O=get('orders',[]),o=O.find(x=>x.id===id);if(!u||!isTop(u)||!o||!o.pay)return;o.pay.st=ok?'Verified':'Rejected';o.pay.vby=u.name;o.pay.vt=Date.now();set('orders',O);toast(ok?'Payment verified':'Marked not found');dash()}
+function dlPay(){csvDl('online-payments',[['Order','Date','Customer','Phone','Method','Transaction','Amount','Status']].concat(get('orders',[]).filter(o=>o.pay&&o.pay.m!=='cod').map(o=>[o.id,fdate(o.t),o.cust.name,o.cust.phone,o.pay.m,o.pay.trx||'',o.total,o.pay.st])))}
+
+/* ---------- Bank and cash accounts ---------- */
+function tAcc(u){const b=balances(),T=txns(),S=SET();
+return`<h3>Bank and cash accounts</h3><div class="kg">${kpi('Cash in hand',tk(b.cash))+kpi('bKash',tk(b.bkash))+kpi('Bank',tk(b.bank))+kpi('Total',tk(b.cash+b.bkash+b.bank),'g')}</div><div class="card cr"><small>bKash: <b>${esc(S.bk)}</b> / Bank account: <b>${esc(S.ba)}</b></small></div>`+card2('Add opening balance or correction',`<label>Account</label><select id="aj_a"><option value="cash">Cash in hand</option><option value="bkash">bKash</option><option value="bank">Bank</option></select><label>Amount (৳). Use minus to reduce.</label><input id="aj_m" type="number" inputmode="numeric"><label>Note</label><input id="aj_n" maxlength="80" placeholder="Opening balance"><button class="btn w" onclick="adjAdd()">Save</button>`)+secH('Money in and out')+(T.slice(0,40).map(x=>`<div class="row" style="margin:6px 0"><span><small>${fdate(x.t)} / ${esc(ACC[x.acc]||x.acc)}</small><br>${esc(x.d)}</span><b style="color:${x.a<0?'#dc2626':'#15803d'}">${x.a<0?'-':'+'}${tk(Math.abs(x.a))}</b></div>`).join('')||'<p class="mut">No records yet.</p>')+`<button class="btn g w" onclick="dlAcc()">Download CSV</button>`}
+function adjAdd(){const u=me(),amt=Math.round(+$('#aj_m').value);if(!isTop(u)||!amt)return toast('Enter an amount.');const L=get('ledger',[]);L.unshift({id:rid('LG'),k:'adj',amt,acc:$('#aj_a').value,note:$('#aj_n').value.trim(),by:u.id,byName:u.name,t:Date.now()});set('ledger',L);toast('Saved');dash()}
+function dlAcc(){csvDl('accounts-'+dayKey(Date.now()),[['Date','Account','Details','Amount']].concat(txns().map(x=>[fdate(x.t),ACC[x.acc]||x.acc,x.d,x.a])))}
+
+/* ---------- Supplier payments and expenses ---------- */
+const EXC=['Rent','Salary','Transport','Fuel','Packaging','Marketing','Utilities','Repair','Other'];
+function areaOptHtml(){return`<option value="">No area / HQ</option>`+areasList().map(a=>`<option value="${esc(a.id)}">${esc(a.n)}</option>`).join('')}
+const accOptHtml=()=>Object.entries(ACC).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+function tExp(u){const L=get('ledger',[]),S=L.filter(l=>l.k==='supplier').sort((a,b)=>b.t-a.t),E=L.filter(l=>l.k==='expense').sort((a,b)=>b.t-a.t),ceo=u.role==='ceo',del=id=>ceo?`<button class="btn g sm" onclick="ledDel('${esc(id)}')">Delete</button>`:'';
+const bySup={};S.filter(l=>l.st==='Paid').forEach(l=>bySup[l.who]=(bySup[l.who]||0)+l.amt);
+return`<h3>Supplier payments and expenses</h3><div class="kg">${kpi('Supplier paid',tk(sum(S.filter(l=>l.st==='Paid').map(l=>l.amt))))+kpi('Supplier due',tk(sum(S.filter(l=>l.st==='Due').map(l=>l.amt))),'r')+kpi('Expenses',tk(sum(E.map(l=>l.amt))))}</div>`
++card2('Pay a supplier',`<label>Supplier name</label><input id="sp_w" maxlength="60"><label>Amount (৳)</label><input id="sp_m" type="number" inputmode="numeric"><label>Status</label><select id="sp_s"><option>Paid</option><option>Due</option></select><label>Paid from</label><select id="sp_a">${accOptHtml()}</select><label>Area (optional)</label><select id="sp_r">${areaOptHtml()}</select><label>Note</label><input id="sp_n" maxlength="80"><button class="btn w" onclick="ledAdd('supplier')">Save supplier payment</button>`)
++card2('Add an expense',`<label>Type</label><select id="ex_c">${EXC.map(c=>`<option>${c}</option>`).join('')}</select><label>Amount (৳)</label><input id="ex_m" type="number" inputmode="numeric"><label>Paid from</label><select id="ex_a">${accOptHtml()}</select><label>Area (optional)</label><select id="ex_r">${areaOptHtml()}</select><label>Note</label><input id="ex_n" maxlength="80"><button class="btn w" onclick="ledAdd('expense')">Save expense</button>`)
++card2('Paid to suppliers',hBars(Object.entries(bySup).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([l,v])=>({l,v}))))
++card2('Expenses by type',donut(EXC.map(c=>({l:c,v:sum(E.filter(l=>l.cat===c).map(l=>l.amt)),f:tk(sum(E.filter(l=>l.cat===c).map(l=>l.amt)))}))))
++secH('Supplier records')+(S.slice(0,30).map(l=>`<div class="card cr"><div class="row" style="margin:0"><b>${esc(l.who)} / ${tk(l.amt)}</b><span class="pill ${l.st==='Paid'?'ok':'w'}">${esc(l.st)}</span></div><small>${fdate(l.t)} / ${esc(ACC[l.acc]||l.acc)}${l.areaName?' / '+esc(l.areaName):''}${l.note?' / '+esc(l.note):''}</small><div class="row">${l.st==='Due'?`<button class="btn sm" onclick="supPaid('${esc(l.id)}')">Mark paid</button>`:'<span></span>'}${del(l.id)}</div></div>`).join('')||'<p class="mut">No records yet.</p>')
++secH('Expense records')+(E.slice(0,30).map(l=>`<div class="card cr"><div class="row" style="margin:0"><b>${esc(l.cat)} / ${tk(l.amt)}</b>${del(l.id)}</div><small>${fdate(l.t)} / ${esc(ACC[l.acc]||l.acc)}${l.areaName?' / '+esc(l.areaName):''}${l.note?' / '+esc(l.note):''}</small></div>`).join('')||'<p class="mut">No records yet.</p>')
++`<button class="btn g w" onclick="dlExp()">Download CSV</button>`}
+function ledAdd(k){const u=me();if(!isTop(u))return;const p=k==='supplier'?'sp_':'ex_',amt=Math.round(+$('#'+p+'m').value),ar=areasList().find(a=>a.id===$('#'+p+'r').value);
+if(!(amt>0))return toast('Enter the amount.');const e={id:rid('LG'),k,amt,acc:$('#'+p+'a').value,area:ar?ar.id:'',areaName:ar?ar.n:'',mgr:ar?ar.mg||'':'',note:$('#'+p+'n').value.trim(),by:u.id,byName:u.name,t:Date.now()};
+if(k==='supplier'){e.who=$('#sp_w').value.trim();if(!e.who)return toast('Enter the supplier name.');e.st=$('#sp_s').value;if(e.st==='Paid')e.pt=e.t}else e.cat=$('#ex_c').value;
+const L=get('ledger',[]);L.unshift(e);set('ledger',L);toast('Saved');dash()}
+function supPaid(id){const u=me(),L=get('ledger',[]),l=L.find(x=>x.id===id);if(!isTop(u)||!l)return;l.st='Paid';l.pt=Date.now();set('ledger',L);dash()}
+function ledDel(id){if(me().role!=='ceo'||!confirm('Delete this record?'))return;set('ledger',get('ledger',[]).filter(x=>x.id!==id));dash()}
+function dlExp(){csvDl('expenses-'+dayKey(Date.now()),[['Date','Type','Who / category','Amount','Account','Area','Status','Note']].concat(get('ledger',[]).filter(l=>l.k==='supplier'||l.k==='expense').map(l=>[fdate(l.t),l.k,l.who||l.cat,l.amt,ACC[l.acc]||l.acc,l.areaName||'',l.st||'Paid',l.note||''])))}
+
+/* ---------- Profit and loss ---------- */
+function tPl(u){const R=plRows(),T={rev:sum(R.map(r=>r.rev)),sp:sum(R.map(r=>r.sp)),ex:sum(R.map(r=>r.ex)),profit:sum(R.map(r=>r.profit))};
+return`<h3>Profit and loss</h3><p class="mut">Profit = delivered sales minus supplier payments and expenses.</p><div class="chips" style="padding-bottom:6px">${PERIODS.map(p=>`<button class="chip${per===p[0]?' on':''}" onclick="per='${p[0]}';dash()">${p[1]}</button>`).join('')}</div><div class="kg">${kpi('Sales',tk(T.rev))+kpi('Supplier paid',tk(T.sp))+kpi('Expenses',tk(T.ex))+kpi(T.profit<0?'Loss':'Profit',tk(Math.abs(T.profit)),T.profit<0?'r':'g')}</div>`
++card2('Profit / loss by area',hBars(R.map(r=>({l:r.n,v:r.profit}))))
++card2('By area',`<div class="tw"><table class="t"><tr><th>Area</th><th class="n">Sales</th><th class="n">Supplier</th><th class="n">Expenses</th><th class="n">Result</th></tr>${R.map(r=>`<tr><td>${esc(r.n)}</td><td class="n">${tk(r.rev)}</td><td class="n">${tk(r.sp)}</td><td class="n">${tk(r.ex)}</td><td class="n" style="color:${r.profit<0?'#dc2626':'#15803d'}"><b>${r.profit<0?'-':''}${tk(Math.abs(r.profit))}</b></td></tr>`).join('')||'<tr><td colspan="5">No data</td></tr>'}</table></div>`)
++card2('Sales vs costs (30 days)',costChart(get('orders',[]),get('ledger',[])))
++`<div class="row"><button class="btn g sm" onclick="dlPl()">Download CSV</button><button class="btn g sm" onclick="prPl()">Print / PDF</button></div>`}
+function dlPl(){csvDl('profit-loss',[['Area','Sales','Supplier paid','Expenses','Profit / loss']].concat(plRows().map(r=>[r.n,r.rev,r.sp,r.ex,r.profit])))}
+function prPl(){const R=plRows(),pl=PERIODS.find(p=>p[0]===per)[1];printDoc('Profit and loss',`<h1>Profit and loss</h1><p class="k">jayed.com / ${esc(pl)} / ${fdate(Date.now())}</p><table><tr><th>Area</th><th class="n">Sales</th><th class="n">Supplier</th><th class="n">Expenses</th><th class="n">Result</th></tr>${R.map(r=>`<tr><td>${esc(r.n)}</td><td class="n">${tk(r.rev)}</td><td class="n">${tk(r.sp)}</td><td class="n">${tk(r.ex)}</td><td class="n">${tk(r.profit)}</td></tr>`).join('')}<tr><th>Total</th><th class="n">${tk(sum(R.map(r=>r.rev)))}</th><th class="n">${tk(sum(R.map(r=>r.sp)))}</th><th class="n">${tk(sum(R.map(r=>r.ex)))}</th><th class="n">${tk(sum(R.map(r=>r.profit)))}</th></tr></table>`)}
+
+/* ---------- Staff and permission ---------- */
+function ensureIds(){const U=get('users',[]);if(!U.length)return;window._idTry=window._idTry||new Set();const need=U.filter(x=>x.status==='Approved'&&!x.eid&&!window._idTry.has(x.id));if(!need.length)return;need.forEach(x=>{window._idTry.add(x.id);x.eid=String(nextEid(U))});set('users',U)}
+function uSet(id,k,v){const u=me(),U=get('users',[]),x=U.find(y=>y.id===id);if(!u||!x||x.role==='ceo')return;
+const adm=u.role==='admin'&&['status','area'].includes(k)&&x.role!=='admin';if(u.role!=='ceo'&&!adm)return toast('Not allowed');x[k]=v;set('users',U);toast('Saved')}
+function uDel(id){if(me().role!=='ceo'||!confirm('Remove this person from the team?'))return;set('users',get('users',[]).filter(x=>x.id!==id));dash()}
+function decide(id,ok){const U=get('users',[]),x=U.find(y=>y.id===id);if(!x)return;x.status=ok?'Approved':'Rejected';if(ok&&!x.eid)x.eid=String(nextEid(U));set('users',U);dash()}
+function tStaff(u){const top=isTop(u),ST=['Approved','Pending Verification','Rejected','Suspended'];let L=get('users',[]).filter(x=>x.id!==u.id&&x.role!=='ceo');
+if(u.role==='manager'){const ids=myAreaIds(u);L=L.filter(x=>x.status==='Approved'&&ids.includes(x.area))}
+const A=areasList();
+return`<h3>Staff and permission</h3><p class="mut">${u.role==='ceo'?'You can change roles, status and permissions. An admin can edit the site only if you tick the permission.':u.role==='admin'?'You can see staff, set their area and suspend or approve them. Only the CEO can change roles and admin permissions.':'Staff working in your area.'}</p><div class="row" style="margin:0 0 8px"><small>${L.length} people</small><button class="btn g sm" onclick="dlStaff()">Download CSV</button></div>`+
+(L.map(x=>{const can=u.role==='ceo'||(u.role==='admin'&&x.role!=='admin');return`<div class="card cr"><div class="dh"><div class="av" style="width:46px;height:46px;font-size:18px">${avatar((profOf(x.id)||{}).photo,x.name)}</div><div><b>${esc(x.name)}</b> ${x.eid?`<span class="eid">ID ${esc(x.eid)}</span>`:''}<br><span class="pill">${esc(ROLES[x.role]||x.role)}</span> <span class="pill ${x.status==='Approved'?'ok':'w'}">${esc(x.status)}</span></div></div><small>${esc(x.email)} ${esc(x.phone||'')}${x.shop?' / '+esc(x.shop):''}</small>`+
+(top?`<label>Area</label><select ${can?'':'disabled'} onchange="uSet('${esc(x.id)}','area',this.value)"><option value="">No area</option>${A.map(a=>`<option value="${esc(a.id)}"${x.area===a.id?' selected':''}>${esc(a.n)}</option>`).join('')}</select>`:'')+
+(u.role==='ceo'?`<label>Role</label><select onchange="uSet('${esc(x.id)}','role',this.value)">${['vendor','rider','manager','helpcare','admin'].map(r=>`<option value="${r}"${x.role===r?' selected':''}>${ROLES[r]}</option>`).join('')}</select>`:'')+
+(can?`<label>Status</label><select onchange="uSet('${esc(x.id)}','status',this.value)">${ST.map(s=>`<option${x.status===s?' selected':''}>${s}</option>`).join('')}</select>`:'')+
+(u.role==='ceo'&&x.role==='admin'?`<label class="ck"><input type="checkbox" ${x.canEdit?'checked':''} onchange="uSet('${esc(x.id)}','canEdit',this.checked)">Allow this admin to edit the site</label>`:'')+
+`<div class="row"><a class="btn sm" href="tel:${esc(x.phone||'')}">Call</a>${top?`<button class="btn g sm" onclick="viewProf('${esc(x.id)}')">Profile</button>`:''}${u.role==='ceo'?`<button class="btn g sm" onclick="uDel('${esc(x.id)}')">Remove</button>`:''}</div></div>`}).join('')||'<p class="mut">No staff to show.</p>')}
+function dlStaff(){const u=me();let L=get('users',[]);if(u.role==='manager'){const ids=myAreaIds(u);L=L.filter(x=>x.status==='Approved'&&ids.includes(x.area))}
+csvDl('staff-'+dayKey(Date.now()),[['ID','Name','Role','Status','Phone','Email','Shop','Area']].concat(L.map(x=>[x.eid||'',x.name,ROLES[x.role]||x.role,x.status,x.phone||'',x.email||'',x.shop||'',areaName(x.area)])))}
+
+/* ---------- Approvals + password recovery ---------- */
+function tApr(u){const Q=get('users',[]).filter(x=>x.status==='Pending Verification'),R=get('recovery',[]).filter(r=>r.st==='Pending'),U=get('users',[]);
+let h=`<h3>Approvals</h3>`+(Q.map(x=>{const can=u.role==='ceo'||x.role!=='admin';return`<div class="card cr"><b>${esc(x.name)}</b> <span class="pill">${ROLES[x.role]||esc(x.role)}</span><br><small>${esc(x.email)}, ${esc(x.phone)}${x.shop?', shop: '+esc(x.shop):''}<br>Documents: ${Object.entries(x.docs||{}).map(([k,v])=>esc(k)+': '+esc(v.split('/').pop())).join(', ')||esc(x.doc||'none')}</small><div class="row">${can?`<button class="btn sm" onclick="decide('${x.id}',1)">Approve</button><button class="btn g sm" onclick="decide('${x.id}',0)">Reject</button>`:'<small>Only the CEO can approve admins.</small>'}${sb?Object.entries(x.docs||{}).filter(([k,v])=>v.startsWith('docs/')).map(([k,v])=>`<button class="btn g sm" onclick="viewDoc('${esc(v)}')">View ${esc(k)}</button>`).join(''):''}</div></div>`}).join('')||'<p class="mut">No pending applications.</p>');
+h+=secH('Password recovery requests')+(R.map(r=>{const m=U.find(x=>nz(x.email)===nz(r.email)),match=m&&m.phone===r.phone,can=!m||m.role!=='admin'||u.role==='ceo';
+return`<div class="card cr"><b>${esc(r.email)}</b> <span class="pill ${match?'ok':'w'}">${m?(match?'Phone matches':'Phone does NOT match'):'No account found'}</span><br><small>${esc(r.phone)} / ${fdate(r.t)}${m?' / '+esc(m.name)+' ('+esc(ROLES[m.role]||m.role)+')':''}</small><div class="row">${can?`<button class="btn sm" onclick="recAct('${esc(r.id)}',1)">Approve and email reset link</button>`:'<small>Only the CEO can approve admin recovery.</small>'}<button class="btn g sm" onclick="recAct('${esc(r.id)}',0)">Reject</button></div></div>`}).join('')||'<p class="mut">No recovery requests.</p>');return h}
+async function recAct(id,ok){const u=me(),L=get('recovery',[]),r=L.find(x=>x.id===id);if(!u||!isTop(u)||!r||r.st!=='Pending')return;
+if(ok){if(!window.fbReset)return toast('Connecting. Try again in a moment.');try{await fbReset(r.email)}catch(x){if(x.code==='auth/user-not-found'){r.st='Rejected';r.note='No account';set('recovery',L);dash();return toast('No account with this email')}return toast('Could not send: '+(x.code||x.message))}r.st='Sent'}else r.st='Rejected';
+r.by=u.name;r.dt=Date.now();set('recovery',L);toast(ok?'Reset link emailed':'Rejected');dash()}
+function recModal(){openM(`<h3>Forgot password</h3><p class="mut">Send a request. An admin checks it, then a password reset link is emailed to you. Look in Spam too.</p><label>Your email</label><input id="rm" type="email" autocomplete="email"><label>Your phone number</label><input id="rp" type="tel" inputmode="tel" placeholder="01XXXXXXXXX"><div id="er"></div><button class="btn w" onclick="recSend()">Send request</button><div id="rst" style="margin-top:14px"></div><button class="btn g w" style="margin-top:10px" onclick="staffModal()">Back to log in</button>`);recStatus()}
+function recStatus(){const L=get('recovery',[]).filter(r=>r.uid===myUid()).slice(0,3),el=$('#rst');if(!el)return;el.innerHTML=L.length?'<b>Your requests</b>'+L.map(r=>`<div class="row" style="margin:6px 0"><small>${esc(r.email)} / ${fdate(r.t)}</small><span class="pill ${r.st==='Sent'?'ok':'w'}">${r.st==='Sent'?'Link emailed':esc(r.st)}</span></div>`).join(''):''}
+function recSend(){const em=$('#rm').value.trim().toLowerCase(),p=ph($('#rp').value),e=m=>$('#er').textContent=m;if(!/^\S+@\S+\.\S+$/.test(em))return e('Enter your email.');if(!p)return e('Enter a valid phone number.');if(!myUid())return e('Connecting. Try again in a moment.');
+const L=get('recovery',[]);if(L.some(r=>r.uid===myUid()&&nz(r.email)===em&&r.st==='Pending'))return e('You already sent a request. Please wait for the admin.');
+L.unshift({id:rid('RC'),uid:myUid(),email:em,phone:p,st:'Pending',t:Date.now()});set('recovery',L);e('');toast('Request sent');recStatus()}
+
+/* ---------- Profiles ---------- */
+const fld=(i,l,v,t,x)=>`<label>${l}</label><input id="pf_${i}" type="${t||'text'}" value="${esc(v||'')}" ${x||''}>`;
+const sel=(i,l,v,o)=>`<label>${l}</label><select id="pf_${i}"><option value="">Select</option>${o.map(z=>`<option${v===z?' selected':''}>${z}</option>`).join('')}</select>`;
+const area2=(i,l,v)=>`<label>${l}</label><textarea id="pf_${i}" rows="2" maxlength="250">${esc(v||'')}</textarea>`;
+const BG=['A+','A-','B+','B-','O+','O-','AB+','AB-'];
+async function pfPick(inp){const f=inp.files[0];if(!f)return;if(!/^image\//.test(f.type))return toast('Choose a photo');try{const bm=await createImageBitmap(f),s=Math.min(bm.width,bm.height),c=document.createElement('canvas');c.width=c.height=240;c.getContext('2d').drawImage(bm,(bm.width-s)/2,(bm.height-s)/2,s,s,0,0,240,240);pfPhoto=c.toDataURL('image/jpeg',.8);$('#pav').innerHTML=`<img src="${pfPhoto}" alt="">`;toast('Photo ready. Press Save profile.')}catch(x){toast('Could not read this photo')}}
+function tMe(u){const P=profOf(u.id)||{},g=k=>P[k];pfPhoto=null;
+return`<h3>My profile</h3><div class="card cr"><div class="dh"><div class="av" id="pav" style="width:84px;height:84px;font-size:32px">${avatar(P.photo,u.name)}</div><div><b style="font-size:18px">${esc(u.name)}</b><br><span class="pill ok">${esc(ROLES[u.role]||u.role)}</span><br>${u.eid?`<span class="eid">ID ${esc(u.eid)}</span>`:'<small>Your 7 digit ID appears after approval.</small>'}</div></div><label class="btn g w" style="display:block;margin:12px 0 4px">Change photo<input type="file" accept="image/*" hidden onchange="pfPick(this)"></label></div>`
++`<div class="card cr"><h3 style="font-size:17px">Basic information</h3>`+fld('name','Full name',u.name)+fld('phone','Phone number',u.phone,'tel')+`<label>Email</label><input value="${esc(u.email)}" disabled>`+fld('father',"Father's name",g('father'))+fld('mother',"Mother's name",g('mother'))+fld('dob','Date of birth',g('dob'),'date')+sel('gender','Gender',g('gender'),['Male','Female','Other'])+sel('blood','Blood group',g('blood'),BG)+fld('nid','NID number (10, 13 or 17 digits)',g('nid'),'text','inputmode="numeric" maxlength="17"')+`</div>`
++`<div class="card cr"><h3 style="font-size:17px">Address and contact</h3>`+area2('addr1','Present address',g('addr1'))+area2('addr2','Permanent address',g('addr2'))+fld('altn','Emergency contact name',g('altn'))+fld('alt','Emergency contact phone',g('alt'),'tel')+`</div>`
++`<div class="card cr"><h3 style="font-size:17px">Work and payment</h3>`+fld('edu','Education',g('edu'))+area2('exp','Experience and skills',g('exp'))+sel('paym','Salary account type',g('paym'),['bKash','Nagad','Bank'])+fld('pay','Salary account number',g('pay'),'text','inputmode="numeric"')+`<label>Area</label><input value="${esc(areaName(u.area)||(areasList().filter(a=>a.mg===u.id).map(a=>a.n).join(', '))||'Not assigned')}" disabled><div id="pfe" style="color:#dc2626;font-size:13px;min-height:18px"></div><button class="btn w" onclick="saveMe()">Save profile</button></div>`
++`<div class="row"><button class="btn g sm" onclick="dlProfile('${esc(u.id)}')">Download (PDF / print)</button><button class="btn g sm" onclick="dlProfileCsv('${esc(u.id)}')">Download CSV</button></div>`}
+function saveMe(){const u=me(),e=m=>$('#pfe').textContent=m,g=i=>($('#pf_'+i).value||'').trim(),name=g('name'),phone=ph(g('phone')),nid=g('nid').replace(/\s/g,''),alt=g('alt');
+if(name.length<2)return e('Enter your name.');if(!phone)return e('Enter a valid phone number.');if(nid&&!/^(\d{10}|\d{13}|\d{17})$/.test(nid))return e('NID must be 10, 13 or 17 digits.');if(alt&&!ph(alt))return e('Enter a valid emergency phone number.');
+const old=profOf(u.id)||{},P={...old,id:u.id,photo:pfPhoto||old.photo||'',father:g('father'),mother:g('mother'),dob:g('dob'),gender:g('gender'),blood:g('blood'),nid,altn:g('altn'),alt:alt?ph(alt):'',addr1:g('addr1'),addr2:g('addr2'),edu:g('edu'),exp:g('exp'),paym:g('paym'),pay:g('pay'),t:Date.now()};
+set('profiles',get('profiles',[]).filter(x=>x.id!==u.id).concat([P]));const U=get('users',[]),x=U.find(y=>y.id===u.id);if(x&&(x.name!==name||x.phone!==phone)){x.name=name;x.phone=phone;set('users',U)}
+pfPhoto=null;toast('Profile saved');dash()}
+function profRows(x,P){return[['ID',x.eid||''],['Name',x.name],['Role',ROLES[x.role]||x.role],['Status',x.status],['Phone',x.phone],['Email',x.email],['Shop',x.shop||''],['Area',areaName(x.area)],["Father's name",P.father],["Mother's name",P.mother],['Date of birth',P.dob],['Gender',P.gender],['Blood group',P.blood],['NID number',P.nid],['Emergency contact',P.altn],['Emergency phone',P.alt],['Present address',P.addr1],['Permanent address',P.addr2],['Education',P.edu],['Experience',P.exp],['Salary account',((P.paym||'')+' '+(P.pay||'')).trim()]].filter(r=>r[1])}
+const userBy=id=>get('users',[]).find(y=>y.id===id)||(me()&&me().id===id?me():null);
+function dlProfile(id){const x=userBy(id);if(!x)return;const P=profOf(id)||{};printDoc('Profile '+x.name,`<h1>${esc(x.name)}</h1><p class="k">jayed.com staff profile${x.eid?' / ID '+esc(x.eid):''}</p>${okImg(P.photo)?`<img src="${P.photo}" alt="">`:''}<table>${profRows(x,P).map(r=>`<tr><th>${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join('')}</table><p class="k">Printed ${fdate(Date.now())}</p>`)}
+function dlProfileCsv(id){const x=userBy(id);if(!x)return;csvDl('profile-'+(x.eid||id.slice(0,6)),[['Field','Value']].concat(profRows(x,profOf(id)||{})))}
+function viewProf(id){const x=userBy(id);if(!x)return;const P=profOf(id)||{};openM(`<div class="dh"><div class="av" style="width:72px;height:72px;font-size:28px">${avatar(P.photo,x.name)}</div><div><h3 style="margin:0">${esc(x.name)}</h3>${x.eid?`<span class="eid">ID ${esc(x.eid)}</span>`:''}</div></div><div style="margin:12px 0">${profRows(x,P).map(r=>`<div class="row" style="margin:5px 0;align-items:flex-start"><small>${esc(r[0])}</small><span style="text-align:right;white-space:pre-line">${esc(r[1])}</span></div>`).join('')}</div><div class="row"><button class="btn g sm" onclick="dlProfile('${esc(id)}')">Download (PDF / print)</button><button class="btn g sm" onclick="dlProfileCsv('${esc(id)}')">CSV</button></div><button class="btn g w" style="margin-top:10px" onclick="closeM()">Close</button>`)}
+
+/* customer profile */
+function dProf(){const c=cust();if(!c){$('#vp').innerHTML=`<h2>Profile</h2><div class="card"><p>Sign in to see your profile and orders.</p><button class="btn o" onclick="custModal()">Sign in</button></div>`;return}
+if(!c.cid){c.cid=String(Math.floor(1000000+Math.random()*9000000));set('cust',c)}pfPhoto=null;
+const L=get('orders',[]).filter(o=>o.cust.phone===c.phone),A=areasList();
+$('#vp').innerHTML=`<div class="hero"><div class="dh"><div class="av" id="pav" style="width:84px;height:84px;font-size:32px">${avatar(c.photo,c.name)}</div><div><h2 style="margin:0">${esc(c.name)}</h2><span class="eid">ID ${esc(c.cid)}</span><p class="mut" style="margin:4px 0 0">${esc(c.phone)}</p></div></div><label class="btn g sm" style="margin-top:12px">Change photo<input type="file" accept="image/*" hidden onchange="pfPick(this)"></label></div>`
++`<div class="card cr"><label>Full name</label><input id="cp_n" value="${esc(c.name)}"><label>Phone (cannot be changed)</label><input value="${esc(c.phone)}" disabled><label>Email</label><input id="cp_e" type="email" value="${esc(c.email||'')}"><label>Date of birth</label><input id="cp_d" type="date" value="${esc(c.dob||'')}"><label>Gender</label><select id="cp_g"><option value="">Select</option>${['Male','Female','Other'].map(z=>`<option${c.gender===z?' selected':''}>${z}</option>`).join('')}</select>${A.length?`<label>My area</label><select id="cp_r"><option value="">Select area</option>${A.map(a=>`<option value="${esc(a.id)}"${c.area===a.id?' selected':''}>${esc(a.n)}</option>`).join('')}</select>`:''}<label>Default delivery address</label><textarea id="pa" rows="2">${esc(c.addr||'')}</textarea><div id="cp_er" style="color:#dc2626;font-size:13px;min-height:18px"></div><button class="btn w" onclick="saveCust()">Save profile</button></div><div class="row"><button class="btn g sm" onclick="prCust()">Download profile (PDF / print)</button><button class="btn g sm" onclick="dlMyOrders()">Download my orders</button></div><div class="row"><button class="btn g sm" onclick="set('cust',null);acctUI();dProf()">Sign out</button></div><h3>My orders</h3>`
++(L.map(o=>`<div class="card cr"><div class="row" style="margin:0"><b>#${o.id}</b><span class="pill${o.st==='Delivered'?' ok':''}">${o.st}</span></div><small>${o.items.map(i=>esc(i.n)+' ×'+i.q).join(', ')}</small><div class="row"><span>${o.pay&&o.pay.m!=='cod'?esc(o.pay.m)+' / '+esc(o.pay.st):o.code?'Coupon '+esc(o.code):'Cash on delivery'}</span><b>৳${o.total}</b></div>${o.otp&&o.st==='Out for Delivery'?`<p style="margin:6px 0 0">Give this OTP to the rider: <b>${o.otp}</b></p>`:''}</div>`).join('')||'<p class="mut">No orders yet.</p>')}
+function saveCust(){const c=cust(),n=$('#cp_n').value.trim(),em=$('#cp_e').value.trim().toLowerCase();if(n.length<2)return $('#cp_er').textContent='Enter your name.';if(em&&!/^\S+@\S+\.\S+$/.test(em))return $('#cp_er').textContent='Enter a valid email.';
+c.name=n;c.email=em;c.dob=$('#cp_d').value;c.gender=$('#cp_g').value;if($('#cp_r'))c.area=$('#cp_r').value;c.addr=$('#pa').value.trim();if(pfPhoto)c.photo=pfPhoto;set('cust',c);acctUI();toast('Profile saved');dProf()}
+function saveA(){const c=cust();c.addr=$('#pa').value.trim();set('cust',c);toast('Address saved')}
+function prCust(){const c=cust();if(!c)return;const R=[['Customer ID',c.cid],['Name',c.name],['Phone',c.phone],['Email',c.email],['Date of birth',c.dob],['Gender',c.gender],['Area',areaName(c.area)],['Address',c.addr]].filter(r=>r[1]);printDoc('My profile',`<h1>${esc(c.name)}</h1><p class="k">jayed.com customer profile</p>${okImg(c.photo)?`<img src="${c.photo}" alt="">`:''}<table>${R.map(r=>`<tr><th>${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join('')}</table>`)}
+function dlMyOrders(){const c=cust();if(!c)return;csvDl('my-orders',[['Order','Date','Items','Total','Payment','Status']].concat(get('orders',[]).filter(o=>o.cust.phone===c.phone).map(o=>[o.id,fdate(o.t),o.items.map(i=>i.n+' x'+i.q).join('; '),o.total,o.pay?o.pay.m:'cod',o.st])))}
+
+/* ---------- Dashboard shell ---------- */
+const TABN={ov:'Overview',ord:'Orders',cod:'COD',pay:'Online payment',acc:'Bank and cash',exp:'Supplier and expenses',pl:'Profit and loss',staff:'Staff and permission',apr:'Approvals',app:'Applications',prod:'Products',off:'Offers',site:'Site',me:'My profile'};
+function sTabs(u){const R=u.role;let k=[];if(R==='ceo'||R==='admin')k=['ov','ord','cod','pay','acc','exp','pl','staff','apr','app'];else if(R==='manager')k=['ov','ord','cod','staff','app'];else if(R==='helpcare')k=['ov','ord'];else k=['ord'];
+if(canShop(u))k.push('prod','off');if(canSite(u))k.push('site');k.push('me');
+const cnt={apr:isTop(u)?pendingApprovals():0,app:(R==='manager'||isTop(u))?appWait(u):0,pay:isTop(u)?payWait():0};return k.map(x=>[x,TABN[x]+(cnt[x]?' ('+cnt[x]+')':'')])}
+function dash(){const u=me();if(!u)return show('shop');show('staff');const ok=u.status==='Approved';if(ok&&isTop(u))ensureIds();
+const P=profOf(u.id)||{},ar=u.role==='manager'?myAreaIds(u).map(areaName).join(', '):areaName(u.area);
+let h=`<div class="hero"><div class="dh"><div class="av">${avatar(P.photo,u.name)}</div><div style="flex:1;min-width:170px"><span class="pill ${ok?'ok':'w'}">${esc(ROLES[u.role]||u.role)}: ${esc(u.status)}</span> ${u.eid?`<span class="eid">ID ${esc(u.eid)}</span>`:''}<h1 style="font-size:28px;margin:6px 0 0">${esc(u.name)}</h1><p class="mut" style="margin:0">${esc(u.email)}${u.shop?' / '+esc(u.shop):''}${ar?' / Area: '+esc(ar):''}</p></div></div><div style="margin-top:12px"><button class="btn g sm" onclick="show('shop')">Back to shop</button> <button class="btn g sm" onclick="out()">Log out</button></div></div>`;
+if(!ok){$('#staff').innerHTML=h+`<div class="card"><b>${u.status==='Rejected'?'Your application was rejected.':u.status==='Suspended'?'Your account is suspended.':'Waiting for approval.'}</b><p class="mut">You cannot work on the platform until you are approved.</p></div>`;return}
+const T=sTabs(u),keys=T.map(x=>x[0]);if(!window._di){window._di=1;sTab=keys[0]}if(!keys.includes(sTab))sTab=keys[0];
+h+=`<div class="nav">${T.map(x=>`<button class="tab${x[0]===sTab?' on':''}" onclick="sTab='${x[0]}';dash()">${esc(x[1])}</button>`).join('')}</div>`;
+h+=({ov:tOv,ord:tOrd,cod:tCod,pay:tPay,acc:tAcc,exp:tExp,pl:tPl,staff:tStaff,apr:tApr,app:tApp,prod:tProd,off:tOff,site:tSite,me:tMe}[sTab])(u);$('#staff').innerHTML=h}
+
+</script>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getAuth,onAuthStateChanged,signInAnonymously,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,deleteUser,sendPasswordResetEmail}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import{getFirestore,collection,doc,setDoc,deleteDoc,getDoc,getDocs,onSnapshot,query,where,limit,writeBatch}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const app=initializeApp({apiKey:"AIzaSyC9bXRSN86pCOkKKRs8ekcR1vYGKO6e3ZQ",authDomain:"fatah-shop.firebaseapp.com",projectId:"fatah-shop",storageBucket:"fatah-shop.firebasestorage.app",messagingSenderId:"301908675488",appId:"1:301908675488:web:aaecda6438fec6dd4632c5"});
+const auth=getAuth(app),db=getFirestore(app),subs=[],cur={uid:null,p:null},J=x=>JSON.stringify(x);
+const last={products:new Map(),offers:new Map(),coupons:new Map(),orders:new Map(),users:new Map(),site:new Map(),applications:new Map(),ledger:new Map(),recovery:new Map(),profiles:new Map()};
+let regBusy=false;
+const er=x=>toast(x.code==='permission-denied'?'Not allowed for this account.':'Save failed: '+(x.code||x.message));
+function refresh(){renderMenu();draw();cartUI();acctUI();const v=V.find(x=>!$('#'+x).classList.contains('hide')),a=document.activeElement;
+if(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)&&$('#'+v).contains(a))return;if(v==='staff'&&dirty())return;
+({staff:dash,vo:dOff,vd:dDisc,vp:dProf,vs:dSet,vf:dFav,vh:dHelp,vj:dJob})[v]?.()}
+function sub(n,q,list){const f=onSnapshot(q,s=>{let a=s.docs.map(d=>d.data());if(n==='orders'||n==='applications'||n==='ledger'||n==='recovery')a.sort((x,y)=>(y.t||0)-(x.t||0));
+last[n]=new Map(s.docs.map(d=>[d.id,J(d.data())]));mem[n]=a;if(n==='products')products=a;if(n==='offers')offers=a;if(n==='coupons')coupons=a;refresh()},x=>console.warn(n,x.code));
+(list||subs).push(f)}
+['products','offers','coupons','site'].forEach(n=>sub(n,collection(db,n),[]));
+window.fbPush=(k,nw)=>{const i=k==='coupons'?'code':'id',L=last[k],seen=new Set();
+nw.forEach(x=>{const id=String(x[i]),j=J(x);seen.add(id);if(L.get(id)!==j){L.set(id,j);setDoc(doc(db,k,id),JSON.parse(j)).catch(er)}});
+[...L.keys()].forEach(id=>{if(!seen.has(id)){L.delete(id);deleteDoc(doc(db,k,id)).catch(er)}})};
+window.fbUid=()=>auth.currentUser&&auth.currentUser.uid;
+async function doSetup(u){subs.splice(0).forEach(f=>f());
+if(u.isAnonymous){mem.users=[];set('sess','');sub('orders',query(collection(db,'orders'),where('uid','==',u.uid)));sub('applications',query(collection(db,'applications'),where('uid','==',u.uid)));sub('recovery',query(collection(db,'recovery'),where('uid','==',u.uid)));refresh();return}
+const s=await getDoc(doc(db,'users',u.uid));if(!s.exists()){mem.users=[];set('sess','');refresh();return}
+let m=s.data();
+if(m.role==='admin'&&m.status==='Approved'){try{const ma=await getDoc(doc(db,'meta','admin')),mc=await getDoc(doc(db,'meta','ceo'));
+if(ma.exists()&&ma.data().uid===u.uid&&!mc.exists()){const b=writeBatch(db);b.update(doc(db,'users',u.uid),{role:'ceo',canEdit:true});b.set(doc(db,'meta','ceo'),{uid:u.uid});await b.commit();m={...m,role:'ceo',canEdit:true};toast('You are now the CEO')}}catch(x){console.warn('ceo upgrade',x.code||x)}}
+mem.users=[m];set('sess',u.uid);const top=m.role==='ceo'||m.role==='admin';
+if(m.status==='Approved'){sub('profiles',top?collection(db,'profiles'):query(collection(db,'profiles'),where('id','==',u.uid)));if(top){sub('ledger',collection(db,'ledger'));sub('recovery',collection(db,'recovery'))}else if(m.role==='manager')sub('ledger',query(collection(db,'ledger'),where('mgr','==',u.uid)));sub('orders',collection(db,'orders'));sub('applications',top?collection(db,'applications'):m.role==='manager'?query(collection(db,'applications'),where('mgr','==',u.uid)):query(collection(db,'applications'),where('uid','==',u.uid)));
+if(top){sub('users',collection(db,'users'));
+const D={products:SEED.map((p,i)=>({id:'p'+i,e:p[0],n:p[1],p:p[2],c:p[3],shop:'jayed.com'})),offers:[{id:'o0',e:'🍳',n:'Breakfast pack',p:270,items:['p4','p5','p3'],shop:'jayed.com'}],coupons:[{code:'FATAH10',pct:10,by:'jayed.com'}]};
+for(const n in D){const g=await getDocs(query(collection(db,n),limit(1)));if(g.empty){if(n==='products')products=D[n];if(n==='offers')offers=D[n];if(n==='coupons')coupons=D[n];set(n,D[n])}}}
+else sub('users',query(collection(db,'users'),where('status','==','Approved')))}
+subs.push(onSnapshot(doc(db,'users',u.uid),d=>{if(d.exists()){const n=d.data();if(n.status!==m.status||n.role!==m.role||!!n.canEdit!==!!m.canEdit){cur.uid=null;setup(u)}else if(!top&&n.status!=='Approved'){mem.users=[n];refresh()}}}));
+refresh()}
+function setup(u){if(cur.uid===u.uid)return cur.p;cur.uid=u.uid;return cur.p=doSetup(u)}
+onAuthStateChanged(auth,u=>{if(!u){cur.uid=null;subs.splice(0).forEach(f=>f());mem.users=[];mem.orders=[];mem.applications=[];mem.ledger=[];mem.recovery=[];mem.profiles=[];set('sess','');signInAnonymously(auth).catch(()=>toast('Enable Anonymous sign-in in Firebase Authentication'));return}
+if(!regBusy)setup(u)});
+window.fbLogin=async(em,pw)=>{const c=await signInWithEmailAndPassword(auth,em,pw);await setup(c.user)};
+window.fbOut=()=>signOut(auth);
+window.fbReset=em=>sendPasswordResetEmail(auth,em);
+window.fbReg=async(em,pw,d)=>{regBusy=true;try{const c=await createUserWithEmailAndPassword(auth,em,pw),b=writeBatch(db);
+b.set(doc(db,'users',c.user.uid),{id:c.user.uid,...d,t:Date.now()});
+try{await b.commit()}catch(x){await deleteUser(c.user).catch(()=>{});throw x}await signOut(auth)}finally{regBusy=false}};
+</script>
+</body></html>
